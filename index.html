@@ -20,8 +20,8 @@
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        .card-photo-img {
-            transition: opacity 0.35s ease-in-out;
+        .slider-track {
+            will-change: transform;
         }
         .card-drag-active {
             opacity: 0.4;
@@ -62,13 +62,10 @@
                         <path d="M12 12H0a6 6 0 0 1 12 0z" fill="#4285F4"/>
                     </svg>
                 </div>
-                <div class="min-w-0 flex flex-col justify-center">
-                    <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-none truncate">
+                <div class="min-w-0">
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-tight truncate">
                         Kolej Komuniti Masjid Tanah Photos Hub
                     </h1>
-                    <p class="text-[11px] sm:text-xs text-slate-500 font-normal leading-tight -mt-1 truncate sm:whitespace-normal">
-                        Tap any album to open and download full-resolution photos directly in Google Photos.
-                    </p>
                 </div>
             </div>
 
@@ -127,6 +124,11 @@
         
         <!-- Search and View Switcher Header -->
         <section class="flex flex-col items-center gap-4 w-full">
+            <!-- Instruction Description Placed Above Search Bar -->
+            <p class="text-xs sm:text-sm text-slate-500 text-center font-normal px-4 max-w-2xl leading-relaxed">
+                Tap any album to open and download full-resolution photos directly in Google Photos.
+            </p>
+
             <div class="relative w-full max-w-2xl">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -623,9 +625,7 @@
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMe2OuEWAbht1xva01fGr-LT_MDMUL97XqeDZ0xqbFm4dKkb7-teTiEYwUDKuyan3Pkj7QA5T985kGtamvffL9Yk4oG7ZgJD7rb0G_QgDObi9IItVXK9_AfpoMsgIswshpDZTRJ9MNlSr8sQtY6lPoi=w1418-h945-s-no-gm?authuser=0",
     "favorite": false,
     "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNqqS8dNP28zsfVg1_OdleC67N2O5a0mNHfn9BJR1UF-uyq7o49lld9ZtsMxfg17UvQZdvwG-cTuwoIyYEf3--MToveFKMIOuwlj6qoqm8LF2-Tm3riSGEScX93XrXdZ3paF-UhmBDXmASOkYdOUk9n=w1417-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNEOCw2M_J_2q3MtDOqc-kDnlFCgWEE1SwMlWn2BqkNgQjNEjRIoNEu8CZPLsie1WZpbU4VVMy4_tFiCTJexECw-BKJx6u5KjDABllgexQxMUYORqkaL62xZVMtvWyRGGnmX2HjbGlZNuqyWzezEGnw=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPZLhULU4CfkKoCthpO0FAnE4S4crEFtvEJkCP5eHnrIp4HQu2MGixl2s9njnBUfFvud7ls9CTE7jferYCBG6FKFEifLVKG4FrimZkfGiYfGdRBjDo6V0GBcYj_lgZzPtHL8ymgAdsUk-0sgyBeit98=w1418-h945-s-no-gm?authuser=0"
+      "https://lh3.googleusercontent.com/pw/AP1GczNqqS8dNP28zsfVg1_OdleC67N2O5a0mNHfn9BJR1UF-uyq7o49lld9ZtsMxfg17UvQZdvwG-cTuwoIyYEf3--MToveFKMIOuwlj6qoqm8LF2-Tm3riSGEScX93XrXdZ3paF-UhmBDXmASOkYdOUk9n=w1417-h945-s-no-gm?authuser=0"
     ]
   },
   {
@@ -634,12 +634,7 @@
     "url": "https://photos.app.goo.gl/bvWzT1zqHG4T2qADA",
     "date": "15 December 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOyoFG3hO2maMRf_8693ORratPeIc4nRG5bb20_aiiCIJqHw9Kbc6UdqbnI2mcNkLB3B7_4Uldv4K33qzrorsXZt-2cXAMGKe_5PpdcQsUhHXZs3HScpJLAtk556QozgX3kmZ5W6G7ErVOQKs9DRN2x=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOqts6N2VAifEE-slyYGk6JUvYgAsKcGEKSy55_wP9ha8_LNFga78HH0ZGi5Ux1zlqy04lVwABgYlpBz0_g5egTCF_7K4Lfl6LOGRqRIQqon9UIyGns9USAOqWZUXUZwwlFTwzVsWAZUrJjZOPOSIgb=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOSDRY6h6fVhNAxb3SclXwONY5IIjcszj1HhnY3IICzg2tkPNLVdqrBACVmTyuhXkbuTbeLyAxBKNujw_bEZb4AVaffMyBn4thlyEmx_MgBS2tSnvRRha3qQoTRDRxLIAe3460stl71iYOCYgo1tnnC=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMZgIoo82niXED21t7way79EZ-rbrXL_sGahdkjor2F4mtirMbRGD7xZGkZqDzUkpUrCiAkqzGFcB0UG2Mk4V0rpaprDRCgV1LnP8CwiQR8h6INX2GCWpGGUDLKPnrWgHAUJYb--StihU7aSoC9fNeX=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789481948990",
@@ -647,12 +642,7 @@
     "url": "https://photos.app.goo.gl/6hPT67Xk5LUVqJbA8",
     "date": "23 October 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNXkA3_XjRaIC20UhUSoE_8YBOhQliB_uTTOOk2KXQhAid1fwehZc7Ai3WFvVkjfmL9YhB23EY1NfBzQkLmtNLbOTrGA2dTEJJQUAWL95CBeF45zkcAbpDaalBVg-mhlOxurJWEz01on9qFHqxjg8EE=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMH1o9tae--lciNEcF4tkSaIg7cN5BamvXw3gMcNWPuPmhmUzLtFVea_vvg24nsM7fnWeUQRmR2DHbbYGsTwzUiiAqvEvZomnw-CCRLUTBU_vinxAXcRIbAi-_fwsvSocLZs9oxcg_RkJ3MryRtpfRc=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO4m3iMAa4ix_HDcR8MWF4PrtNJGBfivC8dvaqUQmh-X-ydH8981DYGzrJ6wPK85K3d4Klb-an5jCH9LyLRVmsx5QeLcQcib-VghkS1oTW0ppqiz6-yDwQMl0ZT0MTj2rw4idgdI01_pbjuFdcOHeli=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOVTVHAaaNGnzM9uCP2BmsvkRHQNqrJNHtDG3t0FacBwWDiSA6khy1v29u_kIN34y_DABWs8-bKDDJ4rdh3mngAksOsj3RPtLlpzV253AeX8fAjaTILthrK3XVVLiqaCxy14T3Cz7B9WLk3g7chU7RG=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789481886620",
@@ -660,12 +650,7 @@
     "url": "https://photos.app.goo.gl/3tHJNypGkERabqvs6",
     "date": "2 October 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNSSE8uWU-sxneC8m2ScF42p3EyUjY2Ix7QvBDJf4Tds1Mhgp4QMYNvj7gwDyUpMlMCzsqMvPuP7s2BEH24sjegLufvGw19xmq0KhYtzpc-BckdYGRAJW1y8r3MC2iWrwCO1DSoeG2nncBuEXuPHj0t=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNMuAVhP3A_DFmXK7s5EMFEDiOCseA3D6IQi4XgqqiM2UfFCTeuKbth-VH_43HRtV3GDHlyDnfye5swgpoZlah5i-jXIlTfQXorqyXa9-_7wyCZ4waMjGiJ6WckpKke6NwgSZ5NhzFPT-ciOwfvvYCd=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPMLTzyvGXWY-Clp97NuUKkyUK-ga1h0fj0DlCBFQoW2KaE_ONK9cklC7nQRLx8Y5MyKNOzJa2EKO1xBHx76WmX0Ow2sC6dxtm8upNV9rOFPnwPHdvrZi7p-w98p8fladNpmXWKQHK-6VK9Xz0mzmyp=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMym_CNGjno2O-xu6eFfzoGwk3cY2hGSR-5kwdhgNGf88hDenZ5huSKtPQxS7E64nKDZM1uIYhboNMMW_n_NTl1Y6qHFqsgEPC8RCAdZ_eoDWi0Uw11fr20KjDTNItpKxMGWXdzUGqhdpdGqJaLREj6=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789481799833",
@@ -673,12 +658,7 @@
     "url": "https://photos.app.goo.gl/LL1KZHUruxPcrcta9",
     "date": "7 May - 25 September 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPHscQ0l8PRtG2fw4w94IbhxKEhJhz8vyQAIPeui9Ab9R5_RZL0_f-mExK27fURx6EAtlJ2DSUlRZymFVqZlQfB_A8x2K_XzkrV9lBxJFz3Ff8U-WVye2pkpbmjcrOlsBjzPQEkh-jqDBSj18A6yeQw=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczP_4d9MkbxczyR7Vcyd5WnCkEmYbs-r8sl1vSVzgCjpYA8CUX31Fe7JjATckUvxvbitXpBeFky9GS3jD0PiopQpVhJd_0E2MEmyKjHQc28eSYR6BnBFLwsRrBX23vB7kZHyGhkVsufQEH64rqDfA_wi=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPJg7AyngVV3Pnup4rE1AoBG4RLJRHisv2kaSpp_T3HPeQ26Cl_nwRKoZlTWGUDzyGoz2oYuir006u7Wuv-XV6XY4Cl54I4y8hdS6o17-Pw0jjS93ykq-vjkQPJXM8BB8YowscTLdDzxbCl7jfuHS_4=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNFuEQKBi7ZqoSMLnIYLn4lTtw97rDF4ouxoWyIooYDkn1OC43Usr4Q3S2YN16p0XKqQuquZAVbX5xFL63L6uH2OEo_BzaDxC6_Q6P6elSARS73sppprlJAU7lcV0qlQVLSYI329BFpBEreD3FMkD88=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789481636020",
@@ -686,12 +666,7 @@
     "url": "https://photos.app.goo.gl/QaxafccDYjPgoAAE9",
     "date": "26 - 28 August 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczN-kZhYwBwCldGgXH3bY_kC3rhd6MrYq3pPU31RjS9gXJoAsu81Z7uzYNdmUzOhLVB4-blcIIEB-fk_nfIooRrSnmMiFRVaYg2w06s5pC6sqMjwuxFj4zqFjMnNFV-cFU9tcB1nTiMpNdHIi6cRKAhO=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMNGLO4MNHW6METntOmU9aTCsFP4JY7Hq-TQDkKIR5NTkV-vthB0jNKp0R-lktDRNftnDFLPw1XTvJXfkw-Q9arLX-6GDOVUlj9w2gO2RuSvcIiA1Pdh_rUa5rrBslPQtaUdmL4b4xKVki5neQWerKc=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO_DMYAdde_q6xVs53VqsgSmbscfSyiEuT2WxDdmQsesSQmOeXGURSMek6CyMHLD-OGvFZkAiP2GJjrNLrn4v3dsA6LbLISUHMEiEAUl7PF7hY_q3mOkW9pv3ynpU-rOgbIN08MIdFsYvfdf-I9FUr6=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOvPwA7bJWrCXLDcVcjZ9pHl4ETfBcef2Im3XLQhnU_88Jdt1Dj69Tty7KMgu6wq_fZZxWZRYxb8FkvOwAa9i4wgD2V8ankeO8H2x1TEivvNnNbTQnd5JmJTHQzZbOksZdUEdBWeLRQgZq3t5Vc_8VR=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789481449695",
@@ -699,12 +674,7 @@
     "url": "https://photos.app.goo.gl/SxTSr81N4wi4gicA9",
     "date": "22 August 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczO7OPudkjIjQ-S6JqwY4y7my6lPOsiWCSAf0qP2mSFrpDTc7Fv_fKJ-vBsWP5onLEcs6Ntf_IuHH_HxTgZR-_nLyHJ5e-LX6rkWHL-ultbMMtNyrKQ_C0_4uDBmB3_mIhuerPtZhzcr-1Q5ZKKxbF8=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOFvr-rt7QT1YSUjhDec697JhAxTxXtvx-l_Ah7q2v_50_9Dule6nmHbQZO5BVjF-WO5lqlZtvfAxhLstOkO9K_wh-xCf--gKqvZm7pDagaNu_x6MuCemDa6hkj6cBfbBjdvXMghjYhKbhKyTJuASk=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNjThIlhu1MF8o6WkivIpezSLLOU_VdMurePD83rrpOAaE_9Qo9pbgc3rFbcEq03aP03MkTFPiUstzdQZNiFq7YjNoJbDo04Aqzdq1_H6ul8xDC1cqtHdLLHzCTEsmOuCaI5u-5b5S9Boz1H_jW0g8=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMd_hvTe5UfKKqIsA9lw1MjECncxIbDJlzUKpvVOl2b8_SqcseWtcE81jwjdmddv5HBMzbDDBLchDCV30RAFxhS-q34lAQV-FtoMR_IBYjK1_4ya62Av8me9NO4Cb3qfb-cpmja5PtL0OkifgJ0JWo=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477998651",
@@ -712,12 +682,7 @@
     "url": "https://photos.app.goo.gl/WN24nvihnCond6Bd7",
     "date": "13 August 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMcwKy2J15yVTdf4LoTv5mTanNVLw-3fshvM9vA0ZtvPsw_VxeRZ_BOqpqzhC3r8sBmy7cM2mzOw1NcwLXVKwh_i0gT0CTpeoZFE6nt2du75W-8jPfcVeekdL-PLkqhBLWqbzYiEMOs5ouSJi4VHEXa=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNGCU-75OZTocg1Yl-lkcZNuZdtR0MB50iaape7Wa0eFyLRvbawTn1nrIA6bkTtcs11JIR_O2EQfwSgKFrQMPa6LEvZfrpgj_wDbTgneVy2QBMFnjiWm3VW129ZryblV0w24ohYr-HBaYOyETxU19AV=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPZuPvDgIi9Yvs14nf9GogEdwqTyS0j3gFhvFM5316c0QtZ34pH-kpM7ihKG75dFGilRlXpPYlNqlyP6LOw-OjoworhRVtQtavV-4A6HhznhnxdbfS6Vz4GniFc1KVGIkNcP6mWTuwJXNVY89W5vzHX=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO2TvuIttdFBu4zJwXZpgYLNPeUZvhSP56exoe4hySe7rocWNFsZxtaLmvk8nrxrVNMIaDtyVD85DkfF8jgP9vK2odAlij1Orh4BVij1QqJTCWjDFjWY4SQsN6fWeC2bpzwHeqYZPE5h2eV3nO-Xtgs=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477928247",
@@ -725,25 +690,15 @@
     "url": "https://photos.app.goo.gl/4UP82Rihcoy3ob3c8",
     "date": "3 August 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOCiX2iG5UIml_13ZABJQzh5kM8h-s6HcX6pNycH1UerhWXSX_beR5YoaYUz19uIpmMpk6YznCvXtyCzjVJNCTlLFUlr8ElCZqAliYUKm-gQPAEyZSxZ3XS00z-y6kWug_6S1YV5YK5Rg7gt1dz557k=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczM6lPqGUZ1pCMWW7AZvsdg_qVbag_r7SCeIAOOYz8V-VccuzibJLJ32FSEX53f8oivdei6UWDH89Ev4bFgIgRmKZHZkNuIxvkarUwzoblFs4g2id9JOt6TfPvu2eCXy3h8wYiIXMpDBiOrAckVOXDBW=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMHMKA5Od-ysYvwvnXDUR4SGfmodyRr0hvYtobOxMUnBGc08_riwTXAMWYm3h_GUBi3XxDE2acos70VbW8WfOkSRysySbhZDSnavH1LRJsCCHV7LSIGjUsFLDLpLUy1GioRRMXoGcs9kDf7-TH5kE8G=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMFptCiy2_kM57E2xrnIm0A6qb7zVs71JsqSssWGZ1eiXuj942l-_n3XenpDlbspXBi9qUOHMPJxkWngt2_l5gPugyGvagULVFxZWxWEwQqHHdn6PRT7KUw7pnZgrxMPVHF-dg9erpFU1IS-gRGDslx=w1546-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477867342",
     "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
     "url": "https://photos.app.goo.gl/ZG12mU7u2kAPK1Ni7",
     "date": "2 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNlC3IM44MTvXxg96AcSKfxj8SUgofzSsbirp9EOf9CLo286uk3Z1523sT-xN9Z6yWvDsBtOaILQMKSULupB3eDXVAQ4G1RcK2A4Vj1tM6_B8-ZYvJVEjezDSgQeOftH3qISb4PxFIT7BW8CdDBxKjl=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPVzW-b9uKG9f4J33_WPZkKwF27G0iMmtLIQzc8kLGrVa-DconR5-nTApsZXNc0vrKX3jLAaq_JEPbuRs_TSim9zF4b-zbMnIrEPHVi62DC76cwn9Chab2OFMWXXPPkCwe9Rvkl0Jyii1YiJUMRGlX9=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOtVsiyyBNPFKwM1YKKE_gX1EwHEnNrFD5_ex5i5egBqubdyzFP2U5Q1Bsf5EeALmBms87rU6cu_UFDLp3udLcPFe35PZKATqbxU91aUcZ4aewYvlc1HmehcehqCbNt-vIiGhpMf6BFpVzDcElQ1iMG=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO3cAuEOtA5hsah4rAEQ0mwul1THeiFHqGIsZw-BA8oTGwYCWLzc3klI9L_WxqAxv2xod5Q03rKhCCid9WNvjq9v_uC89rslGlI0j-dAcZmahtPK1UmDwSM5fOTamXBrqRGV0U9RTycn-8XKdLUwymc=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMCMZUsykUdbFFJ72aXtzKRz_iVSzC0InE4p_IDZ_xiCnfodAG6Pej_1xsHSbsxOuCguzdMF-ibzoRJf1X0SORqkc4xdv7hGXq4OCsm--TtmdmASEF1oxtNAL4DaEF3Z5Md7W6efC0osrwrmOf_zWyV=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false
   },
   {
     "id": "alb_1789477803940",
@@ -751,12 +706,7 @@
     "url": "https://photos.app.goo.gl/izhot5vAUy773jRX9",
     "date": "29 July 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMb5Ohm77Oryw8tKIKoe7yFdnyNU4gDmBEtH0dHrfbTjWEt0161hI8scT1XOrX7o4Va_AEHhTcfMC7VPjLDfnmE3Ardo_wod8BNbsj2-g9_9T1Si8U1lbDDR0NCIGaEcLr4VzdvJ_skD50uQyQbO7iT=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPdO745bWnASkEoe2XXy6lFR0ubn4Lw0p-tw4iS5ul8DJyjU-_ZQFB7BtjJDLY6l1uMvLqWN9aFvcwQlLDSP9Pmv7EwNjY6kBD8sY0EzrnU7omMWswrVHHd5zFj4BnaywulAhrlzF4Tu3PRw84ZmRaa=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNgvJQe2T7oeYErTkclPWSYLE5lnCobMjsS5Zu0wdeDJ4jEoWF0RuOq5a7miPoDN1RoaJjxfKjPLtdfZzwqPw2x7RccrkPaUp7XJqzPzeEK_Vsc0iTOojNQ6WXLVLn7aVQyuvwYIBZCXr-gQUbnTHQ0=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMB44qjNJyxvC3GawZ6o-NU4DwijgEvjNVj4L4nKx5v14Y7wBjN2xDVyBZixrGghI4GJrSaYZluXZNmDO2a1yuf7hfkYuxclAKN9_D3U7bK82InsmzCnFMFHvoXfALdk4V-uwSY08jtdYCjJSmdn8fS=w1546-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477484131",
@@ -764,12 +714,7 @@
     "url": "https://photos.app.goo.gl/8syBRnYK5UGQMs8U7",
     "date": "16 April 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNGJd7lTFGsf5W9DH1BcTBL2_MpCiFlYwY-ZPxY3-rrwZRpNGpMxzjsvV45-TYEaek5vll9Lwcq5zhlUIEuv__Z5rQhxl9u8yfeJxOqjlFh7ZnDr7z6kYHpGo8NWlPCj-XbXc_6MD5It8E-H9_u9YXV=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczM_ugefXWLMK_ElZPw3xcco1OnHryQrP1-K61LCBNmxjNSSIRil5MPkN9NI4ifA-fqOTrwM7QmW4AqUGqwmhdF1W3MHjD4WOd1UJnXnj6QMCfti_D9RMSWYZZeg2qRK0DiJgOY-iRrIA1Dz1AHQtLfu=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOP4_xZKYjfQsZBuzZlHPoL63sTft7rOwTjgtJ8iOtl0GRQXbgTXCPyb6WgVzRC49VX4foRH9HCqg4ELj-GguF2u4H-VOwnYyToYbFe0Ppw8ba0My3mrhfEanGdvibqXlIdClfNEJoJthYpjh9wHR4P=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMJEZImxsjw8wTLXT0Mtqm58AkvnMWYdA6rPU2oI6tKEeJeyVtHF0G9Lh-UjfWQLI7yF4oA6Evr3Nn_k5DfzZ4v1Wt7TJ_FZ1r46B5WTtqqsrkEInSuQj2ElDCIbnF9s5usJHdewtMedU7SsPxfv0na=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477717339",
@@ -777,12 +722,7 @@
     "url": "https://photos.app.goo.gl/jaSNAuHCkFeR2nDL9",
     "date": "14 March 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMfH1eIVKh1EaFnXPtOHp31XhoNkwtRfdTFWHIbH_PgXKhYqzFttSbk6FyhZB_VKmqcoew2Bg-ETjIKW2ZDKdTfncozSeYRUQKUopL4Di3gzowNPZdjJtt6C-ozl8SMKgSQv-OrSWdXhIWEomW9cFN-=w1507-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO3wl4T_jC-i_24huHDjza8iR3u5LJnCY87G7tjZwinOWQYRWE0zwqTlVHjpEvfRvyb920KSLtmIb2ikufnRV18Biqoh7TedNGzxgUyCD0p-M6h20scnqqjTyHVEbr8r1Pn5-TKP5rlmgrBD3bRlU-F=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN1vekmBGJTJxKcYLGxt4n3IK8y7JNEqYavNMCOz-sBBo-I5S0ZNgVAkxLiPVbfXGP3Cs0ME5WiFq5ZIhcharqjt7onIDl1i8C28D8c4VjRj7gD1a_kmXI0ts9nf78opoXDrxbMktMMWNrvSb7gwqoC=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNAfuoJnUKfxQdlvdS9-StMmHVCkoZyKijT9UnBK0Zniwb8hs-3gH10kLJU77zje-7tmJRdGzGbUqk5jWGISnGv-3pWgCtWCZ9cJHgEP4FAFpafQLOvH9P_vR5WE93pmw2yQeNF8_NK5KBSnuSdNUJO=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477636440",
@@ -790,12 +730,7 @@
     "url": "https://photos.app.goo.gl/qRqdSBRMVp6mD23r9",
     "date": "6 March 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpjIIBVx94qiLLUE3rJ7W-nDx3-5patYicKl9xSfW9m42X40G7RpPQQ9XyG7gNfBUyxFLMdfDnZM30NwbMlRuqv_QRjR8-3PCwyeWHYDUWvBRQZWKlMXkF4Bjl5j0O-uAEKr-o_6G69cdh9Rxwh3uz=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNAhK77SImfJEyhtO7f_dskTU6cgu0b5ceSnRLbjOp9zUw3zpzRC_YDavOw-VDNRlAD7dUoRAsqqAxNGRttUD5GjTdGSheBf_X0zmSH5I7oLsXvvJMxgmTA2GWERjPVW5WXFzjSUiJe3wzAHKIlpBms=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPHLF0zpnTbH9kdbe2p_Bj2uRY4OJdDJR4-OywiV_fwa4ahGE5RNV5giYUA50R4qz_32Ym9McjwFIl0uGStvd9PJmRa-jSwzcZlqLtKblBtOrPyrlg9CVPAxB6SamRuqYHTeaWzpKM8xfloWlLPZ0ut=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPIsXpLIrTYOpw28EJRvmJDwKa6-NMJVqhvFM-elJGYonRQUcZecesMXDwDpwGgry1PjAkmTdFxhfLry3a6cRrnOTqy2RocJDaEavOn6ItguaOq5KxDUF42i9KINqJOCGIQ7YEjtvyk5mDkr3f4-LWS=w1546-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477399375",
@@ -803,12 +738,7 @@
     "url": "https://photos.app.goo.gl/4TR7ZiHZeeFnUdea6",
     "date": "2 March 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMi6q6fgN3OZ_-06DwMzjFh213UEkpesI3E5utREUi_RH62_q1p9bnl-hsFqFkIIz5mmWBSSHKn0RHJkc7IckpnTBXJaZA2VVavZEWzK97MhsibubO1XIWCZlTlVxq290JKlgAcgtfiOW08ox0Vpgmd=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMcH6Urb7dpXAGf_Y4nHwEpuujhq1EEVyyDmx2pkvtcCHa3Ind6nwX-f_ysp-SuDKxpcP7ZM-tmR57rAQXQTgkTqhlBXau9XqDjfC5Ica5X9K8GhKdwXmFxlKWWJI3ZuumXUicPCVg_-hLmD-WFtIYD=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMKcnvi5zol1zjy30bJH4K1seHK_1KJ5qsMi4wQo2zsr2ZONFSJpf2jRJ6V3sQVz8zV96OBQjeh2kmGHJXQbFU9jPbxrIUY2ABf8sBwVd6DqsmgPitRlRstwQrKjuW_gwVFvrkkT8im0YLTwBfmd3RS=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMQBlIWmrZ9d4NIKtK0ZB-bCXytX0vWOPvB5TltDy8xCk-MKbUj7qyhXQO1O23sUW11-w2j3BPjmdlYFbdutrgs7h_KjzG_fI7l1wnRsxCr9gJTK1ZSK4vR1ynXnQdc9Frg_i7mLTutmt91iA_PEsNs=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477332586",
@@ -816,12 +746,7 @@
     "url": "https://photos.app.goo.gl/cRYtduuDRS7R9Mv4A",
     "date": "27 -28 February 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPbJ4iDTXPrxmlXQ-voSHec-70ukIsHvfZCvw1CB_sv-KnsBMl1pRZuotXIu-XVCTyobJp6RA17g3twaP_J6MrrqbFQNCBVp5CdOzxfClxJX29bQzkUbvbaJ5k6QFQyj-SVQsZyBzr8A7YNIVzJ746v=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNztOZ_9yzHvFMXVJVgCKG1UPMih07TOVnAxoG1zY4gRDKeg3jduVlrWhZ6dq7T8xBqKJQ9T7yidi563VfDUGBTcQgqLonoCXx4isnRt9ye7EltMm9IidhADg7T9HHNrBrEssg6rxj2m-Fv2pqUV7Tm=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMJ1b6HkQqweHjruAaaNuAUmaMCt8UIxr5kdUyLfX9Hq-0echg03fJzIn6FSBnlT7G_m9JFjKpWuItTfgPlibsCQp65PYYb1LRW2uYFXPooqapqiAS6GItWWd7Aws6PQ83XenlYn97IRGijfbKtb7tB=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOb6alpyYOIn3xDZaDjqkz7AnKM0Hf25NnWrQZQyRBzdLaU9YWAx3qJDhMVi0b6R0NuV4Bg_hgtPIBxh4Y2F7Rv-QRW-Gck5kv3vop9ooW1zrOQiXWUft20Et3O4Ln9OfUBlKTJ4DN3s2MSRi1D5BR2=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477258649",
@@ -829,12 +754,7 @@
     "url": "https://photos.app.goo.gl/59B2o5s5YG8fvjwo7",
     "date": "2 February 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOSogdLvDjoCri-AtDXixezFILR-0jwpEwUvzbWMtHymb0qDK86oGa4EQvx3esn54fjQK7P9oTIgsMZLKnMnBWA65CfIy4ab4gaLAdKW91kzdNpCNN11MBBhVSwdzwpbnWOfakBS5JKOEH9rqfm3uYc=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPPtk0-YJ48bXSbVJ2o-e7w3iEnoluX4kYdpbJt0Ek1xBzAfTtdeHnZAmAACZU1iT2G9lAnNtcyjRt-Nzze80U5rW8yW9-RWYkdWsKqyX0jCUfTytZMAyE1DURJnKVWwj4988GJGQcJxYM5zOe0j88z=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNZZaM7u_80fvQaDfaxyogJNFItba617Sv7khWsSxaZpUSCMK_3LlwH6MW53Qu4njQ-jDEpzOe0qipHGijjhxd-zmYUJ1lqgn8daZvO4Jm5OTu9LRV4nJ_oujCAgliJtmArzQi9sjDIAMtXSdEAD51G=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMKw9Tl8G4YnGQvN54BhNoHeKMhdEr9Pr3BIbQeAr40D4h5GR12jWL_q59hFVDW6Z2lwcN4K83V0V8hP-8P31q8PrD7uxVDQNlluyLPXKF_EqytC45zBbx-EVsFTCMtG7G2zLPm5MMG2-PaX2qAZjKs=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477198586",
@@ -842,12 +762,7 @@
     "url": "https://photos.app.goo.gl/1sP7ZqqAmkJzwnxR8",
     "date": "14 January 2025",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOAji7tzu1hEOcjhT4ItPjAfe20OBFjHVyyVXS2QYBbiZ85Ah6TIucv26NgQdlQzpc3iCNVTDBAxc1rv1dw2gun_X3OFuRXfeQ2vP8DB54Ai9HaNbpGPhs9ZGQyt4dLlGEA8MMce7W1_vH-pufTV6Ds=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNmMU4JHYoUTPfdcAFJJb0XfKOGr5LujiJJTtcSlLz6UQnJIMi7bnc0NG8YiPU4AzDOgUnjVmlTPT5PIJZ6hqP57aEncn-qPpQu2oIyLW00GsZAt-T454-Pt7iVlZTRYKGcZTgosARun-_76RFJbuzS=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNoha3onRPKCQd1d5A4x_RrKgjKSy7l6PbECiyQ7ZeG4zL8n_bPcuhux68rHEdmlf2LMb0itxaBWzQ3wFWlNu3Ahiu3AgcynbpdCVBqIAbocceKGzCappW_OSUwK83QXzck5CP-veyOTGCc8xXZsUAX=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPe02Z9HXyDGqNAnJCD99nLCOSiPvflzLppGIaimWgktbYgFqGmT9gYDwyMmnm45s-jmhXzAoLXxO-cL6BBJXOZIHVdUhUfCSinAkstRLh-YQ-3LF0UV_UVC_iN6B3wK9w8o_LD6KlXo-5vbhUBmlhz=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477148375",
@@ -855,12 +770,7 @@
     "url": "https://photos.app.goo.gl/mY9UbUoHVXXenXda8",
     "date": "16 December 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOMq65fVWTfO1WC3_H_57fqWoOmDAFnd_dQzzLGtiYw3t9M7DTJjH8jI74FJcra3ZE50TCtEhnBBReHpZ6sSZt4Gvb67RULKyIN2i8jGL_74jjDJ-EPp-eiok2EqgGO2asvo9HWuVvabdq0ku-a6P9K=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPbXarsNIYdWIhpNCQ1K3KYAanP81th6NQt2NUfCoO1Dk2IJwA-jlbEYVpaTWrNMqjWqOl-LArBu_QWCiFWJU8NQYSsoniz5Taht75RdlpzwwnGbftRMlNFY-8XCsdCtq-ZO0v9wARJAm0wTIBD7fGj=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPHuLU0JtL1x8uQp06NdHzQ_BNJSi3VP9DNjwSL6WLMLpxhZ3uv1WirvoQ_5nyDQfngpFvhwExgVLkWbzcx7MMOrRiaUkA1RhBnArfc-0jyvnpdcaSYJITlMThbDR3R7PDFuaMnYkFb0FqJAd2Ka_Wg=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPn1eEcglKMmTf38FECP8TXLj-Ky_6OQBCOTBC923Ie_YOL9FchsJlJCQrnrqarK5FiBRlMmQrIh1Hr43TMz7O5Z_RMHRkAi6Cugqyk4r8mEgKPJ2URMHF_R-8XrMJimL1L48nq-K_7BH_35dqEqa-7=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789477025271",
@@ -868,12 +778,7 @@
     "url": "https://photos.app.goo.gl/RF8Vu29SfLGNNi998",
     "date": "5 December 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0eiP7ugrKCK-Y1z-NNEg5rVaoIT0uUez1tJgYmR2QII7peCv0Grkj9Z6lXKsn7Y9d8UwUN7XESq623z1bn_Hta7r0I8eZTgxSXJADW6xogFUCbWr0_n2BdhZAzcd3fcv9AMGsr_9eRTc3hwqMvk7v=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNlJ8E77_fRhtjJa4mai3fy0-dcycilajD58mpbXyo6kaSuC-oVGyTJKdNyk-QqxNZqKUrL29Tr4CZb7E9JDEkR884g07oCHyUFu-qxT2pVIz8AKL-MHv909SCU3BFxivONoYDaEgSIcmLGtq33dmPI=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO_1sTiB9JUltyH-F8xKTl2mTJ_L0igh0h8DCz6IaWkgHP4xF_ymVM00rP1KyOb2JYrkTv4P-1txUDlPH_F8HQtws-_gG2lGjXG5lPFymVoTiOB7HnQLPLSQNZCmCgKOJCLxOY1T2_L9dL7WyuKCO0V=w1546-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMiOzL8BFT4Plq0EIOgzItDwtbqutP65NGflC00ckRdqsqWdJzyR0oMq1UeHCb1B0Osk_Wk4qI-cXFi1akODyUre1GzadJnOk0hjYx9eaym20x0aSYc0ItsB0hUtWaNZvKsO5ohj5gDmpfR_MuSNgPr=w1546-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789476965352",
@@ -881,12 +786,7 @@
     "url": "https://photos.app.goo.gl/XoUy9fczCiMKaavk8",
     "date": "29 November 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPIiHZReZnpxrRUaZsqG93ZPsHXCNFfaDewO1a3JvlSG49XY_oCqysH_iGZ_11y5rqXYgCWGignydds2P3QpgqNEMr5gz3fSfZ1V94tIajksxPVIG6NzoOTEVwQT1Wmq5f6ZEDXVmqT2PKcHPm6x_zS=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOY3kwHrUMcrdorSBMj0mLGsrzwWBoP63VlOjNyMb4pc2qx29hTG2YOIORG9_rQhDaRnLdZWWBuCbDHgnU7yGRSYBdgczqE9OpJ_nckFby79YpZEgt8cnfFPJKypjOZj4D96-FzGr9rJJMBb5KIS7AB=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNhbFwAc113OHr0c5LwVfLbZdxThObA3ugR8iK1KNcFcHllgkfbQt8_Wp5s1LspTSkv5zKQwdQ5kKGq8Toa9-VblqJufnev4rLdZPXUw5HRdkBomf0jRpcrDKZoGBDkEYwlOSuBM3eNIpis0Wf3ZBps=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPHaQBuu2-8fDEyzWgrkinCzCfLJjaQhWY4CJcLthjXSOvvYS_2vqp77Tby_nyegaCHk0euWoSzHO_hmSU4PnJqkstwfJvY7AHQfS4fNV8jSdsn_qFeAnpNf9spFYk-zJDYeqeCPol-LKGCmyVLCmxe=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789476891118",
@@ -894,12 +794,7 @@
     "url": "https://photos.app.goo.gl/cxcMm68zo9weeyFR9",
     "date": "20 November 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNCYiUqPLpdQtzqX2McGFQDZYBiQrpQJV2ZnSst5vEDw8MqS5d92iZFyFOMZidOXyXZsd8f499vDUWjuQSbTVCegj5xBE3N8lRIA1A056TEHUF_ECjxeTR421fffdiv3I0rbDl5dDXCl05qzc2nBTyN=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPAHjJfU1fZdn4_d1CJJ6Xa7UblX5FbAQZoJROnok58wgNHU7Y9SY26CTSSyx-gADuOpvAQbvEJhBouNEm-NJiOIj8j6dIrt-uZt8YDuQsQ9Z-RsstZ5MGr8CO2LEPc-e_gyUYYaxVwufBUO9M19ohN=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPVVQ8fm0_2-CobZht5PAcjskzUmy80GjTrZmRzyck00KVqiumAA0fTWZvSZ5tZPM316mQmJbwiVta1RGEGS4_6CLbPTwKFVRbeyxZTbDtAupsMTS0pBr83Fj6_uakCNsd5I8aj7BJG_2WR_bmOfdjh=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP9z9fpgT9jOMKWWvT2M1JEOM_ZotGza8yO_58YBuQHz8aSDvWpG5gC7TZVN2VwFDwLC4Z0dvQGikm4HnZ8H2djkjPrkc-z7BKiL0UBPRJkVjoVvuyfB56HKBAyNLHaUJxoE6TxzeRu2eiWH4HMq5y_=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789473852989",
@@ -907,12 +802,7 @@
     "url": "https://photos.app.goo.gl/wPMFCYJeoBiPxxo29",
     "date": "7 November 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOER20VPDRXUegbRYJYghbVcFtT7xhbFlYVv2QKrZ2hJNUhDm838gipPMlfuRrRvcK4FV8Nb5MVmxVsFje4Xs_SbyKUBH1NwDA1YrFDV-Pj4a_Y88YUGaJuIH35DY_eq2fPkNUNNC4ojAdesO7CblT1=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczORZ6-Fin721p7AySs6QJtJSQpqXb-jmIJEB3rR7VQK8O6M9N_k8RIxQBeqnNtXFgjo6rKhui5G5rwsD8mFSOGCp_Zhk2QsN_ppmYW7XwXzF1a2pMFitOkVUG3D6xymNxU0CcA4AjF4533mqnlG0g7x=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM0uxjnyVf8EOYsJHMhRfO-LNIRfOgo1TMdhsdo35I9bzoX8w7ZrhNUcu2JaCoCcIpeVyaZonX_-XGnOF7-Q7GNfQexFgbvDST6duukYZz1smz9z7g6cubi01rdsAhduYYeJjdpUTT9g7O0VWW_LQHg=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMBF_3trC6vNup8CxJ0_mNJghAB3I7pCWBjtkZ-pYN5pq7mKMOSNEdsXMQ7ZHqFLS7fR0GaKG69DYzHGKVcLmik8aVsLO-B5HSDHQ1URHqdZ4mCOsbqmOQ94iGdtsvbr-T5aQcgTrpDN4TvheJgsOYv=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789473763199",
@@ -920,12 +810,7 @@
     "url": "https://photos.app.goo.gl/WVX1fmhNizrbQwsy6",
     "date": "10 October 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczN7Qlsma1rZlvgxLwSgByrU8-2D7KsMebTG4N1cpZb36Wx7MMCLCwcKJpB2DVwTX6_pnPbkSkIwRmB2iuVqmweRgzJFDEhJ9jYYWuWY9gVf3or8t3QyghHUQiExNiU-MbArqvIHTW9EXr0HtsdPD6hA=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNL5ubF1IDf6PASPVctUmIOVu62x2Qy368N95H3odO3iyBgcYiCiJHVAu7zpgJ0Xewp_PsOiKZFhOxy3RAj9zv3XTr3-KOPJ0DnOapdhAScBjAO5GCWPBm4Zt1hz3_v7rrdIOwdKXiCqxkrncYiYTbT=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMmLrtQeUJIT6T-KhQlp8mrYhcNYpKCaM_RkW8kCaHKmDr0Xb7-eHtgfDqiggTkOFUlsIlAL50y9B0khZdKcYgros7GG3CWyH-shSsn8X9MQ9PnpnvVGvAnMrFcALlY83R5Zz352uUvrLmINuMHquWC=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPFWQscsVBKfS2BqAu_r3FE7L0ziTblMMvHH_3HttW83Scn3gG7dMRbwR9DWUB5ECjglw2ffkBTzFklREmd28wYMDKdEiAm1cRGBePUCUlN8nu6fR2JhtAhZvr8NzAVzsbopc_ys-JR5XgQ5AbXgqmA=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789473653547",
@@ -933,12 +818,7 @@
     "url": "https://photos.app.goo.gl/phWMs5hpLKf1g8Rv7",
     "date": "30 September 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpao7Gij7Zg9yehxxwSM1zPLFYS0DOntX6yPcnx4K450wrN11mOUcDG9Tr7deN7_c2DgAUCxFeqQ0s4C0X5h3A-k9XG3Gx_xPeibrKAiV3o1ppWihmIFobAuFuORvI89bY_T0nn3dAq2QgHp04PTAq=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO3--g1f1DOaUj49tkHPul81u2Y86dHy241PUMhnluoxo5CUgNU0R9UUzH4bAAJwlGNUR32vTfDORMjLGKGmcZxdl5h4QbSPR2pRCqOC7FN20bglwJiSKT77ae8uFVjJ1zFYPsJZ3NFL8hGYA7lFqmV=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNWptLLEXTIYbBbioT6H9aUW5d5yO9TN10bC-N2wEwMdUuAtNY0j3y5-hFLS4it370Q2PlY609xx-iILIODXuqjjfRNLmH1VwwMc9D42cthLumB-4kS1zXfVg9wyTm3bMb52ffQo3uiTo-LQCrDzXd2=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMPAGSGB3wDkRjmnXgOLZG_juwFEJEB-5-ynhQmSuBzqJJIXl-nje8NZ9ZIbhkkqKDlIb68sVsOsYncc7kclXRTSQIp23Hxm4G4N174jtAVILxMYL8D2vU4WbIlceVUMpf7fAipQZ9c6vrDyuYf6u-M=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_usr_3",
@@ -946,12 +826,7 @@
     "url": "https://photos.app.goo.gl/hULcYXf96hjTyqLSA",
     "date": "27 September 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNY7pd9yiWF7FhZSRUsssqDcmyfyFljmy6ivMYhlFIz791_vSj6oe_faZQ3WYDnOz4l2xxdWTXTQCxCO6KtDrxQvz-tBqYHVogcb-jL23MMl4_tRnpgL5CdR48RhuFCgeWe-5YfXMK0rJROXGGgylyt=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczP_BLnLbcXvjQI7MDj8KS0igHDTk4bpU4CVk1oRarN8Gudt0NoeJqwNtqoKzAAA3IjqwwkYaLuuP6EIUN_BW1U-wVv6bKftsbBpONYGqzX2YsE1WvXqrJvRXTVjbqjbiqMjTFCKa2FtqRAPfYwhSJgO=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPqcrIiKbottniAp9Ev478P0qEKgUbFBkKWPAULsmEhEnzR8GJm7WOSjG5V5B0q6SZoUCSCE_tpqhovkTIcmfYrUk-E6wTYex4wdpaVEPWzJj_DtqQZMqt6dSwRt0QhV4utWgYzsScGNBvv-g9KOPQQ=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOKLyLnPF1i6613ETkl5_HPAJjI4fzmHy7bctwMVLmABwzQMG353J-x0zR6b0QHMWHHthdskSP4wTO41vEiBQVFMPzxIFWD0GIDiVOhUPP3m_DzCk9dIPxqj5oVAdtT-3KzXC3MOSR0a3idDKAMGWzf=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_usr_1",
@@ -959,12 +834,7 @@
     "url": "https://photos.app.goo.gl/sfCav5466URuYixDA",
     "date": "25 September 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpyDadrLWnrMGT74UDpFjAxrGcR0CQSnJAW-AWGiqoi65owQfTt6nvSpM2Qq0kz0S360ZmKyUj785plfCteNT8cvJNBLpeLU3BvsaLlpM90RHrjVmthmeO5PCgVoZsu0dsWvIRq04WhY2W2ywg6LQ7=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO5dfDvqmrMEnthoxSmmg4TPNu4E07fsl768SXPMt_273WBPPzNbGL1NDwO5YVmkv3HKwrGF0qCUEEhNrfcEtbsjZX57u67oMR2JrczR7WDyCRS2TDlnXGJ-lnwu-_ezTtDYL2uvA33t0ZYRzsT1DVz=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPmBdlM76x_RSrtV1r03ZSR50AwvLPxRaPJbsaSaLp_cGZuRqKiFkv9VX4wMOLNVcWlnhbIO6Gj02sGvPZfDs5YNwof-rh6ZvVP4NXLHxk8fLgPR-B69WBbx_XdvO2-FWP5k7rcvIZ34WuD903Zdox2=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN8pA7qRt54L9UkDpyLGve_GpfU53YW3JIEch07dJcuSGIWpQ9A7-iZ1M-sIZC_pGWwipzKSbRs-UN8__iwRk_0onWtnKjWn85kSbrhc1t8bSJJYkhPdWCjWPQ3Ud7C3fcCdZ7tFCGRAxPbOZNLkRKh=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_usr_2",
@@ -972,12 +842,7 @@
     "url": "https://photos.app.goo.gl/Tc8F32DMe4coSMFB9",
     "date": "19 August 2024",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczNc9c91-dF77o7mO_mCYQanU1WGOBMBoVXpGVaio_J1iYhexPCs7ofSGXUdT5CHGCzjL86wbM-CF7s4o3H_P6I1Xf3j4ckxU5BxIl7C7VDHhWlEvSihEth4vxmh7p30n2tw_ugVEgNh6DP5z3yM5QWN=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO-_GOhupT2V7RuILFcOWOMZtbZOsHePJXMbldVNsl6y-EHJeWHiyCYYx4rEcumvh5cezszFntkC5LAmCwzw4r0Bu-9FEzgL3Pq5AihXYBvp91zVQONYmxXSbHPKhAOudUKl91EVuCT1XghvJ_rPuTG=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPhQ9fAZ-qPlny5saz4XjRhrgvdV8ZNwwtmoKQoVtVcSdULLhELAYRHvyOGfKW1mNwguHrEnsd38UTKO2nxps6_so80utmnvplugKIF-9X8cPU1lRw5wjb9017h050z9Z9Ng-uNCyXBU27Js0_GEkP_=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN6Abd92Q6T47cQD7JzJIShHywv-W-vSS-iLebHC3WFZRCG7Zy_TqyEmh6aCr5LtJ8b9n2csZaqyC3eh4KgaTQzvC6kKuhe2yer2VtDgDU6Ds6yNu_4rxU1LXBSBkH04nykcvJ94qMn2fxw3Xxs8zAu=w1547-h1031-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789482124528",
@@ -985,12 +850,7 @@
     "url": "https://photos.app.goo.gl/6GT8hsnYzruitdoz7",
     "date": "23 June 2023",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0niw9SlZXN7rhaIejnKIwi3nHWYgFegX2Zs1IcMH76T8KxsnIqnD8mllN2GlysFHpzSa4ab7kk5JH7W5iJ-S8fEsP07Wy-EAgSX2C7RI4TAVXaA4x_B7X6Os3YgNj9oZQ82UDcHrrEOcdksuMHD0S=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNAeGSWX1lc1MhznZKQiG8KVfDbcGH6uZIJRmaIUUbYehRbBtl5_fo6yWgGJhlgu8qGCcGr0HB6dGcgHLeSHwn9WAm7Zg9pvQzX_SkV7eUDbyi7tATLfBCsPdCk3i5P3fHjTQwjcutrwyq9sHmDN7SI=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOt5UUXHThu1r-Asg9fKzpohgyDQR7ZkYMroUDcDE5JYHSHN7R-ZeKvghBd_nf116lCm7-FP62zG9KoYlhvOsZuO89P8pMvyc8esCc4dnOa21I6_JjZC7VyqHUHdxtGtvw0SNbgPqVREAtNuaXN28g6=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMLa0keSOaEKl8a9ip7tcGdjMEv7foT39awpzKpj6bmQugdVvGhUguTm2mUwS4BNbxzLYWtexrUehr99TnIdFVtkf_agXsmo29ae6bT96uwCVqKVMxHVn_tMn8kZnzJiat0ZJkH5QH2ldhTpm_T-KPD=w1418-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789483377577",
@@ -998,12 +858,7 @@
     "url": "https://photos.app.goo.gl/x1FWnAFXp7XtFQnUA",
     "date": "",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcKbbfqacFcIOzSrtfS0QanBg-UZhFC-0d8f0RH_p7qhMiTKLY5uDupcx-SGLKr0jOqFjDGOSiHYSEua_tnBTr4ntoABJ4_K5yzlIZyRHicTp_WojJ-NPaC4vDq3gDR8PwWE31_YIAPQhDiRRM7lHh=w630-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNfj_q3C6FLtZPAP4mWUazXE51A9NOMQWkj0KcmOoc9ZNR6GY3ez3EiBsCAZfQdIHzU-qVh8f1huABj416pQ8sYzZC8bMB1WRde3ckRBs8aKqgH4QUGUTr6phIP0MQ7ikZSzCXjF4WN8vRT9lj0K8lQ=w630-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO9ThQ7dvCsG3qzi6nujfX94KwP5cviC5t3MBD5E_lXpUhH8I7Y502uuYyuekQAooDB2PtPpL76l8jTFlMINvYy-equYy8nuIIG-kKixziN2i7f0jjs6_IH8K_jH9FplJRzqxQsGaMtutfcweUbrZvB=w630-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPBU_npQyPFKGr4a9w_7kVVytQAWE8OKYYFWnMSQMDMBVg61A8jrHgCtUnWlsy6-H0tKtMKgRqc38cIeLG-bqO0zP97-PaVSzEtK4kt0NZgM7AgN9CSjjgLQHoaLnl2kB5lPNdIyOYsRwB-rwPHLn1Y=w630-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   },
   {
     "id": "alb_1789483230797",
@@ -1011,12 +866,7 @@
     "url": "https://photos.app.goo.gl/fv9RqjpB4iTjqxX88",
     "date": "",
     "cover": "https://lh3.googleusercontent.com/pw/AP1GczMJ6C9iD9CuvcKARf142RNnXEewbV2QYLMwajIL3g2HU3O9TQ1A-rniGM0oxIwW42KKZWlcxw8rZeRF2AeUMNQY8GCSm4LW_9PJyjHT2aBVTnea_r4SJJp4AOtZ08-6XWuT9cqd313IpzPtF5MzVQbq=w735-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPMhcz_A8XIqsSFUw8H95J0oYgdtp7kwO8hWCrIKvCVzdprPybo0qmmkGPDBSvqLVAmQx2ChvfCQkNQiCa4Vrf1fH3RuwcXmR425pQvJiC_SgGqne4zV4P7nF87vE_Ej4yKnlPKZ4xz8Rh0Vijha2wz=w735-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczON9uAD4KZNI6QacflKXJ3PqqUaj9ynsZCKjbmRIfVEoBZ_2wNPDCgcO2m_yM-TUcgI1KsUNIVGpe7xhgT7bGwQSe3fYg6mg_oPofK_orNCoq0tfh7KvzlFf_PcvzCz1BwNv4TqNIfG26WDyPmzJdlz=w735-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPaK5ATlkJr8fTL7D9QuOWanEOrB0bMap_MawZopsEThHJMRxWOqUOXtFJKvdkHWtAT9FTHJpBSjXo5YC1a92emCaRGr4KAHv_N_Vqzvi8HpFztsnOPqjlpUp6DSbMIrcbhtjPtUFTai7KQ2SO9HZRh=w735-h945-s-no-gm?authuser=0"
-    ]
+    "favorite": false
   }
 ];
 
@@ -1026,6 +876,8 @@
         let searchQuery = '';
         let draggedIndex = null;
         const hoverTimers = {};
+        let autoSlideTimers = [];
+        let sliderStates = {};
 
         function initApp() {
             try {
@@ -1096,30 +948,92 @@
             return list;
         }
 
+        function slideNext(cardId, totalSlides) {
+            const track = document.getElementById(`track_${cardId}`);
+            if (!track || totalSlides <= 1) return;
+
+            if (!sliderStates[cardId]) {
+                sliderStates[cardId] = { idx: 0, isResetting: false };
+            }
+            const state = sliderStates[cardId];
+            if (state.isResetting) return;
+
+            state.idx++;
+            track.style.transition = 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
+            track.style.transform = `translateX(-${state.idx * 100}%)`;
+
+            if (state.idx === totalSlides) {
+                state.isResetting = true;
+                setTimeout(() => {
+                    const curTrack = document.getElementById(`track_${cardId}`);
+                    if (curTrack) {
+                        curTrack.style.transition = 'none';
+                        curTrack.style.transform = 'translateX(0%)';
+                        void curTrack.offsetWidth; // Force CSS reflow
+                    }
+                    state.idx = 0;
+                    state.isResetting = false;
+                }, 650);
+            }
+        }
+
+        function clearAutoSlides() {
+            autoSlideTimers.forEach(t => clearInterval(t));
+            autoSlideTimers = [];
+            Object.keys(hoverTimers).forEach(k => {
+                clearInterval(hoverTimers[k]);
+                delete hoverTimers[k];
+            });
+        }
+
+        function startAutoSlides() {
+            clearAutoSlides();
+            sliderStates = {};
+
+            const tracks = document.querySelectorAll('[id^="track_"]');
+            tracks.forEach((trackEl, idx) => {
+                const cardId = trackEl.id.replace('track_', '');
+                const parts = cardId.split('_');
+                const albumId = parts.slice(1, -1).join('_');
+                const album = albums.find(a => a.id === albumId);
+                if (!album) return;
+
+                const slides = getAlbumSlideImages(album);
+                if (slides.length <= 1) return;
+
+                // Stagger transition intervals so albums cycle smoothly without all shifting together
+                const delay = 1800 + (idx % 6) * 500;
+                const intervalDuration = 3800 + (idx % 4) * 400;
+
+                const timeout = setTimeout(() => {
+                    const timer = setInterval(() => {
+                        if (hoverTimers[cardId]) return;
+                        slideNext(cardId, slides.length);
+                    }, intervalDuration);
+                    autoSlideTimers.push(timer);
+                }, delay);
+
+                autoSlideTimers.push(timeout);
+            });
+        }
+
         function handleCardMouseEnter(cardId, album) {
             const slides = getAlbumSlideImages(album);
             if (slides.length <= 1) return;
 
-            const imgEl = document.getElementById(`img_${cardId}`);
-            if (!imgEl) return;
-
-            let currentIdx = 0;
             if (hoverTimers[cardId]) clearInterval(hoverTimers[cardId]);
 
+            slideNext(cardId, slides.length);
+
             hoverTimers[cardId] = setInterval(() => {
-                currentIdx = (currentIdx + 1) % slides.length;
-                imgEl.src = slides[currentIdx];
-            }, 1400);
+                slideNext(cardId, slides.length);
+            }, 1600);
         }
 
         function handleCardMouseLeave(cardId, album) {
             if (hoverTimers[cardId]) {
                 clearInterval(hoverTimers[cardId]);
                 delete hoverTimers[cardId];
-            }
-            const imgEl = document.getElementById(`img_${cardId}`);
-            if (imgEl) {
-                imgEl.src = album.cover;
             }
         }
 
@@ -1140,6 +1054,7 @@
             updateStats(filtered.length);
 
             if (filtered.length === 0) {
+                clearAutoSlides();
                 emptyState.classList.remove('hidden');
                 return;
             }
@@ -1152,6 +1067,9 @@
                     : createListCard(album, realIndex);
                 container.appendChild(card);
             });
+
+            // Start automatic background slideshow
+            startAutoSlides();
         }
 
         function createGridCard(album, index) {
@@ -1187,14 +1105,25 @@
                 `;
             }
 
+            const slides = getAlbumSlideImages(album);
+            const slideItemsHtml = slides.map(s => `
+                <img src="${s}" alt="${album.title}" 
+                     class="w-full h-full object-cover shrink-0 select-none group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Google+Photos'">
+            `).join('') + (slides.length > 1 ? `
+                <img src="${slides[0]}" alt="${album.title}" 
+                     class="w-full h-full object-cover shrink-0 select-none group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Google+Photos'">
+            ` : '');
+
             div.innerHTML = `
                 ${ownerReorderBar}
                 
-                <!-- Image Header with Hover Transition -->
+                <!-- Image Header with Smooth Slide Track -->
                 <div class="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer" onclick="openAlbumUrl('${album.url}')">
-                    <img id="img_${cardId}" src="${album.cover}" alt="${album.title}" 
-                         class="card-photo-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                         onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Google+Photos'">
+                    <div id="track_${cardId}" class="slider-track flex w-full h-full" style="transform: translateX(0%);">
+                        ${slideItemsHtml}
+                    </div>
                 </div>
 
                 <!-- Card Content -->
@@ -1260,14 +1189,25 @@
                 `;
             }
 
+            const slides = getAlbumSlideImages(album);
+            const slideItemsHtml = slides.map(s => `
+                <img src="${s}" alt="${album.title}" 
+                     class="w-full h-full object-cover shrink-0 select-none group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/200x200/e2e8f0/64748b?text=Photo'">
+            `).join('') + (slides.length > 1 ? `
+                <img src="${slides[0]}" alt="${album.title}" 
+                     class="w-full h-full object-cover shrink-0 select-none group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/200x200/e2e8f0/64748b?text=Photo'">
+            ` : '');
+
             div.innerHTML = `
                 <div class="flex items-center gap-3.5 min-w-0 flex-1">
                     ${ownerControlsHtml}
 
                     <div class="relative w-20 sm:w-28 h-16 sm:h-20 rounded-xl overflow-hidden bg-slate-100 shrink-0 cursor-pointer" onclick="openAlbumUrl('${album.url}')">
-                        <img id="img_${cardId}" src="${album.cover}" alt="${album.title}" 
-                             class="card-photo-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                             onerror="this.src='https://placehold.co/200x200/e2e8f0/64748b?text=Photo'">
+                        <div id="track_${cardId}" class="slider-track flex w-full h-full" style="transform: translateX(0%);">
+                            ${slideItemsHtml}
+                        </div>
                     </div>
 
                     <div class="min-w-0 flex-1">
