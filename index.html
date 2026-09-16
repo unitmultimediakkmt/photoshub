@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Kolej Komuniti Masjid Tanah Photos Hub</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- QRCode.js library for mobile sharing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .card-photo-img {
+            transition: opacity 0.35s ease-in-out;
+        }
+        .card-drag-active {
+            opacity: 0.4;
+            transform: scale(0.98);
+        }
+        .card-drag-over {
+            outline: 3px dashed #3b82f6;
+            outline-offset: 4px;
+        }
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200/90 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 min-h-[4rem] flex items-center justify-between gap-3">
+            
+            <!-- Logo and Brand -->
+            <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 12V0a6 6 0 0 1 0 12z" fill="#EA4335"/>
+                        <path d="M12 12h12a6 6 0 0 1-12 0z" fill="#FBBC04"/>
+                        <path d="M12 12v12a6 6 0 0 1 0-12z" fill="#34A853"/>
+                        <path d="M12 12H0a6 6 0 0 1 12 0z" fill="#4285F4"/>
+                    </svg>
+                </div>
+                <div class="min-w-0 flex flex-col justify-center">
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-none truncate">
+                        Kolej Komuniti Masjid Tanah Photos Hub
+                    </h1>
+                    <p class="text-[11px] sm:text-xs text-slate-500 font-normal leading-tight -mt-1 truncate sm:whitespace-normal">
+                        Tap any album to open and download full-resolution photos directly in Google Photos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Owner Controls (Shown when owner unlocked) -->
+                <div id="ownerControls" class="hidden flex items-center gap-1.5 sm:gap-2">
+                    <!-- Export to GitHub Button -->
+                    <button onclick="openExportModal()" 
+                            class="px-3 py-1.5 bg-slate-900 hover:bg-black text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-sm transition hover:shadow">
+                        <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                        <span class="hidden sm:inline">Export to GitHub</span>
+                        <span class="sm:hidden">Export</span>
+                    </button>
+
+                    <!-- Sort Date Button -->
+                    <button onclick="sortAlbumsByDate()" title="Sort albums chronologically"
+                            class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl flex items-center gap-1 transition">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"/>
+                        </svg>
+                        <span class="hidden sm:inline">Sort Date</span>
+                    </button>
+
+                    <!-- Add Album Button -->
+                    <button onclick="openAlbumModal()" 
+                            class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl flex items-center gap-1 shadow-sm transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        <span>Add</span>
+                    </button>
+                </div>
+
+                <!-- Share Hub Button -->
+                <button id="btnShareHub" onclick="shareHub()" title="Share Hub"
+                        class="w-9 h-9 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                    </svg>
+                </button>
+
+                <!-- Owner Lock / Unlock Toggle (Icon-only) -->
+                <button id="btnToggleOwner" onclick="toggleOwnerMode()" title="Owner Login"
+                        class="w-9 h-9 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition shadow-sm">
+                    <svg id="ownerLockIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
+        
+        <!-- Search and View Switcher Header -->
+        <section class="flex flex-col items-center gap-4 w-full">
+            <div class="relative w-full max-w-2xl">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" oninput="handleSearch(this.value)"
+                       placeholder="Search by album name, date or year..."
+                       class="w-full pl-10 pr-10 py-3.5 bg-white border border-slate-200 rounded-2xl shadow-sm text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                <button id="clearSearchBtn" onclick="clearSearch()" 
+                        class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Centered Counter & View Toggle Container -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+                <!-- Centered Count Indicator -->
+                <div class="text-xs font-semibold text-slate-600 bg-slate-100/90 px-3.5 py-1.5 rounded-full border border-slate-200">
+                    Showing : <span id="statTotalAlbums" class="text-blue-700 font-bold">47</span> albums
+                </div>
+
+                <!-- Grid / List View Toggle Segment -->
+                <div class="inline-flex p-1 bg-slate-200/80 rounded-xl border border-slate-200">
+                    <button id="btnViewGrid" onclick="setViewMode('grid')" 
+                            class="px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 bg-white text-slate-900 shadow-sm">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                        </svg>
+                        <span>Grid</span>
+                    </button>
+                    <button id="btnViewList" onclick="setViewMode('list')" 
+                            class="px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <span>List</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="albumContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+            <!-- Dynamic Album Cards injected by JavaScript -->
+        </section>
+
+        <!-- Empty State UI -->
+        <div id="emptyState" class="hidden flex flex-col items-center justify-center py-16 text-center">
+            <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mb-3">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <h3 class="text-base font-semibold text-slate-800">No matching albums found</h3>
+            <p class="text-xs text-slate-500 max-w-sm mt-1">Please check your spelling or search by another keyword, date, or year.</p>
+            <button onclick="clearSearch()" class="mt-4 px-4 py-2 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-xl transition">
+                Clear search
+            </button>
+        </div>
+    </main>
+
+    <footer class="mt-auto border-t border-slate-200 bg-white py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs text-slate-500 font-medium">
+                Kolej Komuniti Masjid Tanah Photos Album Hub • Direct Access Portal • Created by Hafizs Abdullah
+            </p>
+        </div>
+    </footer>
+
+    <!-- Add / Edit Modal -->
+    <div id="albumModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in duration-200">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                <h3 id="modalTitle" class="text-base font-bold text-slate-900">Add Google Photos Album</h3>
+                <button onclick="closeAlbumModal()" class="w-8 h-8 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <form id="albumForm" onsubmit="saveAlbum(event)" class="p-6 space-y-4">
+                <input type="hidden" id="editAlbumId" value="">
+
+                <!-- Album Title -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-800 mb-1">Album Title *</label>
+                    <input type="text" id="albumTitleInput" required placeholder="e.g. MAJLIS KONVOKESYEN 2026"
+                           class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Google Photos Share URL -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-800 mb-1">Google Photos Album Link *</label>
+                    <input type="url" id="albumUrlInput" required placeholder="https://photos.app.goo.gl/..."
+                           class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Date or Year -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-800 mb-1">Date or Year</label>
+                    <input type="text" id="albumDateInput" placeholder="e.g. 14 September 2026 or 2026"
+                           class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Main Cover Photo Input & Upload -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-800 mb-1">Main Cover Photo Link</label>
+                    
+                    <!-- Cover Image Thumbnail Preview Box -->
+                    <div class="mb-2 relative w-full h-28 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center">
+                        <img id="coverImagePreview" src="" alt="Cover preview" class="w-full h-full object-cover hidden">
+                        <div id="coverPlaceholder" class="text-slate-400 text-xs flex flex-col items-center gap-1">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span>No cover preview</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <input type="text" id="albumCoverInput" oninput="updateCoverPreview(this.value)" placeholder="Paste image link or upload"
+                               class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        
+                        <label class="cursor-pointer shrink-0 px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                            </svg>
+                            <span>Upload</span>
+                            <input type="file" id="coverFileInput" accept="image/*" class="hidden" onchange="handleCoverFileUpload(event)">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 3 Separate Columns for Slide Photos -->
+                <div class="pt-3 border-t border-slate-100">
+                    <label class="block text-xs font-semibold text-slate-800 mb-0.5">
+                        Hover Slideshow Photos <span class="font-normal text-slate-400">(Optional, 3 photos)</span>
+                    </label>
+                    <p class="text-[11px] text-slate-400 mb-3">Paste links to photos from this album to smoothly cycle through when hovering:</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- Column 1 -->
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
+                                <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">1</span>
+                                Slide Photo 1
+                            </label>
+                            <input type="text" id="albumSlide1Input" placeholder="Paste link 1"
+                                   class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
+                                <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">2</span>
+                                Slide Photo 2
+                            </label>
+                            <input type="text" id="albumSlide2Input" placeholder="Paste link 2"
+                                   class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <!-- Column 3 -->
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
+                                <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">3</span>
+                                Slide Photo 3
+                            </label>
+                            <input type="text" id="albumSlide3Input" placeholder="Paste link 3"
+                                   class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-100">
+                    <button type="button" onclick="closeAlbumModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-sm transition">
+                        Save Album
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in duration-200">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900">Export Album Code to GitHub</h3>
+                </div>
+                <button onclick="closeExportModal()" class="w-8 h-8 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Copy this code snippet below, then paste it over the <code class="bg-slate-100 text-blue-700 px-1 py-0.5 rounded font-mono text-[11px]">const SAMPLE_ALBUMS = [...]</code> section inside your GitHub <code class="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono text-[11px]">index.html</code>.
+                </p>
+                <textarea id="exportCodeArea" readonly rows="11" class="w-full p-3 font-mono text-[11px] bg-slate-900 text-emerald-400 rounded-2xl border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+
+                <div class="flex items-center justify-end gap-2 pt-2">
+                    <button onclick="closeExportModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                        Close
+                    </button>
+                    <button onclick="copyExportCode()" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 shadow-sm transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                        <span>Copy Code for GitHub</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl p-6 text-center border border-slate-100">
+            <h3 id="qrModalTitle" class="text-sm font-bold text-slate-900 mb-1 line-clamp-2">Album QR Code</h3>
+            <p class="text-xs text-slate-500 mb-4">Scan with smartphone camera to open Google Photos directly</p>
+            
+            <div id="qrcodeWrapper" class="flex items-center justify-center p-4 bg-white rounded-2xl border border-slate-100 shadow-inner mb-4 w-52 h-52 mx-auto">
+                <div id="qrcode"></div>
+            </div>
+
+            <div class="flex items-center justify-center gap-2">
+                <button onclick="copyCurrentQrLink()" class="px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-xl transition flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                    </svg>
+                    <span>Copy Link</span>
+                </button>
+                <button onclick="closeQrModal()" class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl transition">
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner PIN Modal -->
+    <div id="pinModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xs w-full shadow-2xl p-6 text-center border border-slate-100">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900 mb-1">Enter Owner PIN</h3>
+            <p class="text-xs text-slate-500 mb-4">Unlock editing, reordering and exports.</p>
+
+            <form onsubmit="handlePinSubmit(event)">
+                <input type="password" id="pinInput" maxlength="6" autofocus placeholder="••••"
+                       class="w-full text-center tracking-widest text-lg font-bold py-2.5 bg-slate-50 border border-slate-200 rounded-xl mb-4 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                
+                <div class="flex gap-2">
+                    <button type="button" onclick="closePinModal()" class="w-1/2 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                        Cancel
+                    </button>
+                    <button type="submit" class="w-1/2 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl transition shadow-sm">
+                        Unlock
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast Element -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 transform translate-y-20 opacity-0 bg-slate-900/95 backdrop-blur text-white text-xs font-medium px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 border border-slate-800">
+        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+        </svg>
+        <span id="toastMessage">Hub link copied! Share this with anyone.</span>
+    </div>
+
+    <script>
+        const SAMPLE_ALBUMS = [
+  {
+    "id": "alb_1789484022625",
+    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 19",
+    "url": "https://photos.app.goo.gl/geA97raEnuXboqQf6",
+    "date": "14 September 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcboBGJ3HMrlBwBcoxKCD7EhM14P82VYH0VRCH_8ONsKdI1DqOVgoLmSbWJ-kUAYoWmVJQoHXyVNlLDOWDH0_hYRkZ-1wLRxDpzzwjAIrs153ZFd7adBIWetRTBbtUchFacLHCEPNBiL7vhw73pPoq=w1679-h945-s-no-gm?authuser=0",
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOg1h2780c7dhaDe_CpF9YlJAPa14IhCPHdKCfuHCMzxs1r4efQckHy_ypKh3gTOjEgWMYt95m_AZ3CMfI9nD9EE0eq1_PhkVhbQVbU_rJ8jGvbyv0lQ4huCBFjEt6bb8_5_0OW6BydvJYOf45eC0i0=w1679-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMheAN2OwDbat_tB8zhGjtcXeRP8WcspOG_teYpPqs5JkZqRv9jdQ0DQAExf0AHz-Ke0AQukEwP4IDbOuWdPtfReVIdP15FZUCuHNwnDZSH7-HB5cHssdwcHwjImYfgR8Xsjc4XlKmYQfaIWSa16byz=w1681-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNuquxuDMR1VL8Sbts5cS-E6PGOoxS87Mv5c_yO3lrfyXq7oo6w1IS_YDNHM4q0lzSCUSfSLVaLDt54cAMQJNPAGcIbzGMEepUP4rAJ0IcA_vIspVJB2OjDwfR6f5u0KshUR8x4M5K_sDEoL2R24Bta=w1679-h945-s-no-gm?authuser=0"
+    ],
+    "favorite": false
+  },
+  {
+    "id": "alb_1789483971802",
+    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 18",
+    "url": "https://photos.app.goo.gl/HAqjMbbw2MMHsTy59",
+    "date": "14 September 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP7riBmSw8bnwOf7A6t6JgXMvS9BERmbFuKqslq5KSpEliJjWrp6HKSUSVw8ixQqskdlvY8I8BhqGMjkJFvlOIC6M9RhaX3oXI4oDeXwunoq3-o6TV5ef20-R6oJpfZso-O5UzXp6Jj-FXP10Uzwnvr=w1680-h945-s-no-gm?authuser=0",
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNp5Eol97VAKycG8Mr3a-pOt0UE59Crt2ruifZioWAtE3Nw6ocAjzxN9WpZG7jXOZGdGJFsujAvJMusqVTduskN9FDyB7O1JAXjqYf9t9OAIx6qrhEF7iIBVBNlGtF-Gv7sBtEncfgLMWzSJCFhi0aE=w1680-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNSbSqeb75wiZoIVlI3Z9RWWF5RMEs4Rt0CzONQzrqRujSjPtSbzgWaicGrQ6fR-ZO92-CkjcKL4Wl_ayzUm5MsQtAO8IVHlVU2GlES9V5TYmDFSAEnxHc2LS2BxwI2RXeMDXfG-IyDnNLjCi6GeRq-=w1680-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOMhndwGpDm2BRYXYVkIbmlod3yXQmXznGStV08W1zbFmCaOm_v1QsolmVtb_q4yG_NgIwzVo2Bz1zJv3LvPBe8tzf83VpCIrhEdtFxuL-YBONWLWmNaCmKzlAqY9NIE6xogFfXSwh6KefaiBN2Xh9c=w1680-h945-s-no-gm?authuser=0"
+    ],
+    "favorite": false
+  },
+  {
+    "id": "alb_1789483923007",
+    "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2026",
+    "url": "https://photos.app.goo.gl/VLwGkgwjm2e7snMk8",
+    "date": "13 September 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPy83HwmGaYxmhIZsLCXUSg5lWX_VcX-SjeSpcy7YNXMR0H4-gRKM8f9RcvBEs_OPwKuQa4dFOs_vkks-vCNRebrt3b2C4JglQajJy9A19e34TbyTUxiNkyQQtQ5JyaiNnWzJcvJWBCHQQAUOp1KyQL=w1681-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPno1WM_QqKo5E1AXPHc5ak-lo-ropHy1yHk3lYj0oqBaP5Yj_x87rzg55GbgzURjWIMiGKcAH4uhH_o0EKkQubmnK0DMWIhJu3vadYBUDNJC46KSoliG5q62cmJzOl3Y9DR4NZ5Saj6HIRdIOohxot=w1679-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOuarrelyJKYMMsUDLU7rKO4-yvpw57YnoZgtwvKt42sHU8n2BQqsCvu8qVPPJT_9iGZLuSaLaT7wetrHnJMI4CtD3A001xHadf6114mBf8rpH7EtFqG4-uEaLPKrZ5sRx-Sgsq6EHkt3w1_e69Ftji=w1679-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMAFxC1868GttdUWNPtZPVu0pG8Ykgc_fjBua18XCPW4PywU0YUihU8SOvQnkkpwsg1IdIgvfXsr1gMybj5xZHyV-ZIMcqvwin8uywvMEjI-Fzy3F9R-eoH3A7v_VoXekLe-_EQCCxpX-yPl7QgaL5p=w1679-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483851813",
+    "title": "BENGKEL PEMBANGUNAN GARIS PANDUAN KAJIAN PROGRAM NEEDS ANALYSIS (PNA) DAN MARKET NEED ANALYSIS (MNA)",
+    "url": "https://photos.app.goo.gl/b8hC3BXpnK74Ew5M7",
+    "date": "9 - 10 September 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP6XL8Mhkt-nlDIKpkh2f_HiktiWempUyM38zv12UE6PcEedS5mCaWKECw36GyqleXH8vxghtEJtBoBqI4D6vRC8DW3jbOMTyq6UEeuyNkwAr1Dgd_a2JigSMPE869T90U1pJgIJGCNeTlPdVSTPQYi=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPAvAbVm35oll_a_XTkz9W9IDJ9_ijIT7RzMvM7GKF37yniqsy0_rf1CGU2rpi8GXkH1YfjcyociKjQM7WLFpRwYnNmObe31KAaaFU9XtdTRif6SqzB2G9sHCcYoLVrauYJVtYM6GPmX-_BUcy2cr85=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPfTkIQyeTXUiq9FxzgWJ78L0wXWZMtG_ul4pLaByF8ecktCqP2KtPW7Wosf2oPsVGbILXX22W8PDuVOL77jqI7nC0dN7apnezlsEJ-T2dVctKe5YMaA4oKLtJOTBN_lUuw7NDrFJpGWDX04D54K9Q8=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMwqKPDi3IFeyGT2qycpIu6A93KSt29vjc366LUJgRKguO08KcTGssOeD7wZEaq3h9VaFY8r3kDNnm4mzN7GtCgpMjvvYBlsItzvnEAtVwaK54mZ1E40lVMh3WLpoTlZpUmYMqFwdsVfC_hD3UdOfKU=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483770546",
+    "title": "KURSUS UPSKILLING PENSYARAH: MOBILE APPLICATION BAGI PROGRAM SIJIL DI BAWAH BIDANG PENGKOMPUTERAN",
+    "url": "https://photos.app.goo.gl/YYHfASpQGzfBxEW67",
+    "date": "14 - 16 July 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPu8IchG671k4nBCgAndgBFMqz5fT1TK5yUVPOrxpAZQK48WTfJBuhNGPec4mVAPcj6h3nyG7SY-j1LJkGgHb-LGe_pBHMLtEwVsD9dzzBounY0aZROCsQj1UPd3xC3zajQscVKBwY0TnTqt7X1wYNb=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczONVfuesme1NsVXdZGXbAq66FZg5kknuAT_xI50xTdsG_W_mMD4v4C7Xb_eGSp94Ex1uMunloosLH1aUFTDooUC9n9nyElTs86TaKj_8USvGSJfHwtY9mkdDuozSv4LfkMNnZ8Hrvvp4IxpYS-WhKeI=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczM4xq4WjIAwHZU9tZXInzyBlcGGF70RI1fVvOMubX5YpcUuuvpvc0eHFn6XChJFKZ5vfxHqtMZ6G4BPan0yy-IRClIGwZTq8rTeP12OFTp4568KMxGrozLcXZcNciEoThwgmhOWa-gyv-MPXSL-OD7l=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczN_Voi5koVpyxeDdw4D03nwcHD1ZxAqyQaYTDIRrLscDjLwAQBkbQ7Z71NKl2ihzVn6Fi0JxI6bwOquzb4mnTR_WSMfTtxrPLUoDaunAaJzn2Omv2Bn3js7t4bwlynlzkYdCcqj3bDy2qwyudOhMydV=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789478113781",
+    "title": "GOTONG-ROYONG PERDANA EKSA BIL. 2/2026 DAN PROGRAM GOTONG ROYONG MEGA PERANGI AEDES BIL. 1/2026 PERINGKAT KEBANGSAAN",
+    "url": "https://photos.app.goo.gl/Lx9YcXH7zniaqiZo7",
+    "date": "13 July 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczO8y-plT_0uv-N1yQpz-LyjoGgmWJ1ydHW3mk8jnu03U9Q3PAUq6CAS5y6MOoLNvNXDR8fgjWqcPfboFsoL53LTnOVduBK5KpeivkKxRGuIuiVi9kXKM4nwVzFFpxub_JYTxaF963dA6xe_5hT9Grct=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOTzGHxBbcO8QwIRI97n9iUw5F4gUHSqsgaDEYNWldixCi_NC3Ui-zCyKsaDNQNdFw3cxiVVucS7Fm4X-YBGxkk5mu_YmrJRlHkQT-efrxho1eOoeY6MOsge6qkF4tU8RIU30K88n0-DibKuY_bg3-D=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczM2c61wcsSXnKWwlu3qw9QBG4Jbpf6SznPgF_spYPWz3QpeaRByCvTi605D7JdPi3Dv8oz-R9_ukAmVV_LwG_Wtrspl0PvX2mLZCeYrbk5uHaYZm2Q5AG5HShbCoICoXZ0NpGyVUMYx2pOG8irxJujS=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPFyUVtgeS_oW4gmg6Atwt5F5eKWqq1BXerd_z89AkQMGnMoNev1pdSjTeyJQoY106Xp3NgoGF7Bv3FqbZn2s6PlW5dm5cZMB4CUBt5ocHRvrU9JrfADnWRSJBWfwZcaek4kQA25GlaR0nV7Y206M0V=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483622233",
+    "title": "LAWATAN SUSULAN PENAZIRAN AKADEMIK (PENA)",
+    "url": "https://photos.app.goo.gl/p1qV5xxnjYwhXuMc8",
+    "date": "9 July 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPgXwXgdEsMLSGvg8PxNN4mRc_KpBAH1kl_dBsbGXESOpHKVbyP1r-vA9K-2qvX8PZhx8H7JNHIE3IJi-7NhfEFEgDJrowZiH6edvBc9afhQ7C8zL81CXFEL2pMwuGSulvnlX6ef3Uatu9tM9XGAYxF=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOt3uo4K_dEqdFnTASRNNQBg4vOciB_kKmiP6unCB0prtVy3CmutcCVnt-cdm51W862PnEhXn_pgQev9ZWJpYJSTZcY0h9_UQQXXiVWK-hQ3DVzJMYaLsnIYIud9532jiLz6PTRztnxyAJEIi1j2HLC=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMD9vvm8fA1b_3fqXKWQWW4N-ALYjsFluKIXNgUXIqAnMrEKzpwScJlY0d1MjYpuZ5hW4sFJwxWX74i_gQnTNv-6RodPUZmBJpzAJ_Zk5zmHdSXAU-XmWBL-EUIO3Keoq16e9nB0Uk_r-CtTj3uhLd_=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMCyFVqRKsse335Ya1emYQtbjCyN5dfY3h5s2ceW9gkjyt3K_HmJfQcRX0MRXvCvX9WvWrdUfb1WXP7XbXwMbGCT-8E-M_CzCrHrY4MXLl0HLVMmcgoH9rQa5Mpy8qUl8uy-_HFelwRnYBKuJ2TgF0k=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483560824",
+    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2026/2027",
+    "url": "https://photos.app.goo.gl/Y7jsDYTNhXE3WKJeA",
+    "date": "23 June 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOrBAbQA8vuj_7m78957qlW3chH_e0pEqHCHWukBKSMrrM40MecsVpw3ec227mqPPK7c3ONaYJ5-kSkObrWo_x59fqwpMcQAHTTYbutsFfOs5oprCW0dRbsjl0mWgJBSbM7U9-ia-aB-RcSNw8PvjPd=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNB_PI5o5GojJ4t0Ddl5as1ZAYNvCGNlAtX8Nwb4J4dToow7VTV8F849p7m47sdzfkS-gBlpX7AG1YoEmXEpJZ_2yGrDo6_t3cwUjesCdwfgEbexqn56VoBefyLLpTadMCOzv3-YP97x_pnhyzdVXDW=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOA3-02vNNeJc1Cxw3TGsuv1D4Iw2rLptisU1CHebBrvEfbyObntdJYwWHWEGh3Ul3Egxlm1BxYI70s4_Lhvkitsc8ZsL3IZwT6cGeAZJz4u1WctbBPPnauX9CkXSKWDg4HCc1W-9ssAtWpnT43-Tqq=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczND90_a-S-O-WXF7cSu5SMwLotcNtS0_mBabyazm8Usu869qjdWrknvE7UyM2w4c4t36lThEtLHJXGBpBA1XqM5gMN1oxZhmrJbN8bpiLEWi3gha6WIps7JPxC9CtvQGpoQeJsnRedzAm2WXHitMhGr=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483503279",
+    "title": "MESYUARAT PENASIHAT PROGRAM SIJIL TEKNOLOGI MAKLUMAT 2026",
+    "url": "https://photos.app.goo.gl/n29j3rxdjnJMKcib9",
+    "date": "10 June 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMT0c_hJTaKAr1rqUQcfiy80bDFtxzac7Xp6XigUOQeCDdtj4H-ycvRIxfDhvY_ntgm1L93lWxBUHS0R9aqdD43aW3TS1rddaSPcjrSGBdQH0BhAIrBcHKBBkhTejkmz4M85yPusF1atTqpZNcwx6HH=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczMl7Xhd9JXJtSPfHXa1RMJ_xNKdVniOQOLjqiT9THMfzjT4wNihzxicekBhqcMSfU2g11OzS_2j09Zci3IqJsdNA84iipkyTO_wtIManWtGv8x_XzlCSVS9Q3YQ5FyuPPi-prIZJq1TJDgXxpW6zyNj=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOEKwvWPIAG8Vc_skvga5CKp2y494tV-XgIsT15z5BSses5cqM0PunMRYwrZ0NLxfqyvaO4rg0RZ_5WdduBIxAxbZKyNh--DSK7vIx81YSUIrypAIIZAgMSnrOqNZk9mjgpGYdDGaEj75c8rZRmXstw=w1417-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOKvxCLEjU7EIs7dVvSH5BkZ4pICCurf2p42YMscZyRiJowi6BpeIDhmfzIhx1zSqcSmcxwwjax1jHrQXybtBWt2UqRszQ8ujKUf3C_FJx_m0WHobezrGr8Nc_TcVjpqRwrUTLVNWgc_msPRJECz0vV=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483149823",
+    "title": "RASSCOMTECH PROJECT SHOWCASE 2026",
+    "url": "https://photos.app.goo.gl/8gVQxFh92gBoK3Mq9",
+    "date": "7 May 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPKrKb2oHKos6ImJ92Qj0Tpb6ZPbI2j40KpiukgEWQ_C6KwlIsG1ySbdzzWk_Gbyy33bHYg84bHoO1aZuYONsJvwaqFApXMSuaJqNKKY-SPzTHndmA-VF1iu9hAT3gQebC_yJ0eEknN_6nV1jOllIFW=w1679-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO69JqXc_qiPmFs24_RcOsJdu9Nhbh19t1mRVI7hCXeSU7iiJl94t59nkbfhWKUU872W3__btk1vUmxehV6lt_fOm2tNXtl4sx4gWYe7PgH_xq5SYbBWWc3tISvL7mpNe4qI2oOyeQfjFiJw05PBHm2=w1679-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOFxnDovSM3N3FCo4V3CAk00KqzAku-BBfszvEeCHLvayIPQnCHuY9kduxn0GvB3cpqvk0zg7J8DtIxZcHh126N3oH8bEy6bg7733IBeqWMnWD-82F_hY2PhQ63NqBwIaf9HB3_KRs2_gJIArWEXupH=w1679-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczP6ciY5kNxwF1tScyD5mhlz6_LWyGKg7EeGDJVcQnKY9viVm84z9LHNXrR9gY0WCTQtJKcdK4PBoHswp2Z3wo7Ix9P-QTO_QhbXikCIMWonHA6jXVLW_zKz0NcedwRu2sVKnH3gHQrw4fxthtnq-s4a=w1679-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483684609",
+    "title": "PROGRAM UKHWAH PASUKAN SIJIL TEKNOLOGI MAKLUMAT (STM) 2026",
+    "url": "https://photos.app.goo.gl/XgPAqxruCh2DapjN9",
+    "date": "4 - 5 May 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNxqGH_G5WECuxPMI0HYyt6xeQ_vRnh2KWj5M-YrqWdrszrvg2-opzXWg0jbnIPJ8jB-0rLPW4hs61p0aNv25w04KfCNaAUQiFFWGlBu905J4gyfqBSb66Ff3ht2WIaZETW4nxVaeTFHEpxJmMC-hPm=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczMmVGCCifuS08egolBkmO6xXSIWVb-iBqAQ1t0EUI51vTLcsF1I_zHqRI4_MInt3woVqhmBlbFlqYHprF0_3qwEQvh-e4uj--TlEvRZyN9GJBZDhIhsrbzUZbqSpp3-2A3yVnJZ9hxWIfdOiwgtldPp=w1417-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczM4yVjgV0kLjjNK6bq2-snaPl6YsnfpEmlc6NcknQ5n8MXFIRsjB8HnOD-4xr7xNgzgT7_mPfOwSPIT6FHWnlJhMENCI30eB8HaosRQZTDhGdsRRSldDKITGVKW3U3zaXKWrwiOsJDPoMpruDHAa5no=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMVWK0DkNFq09l_Co3bVRYB-gLuB4WZb8VGRZHRNUHzbeAh9Po44snwRHVFJ1PwN_BQqMFb1ttyEJ2ebGgnrYluk4IqSuCbBYoEoTBYMzOTt09CpChHnWrB-yql5qFsaoP-n8zcUKZnvU1UkyQ2u7Ft=w1417-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483050457",
+    "title": "MAJLIS APRESIASI PELAJAR & SAMBUTAN HARI RAYA AIDILFITRI 2026",
+    "url": "https://photos.app.goo.gl/4NJ8rLna3GzKh3KG6",
+    "date": "15 April 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMljD83vSqbKKJ64RYpMwI7MBR5zLf_ju312uQR0W75sBUe-6hCkoGvB31CqTjmydV7-fEoitThgeVo5CA_pRbHTrts-5QG6DQ6dBkJEM9jQQchAFSuQKbp9vl730T1w5u8SRK6iw21_Kuv7IWraZ-I=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczN71bG0_w_c97T8S80AVnIGiPQzC0CC0qiUxL-qUyxReyrSazEXcKaF-LBRttu8UpeAv2lwYfrPK1XH4iMdT-QPjUoSReT0cz_ckg4E7cV6ngaS7_3FDCnD1S88ky3kOgUnskiOtOayAyEmZMnlDSKC=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMkm_H_-mFJiG5bs26n1eX2AOw--5Qo3QyE-XpnQSIxv56m1crhCjv0zYkFCuLT27JGUF5jobKwllo7ydAneZmluM_wXc0-SolaYdnIErIKwRLDfxdUv1HbDYfPlm7md8yIBNhiF7FUezVXTxHP-P2S=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPgNGKmPtulT5mjudRVDOazl8E1yFwxKc1pLSPluFZ6ASymOHwiXqQrdzlpM0SbTsrLhvYymL4CIR6EIjToWH5023gwZQIHDvhfijrEp0_oVwgVB_J8AQ__0RV7sGybm5QYXUI-AuoYvdHlQp7U4CMv=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482919773",
+    "title": "LANTERA QASEH@KKMT 2026",
+    "url": "https://photos.app.goo.gl/zV9RW3PgeubpMj727",
+    "date": "27 February - 13 May 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN5hn4VxYlFb_HCJtgYVTKBjYLjzEVu0w5YteElHP6v8FTHXW-iJ1nlVtMLsKu0KEAa6GzbbKOjZGgdkHaUayzJTANE-FADWUMo1o4HjUaHtKFtuQSd3Ak7xaV4CX4Mg5l60qqBmdTIXkMjrx5CDY2X=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPEl3ETtUNc3EmEQcW3kweByFhz0eBgQTnqRc64IMrC3c_Y6Os2DQqqX-Wd-rHfHldn1kQLbEkArYkgCr-PCXyd235FmYdgBNj_BLUU3e2WUUMRtFb1dxkZm2CQkqJ5PLTTSkZJYiyrc7dlc33hbr9y=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczODk6rYMHXcJxlG0vflNYzMG_2_YyiI4JwPgcYj5bcIFPMtjbUuQt8tjOe2L3KlDbkGO6y2EIhgQY0R3bY5JhphplcWmYGR5Vxehm651hUPCMOotHBinDNggFOFtYJjM2ceUvXnY2ApWXHPI4aVjjIV=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOgP03FDwKiJUWOCkH5ITVjWuyw3A9QgWb3DJdalHKpn12-b-wKV6piCDh0ecAvQ7SEGAvan_5TfxwztfyZtJYjuOZo0Ysdhr9EC5qMauNvBZUA4SzzCAfRSlYRS7vJoIvdTNo2xjCMeR-XL8R5V-I_=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482814153",
+    "title": "PROGRAM LATIHAN PENGUNGSIAN BANGUNAN (FIRE DRILL) 2026",
+    "url": "https://photos.app.goo.gl/ViEc7PJrbHwxU51AA",
+    "date": "12 February 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMzUvUgD_xmDM4SDASf2SQMAlauKPe6TVK9x5rTIrdwvx-o0zJH88g7tihFSqP0JwEXrEcCNIaYHy5w0q3UtwsdKTvkWekXfsrAXQtvkfloUd9KZSNSfYJvSOe9MSzZSw3YHwr1HQv_fEJI6ojh4sYv=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO-7alwdwciahtRwwfzeeWGWgHkR_o4MWS2_esaV-eedTmNJOvUAm3PxgCWUrKEduae_UegLMcuSjCnpr3lXhKYdKxHlnaaXRxxgrbBAabfYVbKC-LdSnBvr4qqN0dadjn0Ks57m2IkEQZ4UnMo08Rj=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOPKae4IUT6nYZtU8CtldyLiYFM6elIScTwq6Oo6tM5QG8iZFV7OmGRpR_9iFUewpR4vY0Aw2IKJ8x_nOli9fH3XT26guqIVzm3MKA9O9Jv89l4--q89y64jZGH-hmwJ72vNiQ4UgvvJ_DFFBZtBAlW=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMKe5KSK6m-vXtmpg9ITjB9Tz-V4vH6A3Ij6ZO4ph-imm9FgXP01MWZYvuhwTkRyC2bD-ELeSeE_TCRsPSSp8YVZMwH_5gGkP5gfMiQDhm2cn3jVc8GvMrPszsyu7qJsZfqoa97q-3kG0Vcbls0K0wx=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482726722",
+    "title": "PROGRAM DERMA DARAH BLOOD FOR LIFE",
+    "url": "https://photos.app.goo.gl/rgfc1w7zyJirnUHV9",
+    "date": "11 February 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPo2Twlai-DU3YwCEp04b1SmP4ONq-xKkJqo5Jrrtu_ASwz3PAUKxS-4LLs8eqBRR6r4ayLvBRxoaseBljIuVZzroM3UzPDVwTukBsAOY6nhZvy0x6vPm90wrCWqpfn4I_T0QIISKeLP6R_uS7pmlQD=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOOrbZa7wRNEJkOXn6DTT_LLg2MdfVbo8kaihlxwivhcU8D383H70bX56Ls69Iu1ocPHrbtejx0XL8rt8q6tFZbcpgBYliAY3QnZRwA5RzHCIxEi5fnUvxbKy_aA40YERVgyb1WM0RtHyNil3gTaZc7=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczM4b_x8Q9nDj26x6rF_sSO_TsktgAaHjy3NCIqhtrTGd7kePXdd0fckRwi3L9pkp6I10pNau29jWh8OkT02EgSmESaqeyxmm-xtkpMYPrHmjGv-xkQ4eUexKz5LlLgoHun7l7fk_pa4Qf6YC0Qy4fFn=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOraLDNDicZJjChvoBJtqEo_CK1o6FTyXoSLg4K8XbMyC14DLMw3EoUIcUxSW9DXdfhl9XcQcp5-Ca1aSW4Kfq550Zg-SUf41WWtJI87cvcf_4-XlsQwAqO3AaP6_4MzHGB76RdtxbJEO7voyyYkhka=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482671751",
+    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI II 2025/2026",
+    "url": "https://photos.app.goo.gl/nvvF19xLsGnmZKjC9",
+    "date": "6 January 2026",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMbu9sT3qJQuaw5ntxyfhzrK2FuiztNUt4L8575vwS2Emi58XFYyQP5m1tFJoCwei2Nw0Y9DDsCYi-b8rrB5ovK9wwby3DbYriIP79PBUS4M4mghR5jzp5TVuT8K93blpWvav_K1IFK6pDi9m8RFwTk=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczP-xvFChXjJenqidBjZ2gtaT2648F8amjXaF6RWwEmqCHnM_8voEiLUfjJv5mlangOkkmulKnTHK6Ic3I2NFzGeJxLLT6X03mMA4JDBF9Eo1H2slazMRGqJmV-oR1uha2fuqfcvp2P96M0UmcIyLJB7=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOmbqWNUuCMujB2_v400vhpnbu8TEi-TIN-liUfpP8MhaaL1LDLyz86ygnMVIEhaQILQ3ws_IB3kLyDm4ir7kPCJPAcVOPmTq7Qq1J5pRH8ZBOZ0HGPa0Goq2PTNVMYqYXNruidNMM-BL8nSjYN2rmc=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczODVJs0blD-raP8ghF1riYml-VgI7S9HU-WY5_qSWn1mpuxebIGkGtAd2XGJTyZ10XoS9vIzXZU4RrGnU0r3ZnQ-Bi79CrvUj8lz5nSwZm9TaRyWx3GSSjCr740CToVXgjuCnDYgKR_kn8sb_Px43fr=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482591972",
+    "title": "BENGKEL PENGURUSAN PADANG DAN UNDANG-UNDANG SUKAN BOLA SEPAK POLYCC MELAKA DAN NEGERI SEMBILAN 2025",
+    "url": "https://photos.app.goo.gl/MX8FZ7RSuN8ja24K6",
+    "date": "18 December 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMe2OuEWAbht1xva01fGr-LT_MDMUL97XqeDZ0xqbFm4dKkb7-teTiEYwUDKuyan3Pkj7QA5T985kGtamvffL9Yk4oG7ZgJD7rb0G_QgDObi9IItVXK9_AfpoMsgIswshpDZTRJ9MNlSr8sQtY6lPoi=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNqqS8dNP28zsfVg1_OdleC67N2O5a0mNHfn9BJR1UF-uyq7o49lld9ZtsMxfg17UvQZdvwG-cTuwoIyYEf3--MToveFKMIOuwlj6qoqm8LF2-Tm3riSGEScX93XrXdZ3paF-UhmBDXmASOkYdOUk9n=w1417-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNEOCw2M_J_2q3MtDOqc-kDnlFCgWEE1SwMlWn2BqkNgQjNEjRIoNEu8CZPLsie1WZpbU4VVMy4_tFiCTJexECw-BKJx6u5KjDABllgexQxMUYORqkaL62xZVMtvWyRGGnmX2HjbGlZNuqyWzezEGnw=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPZLhULU4CfkKoCthpO0FAnE4S4crEFtvEJkCP5eHnrIp4HQu2MGixl2s9njnBUfFvud7ls9CTE7jferYCBG6FKFEifLVKG4FrimZkfGiYfGdRBjDo6V0GBcYj_lgZzPtHL8ymgAdsUk-0sgyBeit98=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482507647",
+    "title": "PROGRAM KURSUS PEMANTAPAN KERJASAMA BERPASUKAN DAN SOKONGAN KESIHATAN MENTAL",
+    "url": "https://photos.app.goo.gl/bvWzT1zqHG4T2qADA",
+    "date": "15 December 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOyoFG3hO2maMRf_8693ORratPeIc4nRG5bb20_aiiCIJqHw9Kbc6UdqbnI2mcNkLB3B7_4Uldv4K33qzrorsXZt-2cXAMGKe_5PpdcQsUhHXZs3HScpJLAtk556QozgX3kmZ5W6G7ErVOQKs9DRN2x=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOqts6N2VAifEE-slyYGk6JUvYgAsKcGEKSy55_wP9ha8_LNFga78HH0ZGi5Ux1zlqy04lVwABgYlpBz0_g5egTCF_7K4Lfl6LOGRqRIQqon9UIyGns9USAOqWZUXUZwwlFTwzVsWAZUrJjZOPOSIgb=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOSDRY6h6fVhNAxb3SclXwONY5IIjcszj1HhnY3IICzg2tkPNLVdqrBACVmTyuhXkbuTbeLyAxBKNujw_bEZb4AVaffMyBn4thlyEmx_MgBS2tSnvRRha3qQoTRDRxLIAe3460stl71iYOCYgo1tnnC=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMZgIoo82niXED21t7way79EZ-rbrXL_sGahdkjor2F4mtirMbRGD7xZGkZqDzUkpUrCiAkqzGFcB0UG2Mk4V0rpaprDRCgV1LnP8CwiQR8h6INX2GCWpGGUDLKPnrWgHAUJYb--StihU7aSoC9fNeX=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789481948990",
+    "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI (JPI) KOLEJ KOMUNITI MASJID TANAH TAHUN 2025",
+    "url": "https://photos.app.goo.gl/6hPT67Xk5LUVqJbA8",
+    "date": "23 October 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNXkA3_XjRaIC20UhUSoE_8YBOhQliB_uTTOOk2KXQhAid1fwehZc7Ai3WFvVkjfmL9YhB23EY1NfBzQkLmtNLbOTrGA2dTEJJQUAWL95CBeF45zkcAbpDaalBVg-mhlOxurJWEz01on9qFHqxjg8EE=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczMH1o9tae--lciNEcF4tkSaIg7cN5BamvXw3gMcNWPuPmhmUzLtFVea_vvg24nsM7fnWeUQRmR2DHbbYGsTwzUiiAqvEvZomnw-CCRLUTBU_vinxAXcRIbAi-_fwsvSocLZs9oxcg_RkJ3MryRtpfRc=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO4m3iMAa4ix_HDcR8MWF4PrtNJGBfivC8dvaqUQmh-X-ydH8981DYGzrJ6wPK85K3d4Klb-an5jCH9LyLRVmsx5QeLcQcib-VghkS1oTW0ppqiz6-yDwQMl0ZT0MTj2rw4idgdI01_pbjuFdcOHeli=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOVTVHAaaNGnzM9uCP2BmsvkRHQNqrJNHtDG3t0FacBwWDiSA6khy1v29u_kIN34y_DABWs8-bKDDJ4rdh3mngAksOsj3RPtLlpzV253AeX8fAjaTILthrK3XVVLiqaCxy14T3Cz7B9WLk3g7chU7RG=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789481886620",
+    "title": "SPSH 2025 - CLOSING CEREMONY",
+    "url": "https://photos.app.goo.gl/3tHJNypGkERabqvs6",
+    "date": "2 October 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNSSE8uWU-sxneC8m2ScF42p3EyUjY2Ix7QvBDJf4Tds1Mhgp4QMYNvj7gwDyUpMlMCzsqMvPuP7s2BEH24sjegLufvGw19xmq0KhYtzpc-BckdYGRAJW1y8r3MC2iWrwCO1DSoeG2nncBuEXuPHj0t=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNMuAVhP3A_DFmXK7s5EMFEDiOCseA3D6IQi4XgqqiM2UfFCTeuKbth-VH_43HRtV3GDHlyDnfye5swgpoZlah5i-jXIlTfQXorqyXa9-_7wyCZ4waMjGiJ6WckpKke6NwgSZ5NhzFPT-ciOwfvvYCd=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPMLTzyvGXWY-Clp97NuUKkyUK-ga1h0fj0DlCBFQoW2KaE_ONK9cklC7nQRLx8Y5MyKNOzJa2EKO1xBHx76WmX0Ow2sC6dxtm8upNV9rOFPnwPHdvrZi7p-w98p8fladNpmXWKQHK-6VK9Xz0mzmyp=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMym_CNGjno2O-xu6eFfzoGwk3cY2hGSR-5kwdhgNGf88hDenZ5huSKtPQxS7E64nKDZM1uIYhboNMMW_n_NTl1Y6qHFqsgEPC8RCAdZ_eoDWi0Uw11fr20KjDTNItpKxMGWXdzUGqhdpdGqJaLREj6=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789481799833",
+    "title": "SPSH 2025 - COMMITTEE MEETING",
+    "url": "https://photos.app.goo.gl/LL1KZHUruxPcrcta9",
+    "date": "7 May - 25 September 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPHscQ0l8PRtG2fw4w94IbhxKEhJhz8vyQAIPeui9Ab9R5_RZL0_f-mExK27fURx6EAtlJ2DSUlRZymFVqZlQfB_A8x2K_XzkrV9lBxJFz3Ff8U-WVye2pkpbmjcrOlsBjzPQEkh-jqDBSj18A6yeQw=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczP_4d9MkbxczyR7Vcyd5WnCkEmYbs-r8sl1vSVzgCjpYA8CUX31Fe7JjATckUvxvbitXpBeFky9GS3jD0PiopQpVhJd_0E2MEmyKjHQc28eSYR6BnBFLwsRrBX23vB7kZHyGhkVsufQEH64rqDfA_wi=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPJg7AyngVV3Pnup4rE1AoBG4RLJRHisv2kaSpp_T3HPeQ26Cl_nwRKoZlTWGUDzyGoz2oYuir006u7Wuv-XV6XY4Cl54I4y8hdS6o17-Pw0jjS93ykq-vjkQPJXM8BB8YowscTLdDzxbCl7jfuHS_4=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNFuEQKBi7ZqoSMLnIYLn4lTtw97rDF4ouxoWyIooYDkn1OC43Usr4Q3S2YN16p0XKqQuquZAVbX5xFL63L6uH2OEo_BzaDxC6_Q6P6elSARS73sppprlJAU7lcV0qlQVLSYI329BFpBEreD3FMkD88=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789481636020",
+    "title": "ProAlBi 2025",
+    "url": "https://photos.app.goo.gl/QaxafccDYjPgoAAE9",
+    "date": "26 - 28 August 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN-kZhYwBwCldGgXH3bY_kC3rhd6MrYq3pPU31RjS9gXJoAsu81Z7uzYNdmUzOhLVB4-blcIIEB-fk_nfIooRrSnmMiFRVaYg2w06s5pC6sqMjwuxFj4zqFjMnNFV-cFU9tcB1nTiMpNdHIi6cRKAhO=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczMNGLO4MNHW6METntOmU9aTCsFP4JY7Hq-TQDkKIR5NTkV-vthB0jNKp0R-lktDRNftnDFLPw1XTvJXfkw-Q9arLX-6GDOVUlj9w2gO2RuSvcIiA1Pdh_rUa5rrBslPQtaUdmL4b4xKVki5neQWerKc=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO_DMYAdde_q6xVs53VqsgSmbscfSyiEuT2WxDdmQsesSQmOeXGURSMek6CyMHLD-OGvFZkAiP2GJjrNLrn4v3dsA6LbLISUHMEiEAUl7PF7hY_q3mOkW9pv3ynpU-rOgbIN08MIdFsYvfdf-I9FUr6=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOvPwA7bJWrCXLDcVcjZ9pHl4ETfBcef2Im3XLQhnU_88Jdt1Dj69Tty7KMgu6wq_fZZxWZRYxb8FkvOwAa9i4wgD2V8ankeO8H2x1TEivvNnNbTQnd5JmJTHQzZbOksZdUEdBWeLRQgZq3t5Vc_8VR=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789481449695",
+    "title": "PROGRAM PENINGKATAN KEMAHIRAN (PPK) AUTODESK AUTOCAD CERTIFIED USER (ACU) TRAINING",
+    "url": "https://photos.app.goo.gl/SxTSr81N4wi4gicA9",
+    "date": "22 August 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczO7OPudkjIjQ-S6JqwY4y7my6lPOsiWCSAf0qP2mSFrpDTc7Fv_fKJ-vBsWP5onLEcs6Ntf_IuHH_HxTgZR-_nLyHJ5e-LX6rkWHL-ultbMMtNyrKQ_C0_4uDBmB3_mIhuerPtZhzcr-1Q5ZKKxbF8=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOFvr-rt7QT1YSUjhDec697JhAxTxXtvx-l_Ah7q2v_50_9Dule6nmHbQZO5BVjF-WO5lqlZtvfAxhLstOkO9K_wh-xCf--gKqvZm7pDagaNu_x6MuCemDa6hkj6cBfbBjdvXMghjYhKbhKyTJuASk=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNjThIlhu1MF8o6WkivIpezSLLOU_VdMurePD83rrpOAaE_9Qo9pbgc3rFbcEq03aP03MkTFPiUstzdQZNiFq7YjNoJbDo04Aqzdq1_H6ul8xDC1cqtHdLLHzCTEsmOuCaI5u-5b5S9Boz1H_jW0g8=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMd_hvTe5UfKKqIsA9lw1MjECncxIbDJlzUKpvVOl2b8_SqcseWtcE81jwjdmddv5HBMzbDDBLchDCV30RAFxhS-q34lAQV-FtoMR_IBYjK1_4ya62Av8me9NO4Cb3qfb-cpmja5PtL0OkifgJ0JWo=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477998651",
+    "title": "KURSUS APPLICATION OF AI PROMPTING IN OFFICE DI AKADEMI KASTAM DIRAJA MALAYSIA (AKMAL), MELAKA",
+    "url": "https://photos.app.goo.gl/WN24nvihnCond6Bd7",
+    "date": "13 August 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMcwKy2J15yVTdf4LoTv5mTanNVLw-3fshvM9vA0ZtvPsw_VxeRZ_BOqpqzhC3r8sBmy7cM2mzOw1NcwLXVKwh_i0gT0CTpeoZFE6nt2du75W-8jPfcVeekdL-PLkqhBLWqbzYiEMOs5ouSJi4VHEXa=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNGCU-75OZTocg1Yl-lkcZNuZdtR0MB50iaape7Wa0eFyLRvbawTn1nrIA6bkTtcs11JIR_O2EQfwSgKFrQMPa6LEvZfrpgj_wDbTgneVy2QBMFnjiWm3VW129ZryblV0w24ohYr-HBaYOyETxU19AV=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPZuPvDgIi9Yvs14nf9GogEdwqTyS0j3gFhvFM5316c0QtZ34pH-kpM7ihKG75dFGilRlXpPYlNqlyP6LOw-OjoworhRVtQtavV-4A6HhznhnxdbfS6Vz4GniFc1KVGIkNcP6mWTuwJXNVY89W5vzHX=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO2TvuIttdFBu4zJwXZpgYLNPeUZvhSP56exoe4hySe7rocWNFsZxtaLmvk8nrxrVNMIaDtyVD85DkfF8jgP9vK2odAlij1Orh4BVij1QqJTCWjDFjWY4SQsN6fWeC2bpzwHeqYZPE5h2eV3nO-Xtgs=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477928247",
+    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
+    "url": "https://photos.app.goo.gl/4UP82Rihcoy3ob3c8",
+    "date": "3 August 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOCiX2iG5UIml_13ZABJQzh5kM8h-s6HcX6pNycH1UerhWXSX_beR5YoaYUz19uIpmMpk6YznCvXtyCzjVJNCTlLFUlr8ElCZqAliYUKm-gQPAEyZSxZ3XS00z-y6kWug_6S1YV5YK5Rg7gt1dz557k=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczM6lPqGUZ1pCMWW7AZvsdg_qVbag_r7SCeIAOOYz8V-VccuzibJLJ32FSEX53f8oivdei6UWDH89Ev4bFgIgRmKZHZkNuIxvkarUwzoblFs4g2id9JOt6TfPvu2eCXy3h8wYiIXMpDBiOrAckVOXDBW=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMHMKA5Od-ysYvwvnXDUR4SGfmodyRr0hvYtobOxMUnBGc08_riwTXAMWYm3h_GUBi3XxDE2acos70VbW8WfOkSRysySbhZDSnavH1LRJsCCHV7LSIGjUsFLDLpLUy1GioRRMXoGcs9kDf7-TH5kE8G=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMFptCiy2_kM57E2xrnIm0A6qb7zVs71JsqSssWGZ1eiXuj942l-_n3XenpDlbspXBi9qUOHMPJxkWngt2_l5gPugyGvagULVFxZWxWEwQqHHdn6PRT7KUw7pnZgrxMPVHF-dg9erpFU1IS-gRGDslx=w1546-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477867342",
+    "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
+    "url": "https://photos.app.goo.gl/ZG12mU7u2kAPK1Ni7",
+    "date": "2 August 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNlC3IM44MTvXxg96AcSKfxj8SUgofzSsbirp9EOf9CLo286uk3Z1523sT-xN9Z6yWvDsBtOaILQMKSULupB3eDXVAQ4G1RcK2A4Vj1tM6_B8-ZYvJVEjezDSgQeOftH3qISb4PxFIT7BW8CdDBxKjl=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPVzW-b9uKG9f4J33_WPZkKwF27G0iMmtLIQzc8kLGrVa-DconR5-nTApsZXNc0vrKX3jLAaq_JEPbuRs_TSim9zF4b-zbMnIrEPHVi62DC76cwn9Chab2OFMWXXPPkCwe9Rvkl0Jyii1YiJUMRGlX9=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOtVsiyyBNPFKwM1YKKE_gX1EwHEnNrFD5_ex5i5egBqubdyzFP2U5Q1Bsf5EeALmBms87rU6cu_UFDLp3udLcPFe35PZKATqbxU91aUcZ4aewYvlc1HmehcehqCbNt-vIiGhpMf6BFpVzDcElQ1iMG=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO3cAuEOtA5hsah4rAEQ0mwul1THeiFHqGIsZw-BA8oTGwYCWLzc3klI9L_WxqAxv2xod5Q03rKhCCid9WNvjq9v_uC89rslGlI0j-dAcZmahtPK1UmDwSM5fOTamXBrqRGV0U9RTycn-8XKdLUwymc=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477803940",
+    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2025/2026",
+    "url": "https://photos.app.goo.gl/izhot5vAUy773jRX9",
+    "date": "29 July 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMb5Ohm77Oryw8tKIKoe7yFdnyNU4gDmBEtH0dHrfbTjWEt0161hI8scT1XOrX7o4Va_AEHhTcfMC7VPjLDfnmE3Ardo_wod8BNbsj2-g9_9T1Si8U1lbDDR0NCIGaEcLr4VzdvJ_skD50uQyQbO7iT=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPdO745bWnASkEoe2XXy6lFR0ubn4Lw0p-tw4iS5ul8DJyjU-_ZQFB7BtjJDLY6l1uMvLqWN9aFvcwQlLDSP9Pmv7EwNjY6kBD8sY0EzrnU7omMWswrVHHd5zFj4BnaywulAhrlzF4Tu3PRw84ZmRaa=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNgvJQe2T7oeYErTkclPWSYLE5lnCobMjsS5Zu0wdeDJ4jEoWF0RuOq5a7miPoDN1RoaJjxfKjPLtdfZzwqPw2x7RccrkPaUp7XJqzPzeEK_Vsc0iTOojNQ6WXLVLn7aVQyuvwYIBZCXr-gQUbnTHQ0=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMB44qjNJyxvC3GawZ6o-NU4DwijgEvjNVj4L4nKx5v14Y7wBjN2xDVyBZixrGghI4GJrSaYZluXZNmDO2a1yuf7hfkYuxclAKN9_D3U7bK82InsmzCnFMFHvoXfALdk4V-uwSY08jtdYCjJSmdn8fS=w1546-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477484131",
+    "title": "SAMBUTAN HARI RAYA KOLEJ KOMUNITI MASJID TANAH 2025",
+    "url": "https://photos.app.goo.gl/8syBRnYK5UGQMs8U7",
+    "date": "16 April 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNGJd7lTFGsf5W9DH1BcTBL2_MpCiFlYwY-ZPxY3-rrwZRpNGpMxzjsvV45-TYEaek5vll9Lwcq5zhlUIEuv__Z5rQhxl9u8yfeJxOqjlFh7ZnDr7z6kYHpGo8NWlPCj-XbXc_6MD5It8E-H9_u9YXV=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczM_ugefXWLMK_ElZPw3xcco1OnHryQrP1-K61LCBNmxjNSSIRil5MPkN9NI4ifA-fqOTrwM7QmW4AqUGqwmhdF1W3MHjD4WOd1UJnXnj6QMCfti_D9RMSWYZZeg2qRK0DiJgOY-iRrIA1Dz1AHQtLfu=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOP4_xZKYjfQsZBuzZlHPoL63sTft7rOwTjgtJ8iOtl0GRQXbgTXCPyb6WgVzRC49VX4foRH9HCqg4ELj-GguF2u4H-VOwnYyToYbFe0Ppw8ba0My3mrhfEanGdvibqXlIdClfNEJoJthYpjh9wHR4P=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMJEZImxsjw8wTLXT0Mtqm58AkvnMWYdA6rPU2oI6tKEeJeyVtHF0G9Lh-UjfWQLI7yF4oA6Evr3Nn_k5DfzZ4v1Wt7TJ_FZ1r46B5WTtqqsrkEInSuQj2ElDCIbnF9s5usJHdewtMedU7SsPxfv0na=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477717339",
+    "title": "RASSCOMTECH PROJECT SHOWCASE 2025",
+    "url": "https://photos.app.goo.gl/jaSNAuHCkFeR2nDL9",
+    "date": "14 March 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMfH1eIVKh1EaFnXPtOHp31XhoNkwtRfdTFWHIbH_PgXKhYqzFttSbk6FyhZB_VKmqcoew2Bg-ETjIKW2ZDKdTfncozSeYRUQKUopL4Di3gzowNPZdjJtt6C-ozl8SMKgSQv-OrSWdXhIWEomW9cFN-=w1507-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO3wl4T_jC-i_24huHDjza8iR3u5LJnCY87G7tjZwinOWQYRWE0zwqTlVHjpEvfRvyb920KSLtmIb2ikufnRV18Biqoh7TedNGzxgUyCD0p-M6h20scnqqjTyHVEbr8r1Pn5-TKP5rlmgrBD3bRlU-F=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczN1vekmBGJTJxKcYLGxt4n3IK8y7JNEqYavNMCOz-sBBo-I5S0ZNgVAkxLiPVbfXGP3Cs0ME5WiFq5ZIhcharqjt7onIDl1i8C28D8c4VjRj7gD1a_kmXI0ts9nf78opoXDrxbMktMMWNrvSb7gwqoC=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNAfuoJnUKfxQdlvdS9-StMmHVCkoZyKijT9UnBK0Zniwb8hs-3gH10kLJU77zje-7tmJRdGzGbUqk5jWGISnGv-3pWgCtWCZ9cJHgEP4FAFpafQLOvH9P_vR5WE93pmw2yQeNF8_NK5KBSnuSdNUJO=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477636440",
+    "title": "LAWATAN AKADEMIK UNIT STM : IT VENTURE",
+    "url": "https://photos.app.goo.gl/qRqdSBRMVp6mD23r9",
+    "date": "6 March 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpjIIBVx94qiLLUE3rJ7W-nDx3-5patYicKl9xSfW9m42X40G7RpPQQ9XyG7gNfBUyxFLMdfDnZM30NwbMlRuqv_QRjR8-3PCwyeWHYDUWvBRQZWKlMXkF4Bjl5j0O-uAEKr-o_6G69cdh9Rxwh3uz=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNAhK77SImfJEyhtO7f_dskTU6cgu0b5ceSnRLbjOp9zUw3zpzRC_YDavOw-VDNRlAD7dUoRAsqqAxNGRttUD5GjTdGSheBf_X0zmSH5I7oLsXvvJMxgmTA2GWERjPVW5WXFzjSUiJe3wzAHKIlpBms=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPHLF0zpnTbH9kdbe2p_Bj2uRY4OJdDJR4-OywiV_fwa4ahGE5RNV5giYUA50R4qz_32Ym9McjwFIl0uGStvd9PJmRa-jSwzcZlqLtKblBtOrPyrlg9CVPAxB6SamRuqYHTeaWzpKM8xfloWlLPZ0ut=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPIsXpLIrTYOpw28EJRvmJDwKa6-NMJVqhvFM-elJGYonRQUcZecesMXDwDpwGgry1PjAkmTdFxhfLry3a6cRrnOTqy2RocJDaEavOn6ItguaOq5KxDUF42i9KINqJOCGIQ7YEjtvyk5mDkr3f4-LWS=w1546-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477399375",
+    "title": "MAJLIS PENUTUP LANTERA QASEH@KKMT 2025",
+    "url": "https://photos.app.goo.gl/4TR7ZiHZeeFnUdea6",
+    "date": "2 March 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMi6q6fgN3OZ_-06DwMzjFh213UEkpesI3E5utREUi_RH62_q1p9bnl-hsFqFkIIz5mmWBSSHKn0RHJkc7IckpnTBXJaZA2VVavZEWzK97MhsibubO1XIWCZlTlVxq290JKlgAcgtfiOW08ox0Vpgmd=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczMcH6Urb7dpXAGf_Y4nHwEpuujhq1EEVyyDmx2pkvtcCHa3Ind6nwX-f_ysp-SuDKxpcP7ZM-tmR57rAQXQTgkTqhlBXau9XqDjfC5Ica5X9K8GhKdwXmFxlKWWJI3ZuumXUicPCVg_-hLmD-WFtIYD=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMKcnvi5zol1zjy30bJH4K1seHK_1KJ5qsMi4wQo2zsr2ZONFSJpf2jRJ6V3sQVz8zV96OBQjeh2kmGHJXQbFU9jPbxrIUY2ABf8sBwVd6DqsmgPitRlRstwQrKjuW_gwVFvrkkT8im0YLTwBfmd3RS=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMQBlIWmrZ9d4NIKtK0ZB-bCXytX0vWOPvB5TltDy8xCk-MKbUj7qyhXQO1O23sUW11-w2j3BPjmdlYFbdutrgs7h_KjzG_fI7l1wnRsxCr9gJTK1ZSK4vR1ynXnQdc9Frg_i7mLTutmt91iA_PEsNs=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477332586",
+    "title": "AUDIT PENSIJILAN SEMULA MS ISO 9001:2015",
+    "url": "https://photos.app.goo.gl/cRYtduuDRS7R9Mv4A",
+    "date": "27 -28 February 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPbJ4iDTXPrxmlXQ-voSHec-70ukIsHvfZCvw1CB_sv-KnsBMl1pRZuotXIu-XVCTyobJp6RA17g3twaP_J6MrrqbFQNCBVp5CdOzxfClxJX29bQzkUbvbaJ5k6QFQyj-SVQsZyBzr8A7YNIVzJ746v=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNztOZ_9yzHvFMXVJVgCKG1UPMih07TOVnAxoG1zY4gRDKeg3jduVlrWhZ6dq7T8xBqKJQ9T7yidi563VfDUGBTcQgqLonoCXx4isnRt9ye7EltMm9IidhADg7T9HHNrBrEssg6rxj2m-Fv2pqUV7Tm=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMJ1b6HkQqweHjruAaaNuAUmaMCt8UIxr5kdUyLfX9Hq-0echg03fJzIn6FSBnlT7G_m9JFjKpWuItTfgPlibsCQp65PYYb1LRW2uYFXPooqapqiAS6GItWWd7Aws6PQ83XenlYn97IRGijfbKtb7tB=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOb6alpyYOIn3xDZaDjqkz7AnKM0Hf25NnWrQZQyRBzdLaU9YWAx3qJDhMVi0b6R0NuV4Bg_hgtPIBxh4Y2F7Rv-QRW-Gck5kv3vop9ooW1zrOQiXWUft20Et3O4Ln9OfUBlKTJ4DN3s2MSRi1D5BR2=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477258649",
+    "title": "PROGRAM MEMBANGUN SINERGI BUDAYA KEUSAHAWANAN MELALUI BISNES DIGITAL BERSAMA POLITEKNIK NEGERI BENGKALIS, INDONESIA",
+    "url": "https://photos.app.goo.gl/59B2o5s5YG8fvjwo7",
+    "date": "2 February 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOSogdLvDjoCri-AtDXixezFILR-0jwpEwUvzbWMtHymb0qDK86oGa4EQvx3esn54fjQK7P9oTIgsMZLKnMnBWA65CfIy4ab4gaLAdKW91kzdNpCNN11MBBhVSwdzwpbnWOfakBS5JKOEH9rqfm3uYc=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPPtk0-YJ48bXSbVJ2o-e7w3iEnoluX4kYdpbJt0Ek1xBzAfTtdeHnZAmAACZU1iT2G9lAnNtcyjRt-Nzze80U5rW8yW9-RWYkdWsKqyX0jCUfTytZMAyE1DURJnKVWwj4988GJGQcJxYM5zOe0j88z=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNZZaM7u_80fvQaDfaxyogJNFItba617Sv7khWsSxaZpUSCMK_3LlwH6MW53Qu4njQ-jDEpzOe0qipHGijjhxd-zmYUJ1lqgn8daZvO4Jm5OTu9LRV4nJ_oujCAgliJtmArzQi9sjDIAMtXSdEAD51G=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMKw9Tl8G4YnGQvN54BhNoHeKMhdEr9Pr3BIbQeAr40D4h5GR12jWL_q59hFVDW6Z2lwcN4K83V0V8hP-8P31q8PrD7uxVDQNlluyLPXKF_EqytC45zBbx-EVsFTCMtG7G2zLPm5MMG2-PaX2qAZjKs=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477198586",
+    "title": "CSR BERSAMA TADIKA JAIM MELAKA",
+    "url": "https://photos.app.goo.gl/1sP7ZqqAmkJzwnxR8",
+    "date": "14 January 2025",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOAji7tzu1hEOcjhT4ItPjAfe20OBFjHVyyVXS2QYBbiZ85Ah6TIucv26NgQdlQzpc3iCNVTDBAxc1rv1dw2gun_X3OFuRXfeQ2vP8DB54Ai9HaNbpGPhs9ZGQyt4dLlGEA8MMce7W1_vH-pufTV6Ds=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNmMU4JHYoUTPfdcAFJJb0XfKOGr5LujiJJTtcSlLz6UQnJIMi7bnc0NG8YiPU4AzDOgUnjVmlTPT5PIJZ6hqP57aEncn-qPpQu2oIyLW00GsZAt-T454-Pt7iVlZTRYKGcZTgosARun-_76RFJbuzS=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNoha3onRPKCQd1d5A4x_RrKgjKSy7l6PbECiyQ7ZeG4zL8n_bPcuhux68rHEdmlf2LMb0itxaBWzQ3wFWlNu3Ahiu3AgcynbpdCVBqIAbocceKGzCappW_OSUwK83QXzck5CP-veyOTGCc8xXZsUAX=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPe02Z9HXyDGqNAnJCD99nLCOSiPvflzLppGIaimWgktbYgFqGmT9gYDwyMmnm45s-jmhXzAoLXxO-cL6BBJXOZIHVdUhUfCSinAkstRLh-YQ-3LF0UV_UVC_iN6B3wK9w8o_LD6KlXo-5vbhUBmlhz=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477148375",
+    "title": "KURSUS ASAS TENPIN BOWLING STAF KOLEJ KOMUNITI MASJID TANAH 2024",
+    "url": "https://photos.app.goo.gl/mY9UbUoHVXXenXda8",
+    "date": "16 December 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOMq65fVWTfO1WC3_H_57fqWoOmDAFnd_dQzzLGtiYw3t9M7DTJjH8jI74FJcra3ZE50TCtEhnBBReHpZ6sSZt4Gvb67RULKyIN2i8jGL_74jjDJ-EPp-eiok2EqgGO2asvo9HWuVvabdq0ku-a6P9K=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPbXarsNIYdWIhpNCQ1K3KYAanP81th6NQt2NUfCoO1Dk2IJwA-jlbEYVpaTWrNMqjWqOl-LArBu_QWCiFWJU8NQYSsoniz5Taht75RdlpzwwnGbftRMlNFY-8XCsdCtq-ZO0v9wARJAm0wTIBD7fGj=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPHuLU0JtL1x8uQp06NdHzQ_BNJSi3VP9DNjwSL6WLMLpxhZ3uv1WirvoQ_5nyDQfngpFvhwExgVLkWbzcx7MMOrRiaUkA1RhBnArfc-0jyvnpdcaSYJITlMThbDR3R7PDFuaMnYkFb0FqJAd2Ka_Wg=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPn1eEcglKMmTf38FECP8TXLj-Ky_6OQBCOTBC923Ie_YOL9FchsJlJCQrnrqarK5FiBRlMmQrIh1Hr43TMz7O5Z_RMHRkAi6Cugqyk4r8mEgKPJ2URMHF_R-8XrMJimL1L48nq-K_7BH_35dqEqa-7=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789477025271",
+    "title": "MAJLIS APRESIASI & AKADEMIA KOLEJ KOMUNITI MASJID TANAH 2024",
+    "url": "https://photos.app.goo.gl/RF8Vu29SfLGNNi998",
+    "date": "5 December 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0eiP7ugrKCK-Y1z-NNEg5rVaoIT0uUez1tJgYmR2QII7peCv0Grkj9Z6lXKsn7Y9d8UwUN7XESq623z1bn_Hta7r0I8eZTgxSXJADW6xogFUCbWr0_n2BdhZAzcd3fcv9AMGsr_9eRTc3hwqMvk7v=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNlJ8E77_fRhtjJa4mai3fy0-dcycilajD58mpbXyo6kaSuC-oVGyTJKdNyk-QqxNZqKUrL29Tr4CZb7E9JDEkR884g07oCHyUFu-qxT2pVIz8AKL-MHv909SCU3BFxivONoYDaEgSIcmLGtq33dmPI=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO_1sTiB9JUltyH-F8xKTl2mTJ_L0igh0h8DCz6IaWkgHP4xF_ymVM00rP1KyOb2JYrkTv4P-1txUDlPH_F8HQtws-_gG2lGjXG5lPFymVoTiOB7HnQLPLSQNZCmCgKOJCLxOY1T2_L9dL7WyuKCO0V=w1546-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMiOzL8BFT4Plq0EIOgzItDwtbqutP65NGflC00ckRdqsqWdJzyR0oMq1UeHCb1B0Osk_Wk4qI-cXFi1akODyUre1GzadJnOk0hjYx9eaym20x0aSYc0ItsB0hUtWaNZvKsO5ohj5gDmpfR_MuSNgPr=w1546-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789476965352",
+    "title": "MAJLIS PRA GRADUASI UNIT SIJIL TEKNOLOGI MAKLUMAT 2024",
+    "url": "https://photos.app.goo.gl/XoUy9fczCiMKaavk8",
+    "date": "29 November 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPIiHZReZnpxrRUaZsqG93ZPsHXCNFfaDewO1a3JvlSG49XY_oCqysH_iGZ_11y5rqXYgCWGignydds2P3QpgqNEMr5gz3fSfZ1V94tIajksxPVIG6NzoOTEVwQT1Wmq5f6ZEDXVmqT2PKcHPm6x_zS=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczOY3kwHrUMcrdorSBMj0mLGsrzwWBoP63VlOjNyMb4pc2qx29hTG2YOIORG9_rQhDaRnLdZWWBuCbDHgnU7yGRSYBdgczqE9OpJ_nckFby79YpZEgt8cnfFPJKypjOZj4D96-FzGr9rJJMBb5KIS7AB=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNhbFwAc113OHr0c5LwVfLbZdxThObA3ugR8iK1KNcFcHllgkfbQt8_Wp5s1LspTSkv5zKQwdQ5kKGq8Toa9-VblqJufnev4rLdZPXUw5HRdkBomf0jRpcrDKZoGBDkEYwlOSuBM3eNIpis0Wf3ZBps=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPHaQBuu2-8fDEyzWgrkinCzCfLJjaQhWY4CJcLthjXSOvvYS_2vqp77Tby_nyegaCHk0euWoSzHO_hmSU4PnJqkstwfJvY7AHQfS4fNV8jSdsn_qFeAnpNf9spFYk-zJDYeqeCPol-LKGCmyVLCmxe=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789476891118",
+    "title": "RASSCOMTECH PROJECT SHOWCASE 2024",
+    "url": "https://photos.app.goo.gl/cxcMm68zo9weeyFR9",
+    "date": "20 November 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNCYiUqPLpdQtzqX2McGFQDZYBiQrpQJV2ZnSst5vEDw8MqS5d92iZFyFOMZidOXyXZsd8f499vDUWjuQSbTVCegj5xBE3N8lRIA1A056TEHUF_ECjxeTR421fffdiv3I0rbDl5dDXCl05qzc2nBTyN=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPAHjJfU1fZdn4_d1CJJ6Xa7UblX5FbAQZoJROnok58wgNHU7Y9SY26CTSSyx-gADuOpvAQbvEJhBouNEm-NJiOIj8j6dIrt-uZt8YDuQsQ9Z-RsstZ5MGr8CO2LEPc-e_gyUYYaxVwufBUO9M19ohN=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPVVQ8fm0_2-CobZht5PAcjskzUmy80GjTrZmRzyck00KVqiumAA0fTWZvSZ5tZPM316mQmJbwiVta1RGEGS4_6CLbPTwKFVRbeyxZTbDtAupsMTS0pBr83Fj6_uakCNsd5I8aj7BJG_2WR_bmOfdjh=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczP9z9fpgT9jOMKWWvT2M1JEOM_ZotGza8yO_58YBuQHz8aSDvWpG5gC7TZVN2VwFDwLC4Z0dvQGikm4HnZ8H2djkjPrkc-z7BKiL0UBPRJkVjoVvuyfB56HKBAyNLHaUJxoE6TxzeRu2eiWH4HMq5y_=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789473852989",
+    "title": "PERASMIAN PENUTUP KURSUS URUTAN POSTNATAL & PENJAGAAN IBU BERPANTANG",
+    "url": "https://photos.app.goo.gl/wPMFCYJeoBiPxxo29",
+    "date": "7 November 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOER20VPDRXUegbRYJYghbVcFtT7xhbFlYVv2QKrZ2hJNUhDm838gipPMlfuRrRvcK4FV8Nb5MVmxVsFje4Xs_SbyKUBH1NwDA1YrFDV-Pj4a_Y88YUGaJuIH35DY_eq2fPkNUNNC4ojAdesO7CblT1=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczORZ6-Fin721p7AySs6QJtJSQpqXb-jmIJEB3rR7VQK8O6M9N_k8RIxQBeqnNtXFgjo6rKhui5G5rwsD8mFSOGCp_Zhk2QsN_ppmYW7XwXzF1a2pMFitOkVUG3D6xymNxU0CcA4AjF4533mqnlG0g7x=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczM0uxjnyVf8EOYsJHMhRfO-LNIRfOgo1TMdhsdo35I9bzoX8w7ZrhNUcu2JaCoCcIpeVyaZonX_-XGnOF7-Q7GNfQexFgbvDST6duukYZz1smz9z7g6cubi01rdsAhduYYeJjdpUTT9g7O0VWW_LQHg=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMBF_3trC6vNup8CxJ0_mNJghAB3I7pCWBjtkZ-pYN5pq7mKMOSNEdsXMQ7ZHqFLS7fR0GaKG69DYzHGKVcLmik8aVsLO-B5HSDHQ1URHqdZ4mCOsbqmOQ94iGdtsvbr-T5aQcgTrpDN4TvheJgsOYv=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789473763199",
+    "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI KOLEJ KOMUNITI MASJID TANAH 2024",
+    "url": "https://photos.app.goo.gl/WVX1fmhNizrbQwsy6",
+    "date": "10 October 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN7Qlsma1rZlvgxLwSgByrU8-2D7KsMebTG4N1cpZb36Wx7MMCLCwcKJpB2DVwTX6_pnPbkSkIwRmB2iuVqmweRgzJFDEhJ9jYYWuWY9gVf3or8t3QyghHUQiExNiU-MbArqvIHTW9EXr0HtsdPD6hA=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNL5ubF1IDf6PASPVctUmIOVu62x2Qy368N95H3odO3iyBgcYiCiJHVAu7zpgJ0Xewp_PsOiKZFhOxy3RAj9zv3XTr3-KOPJ0DnOapdhAScBjAO5GCWPBm4Zt1hz3_v7rrdIOwdKXiCqxkrncYiYTbT=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMmLrtQeUJIT6T-KhQlp8mrYhcNYpKCaM_RkW8kCaHKmDr0Xb7-eHtgfDqiggTkOFUlsIlAL50y9B0khZdKcYgros7GG3CWyH-shSsn8X9MQ9PnpnvVGvAnMrFcALlY83R5Zz352uUvrLmINuMHquWC=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPFWQscsVBKfS2BqAu_r3FE7L0ziTblMMvHH_3HttW83Scn3gG7dMRbwR9DWUB5ECjglw2ffkBTzFklREmd28wYMDKdEiAm1cRGBePUCUlN8nu6fR2JhtAhZvr8NzAVzsbopc_ys-JR5XgQ5AbXgqmA=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789473653547",
+    "title": "KURSUS KEPIMPINAN & PERASMIAN COLLABORATIVE CLASSROOM",
+    "url": "https://photos.app.goo.gl/phWMs5hpLKf1g8Rv7",
+    "date": "30 September 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpao7Gij7Zg9yehxxwSM1zPLFYS0DOntX6yPcnx4K450wrN11mOUcDG9Tr7deN7_c2DgAUCxFeqQ0s4C0X5h3A-k9XG3Gx_xPeibrKAiV3o1ppWihmIFobAuFuORvI89bY_T0nn3dAq2QgHp04PTAq=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO3--g1f1DOaUj49tkHPul81u2Y86dHy241PUMhnluoxo5CUgNU0R9UUzH4bAAJwlGNUR32vTfDORMjLGKGmcZxdl5h4QbSPR2pRCqOC7FN20bglwJiSKT77ae8uFVjJ1zFYPsJZ3NFL8hGYA7lFqmV=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczNWptLLEXTIYbBbioT6H9aUW5d5yO9TN10bC-N2wEwMdUuAtNY0j3y5-hFLS4it370Q2PlY609xx-iILIODXuqjjfRNLmH1VwwMc9D42cthLumB-4kS1zXfVg9wyTm3bMb52ffQo3uiTo-LQCrDzXd2=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMPAGSGB3wDkRjmnXgOLZG_juwFEJEB-5-ynhQmSuBzqJJIXl-nje8NZ9ZIbhkkqKDlIb68sVsOsYncc7kclXRTSQIp23Hxm4G4N174jtAVILxMYL8D2vU4WbIlceVUMpf7fAipQZ9c6vrDyuYf6u-M=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_usr_3",
+    "title": "PERHIMPUNAN PELAJAR & MAJLIS PENYAMPAIAN ANUGERAH PENGARAH KOLEJ KOMUNITI MASJID TANAH 2024",
+    "url": "https://photos.app.goo.gl/hULcYXf96hjTyqLSA",
+    "date": "27 September 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNY7pd9yiWF7FhZSRUsssqDcmyfyFljmy6ivMYhlFIz791_vSj6oe_faZQ3WYDnOz4l2xxdWTXTQCxCO6KtDrxQvz-tBqYHVogcb-jL23MMl4_tRnpgL5CdR48RhuFCgeWe-5YfXMK0rJROXGGgylyt=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczP_BLnLbcXvjQI7MDj8KS0igHDTk4bpU4CVk1oRarN8Gudt0NoeJqwNtqoKzAAA3IjqwwkYaLuuP6EIUN_BW1U-wVv6bKftsbBpONYGqzX2YsE1WvXqrJvRXTVjbqjbiqMjTFCKa2FtqRAPfYwhSJgO=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPqcrIiKbottniAp9Ev478P0qEKgUbFBkKWPAULsmEhEnzR8GJm7WOSjG5V5B0q6SZoUCSCE_tpqhovkTIcmfYrUk-E6wTYex4wdpaVEPWzJj_DtqQZMqt6dSwRt0QhV4utWgYzsScGNBvv-g9KOPQQ=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOKLyLnPF1i6613ETkl5_HPAJjI4fzmHy7bctwMVLmABwzQMG353J-x0zR6b0QHMWHHthdskSP4wTO41vEiBQVFMPzxIFWD0GIDiVOhUPP3m_DzCk9dIPxqj5oVAdtT-3KzXC3MOSR0a3idDKAMGWzf=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_usr_1",
+    "title": "LAWATAN PENANDA ARAS KOLEJ KOMUNITI KEMAMAN KE KOLEJ KOMUNITI MASJID TANAH",
+    "url": "https://photos.app.goo.gl/sfCav5466URuYixDA",
+    "date": "25 September 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpyDadrLWnrMGT74UDpFjAxrGcR0CQSnJAW-AWGiqoi65owQfTt6nvSpM2Qq0kz0S360ZmKyUj785plfCteNT8cvJNBLpeLU3BvsaLlpM90RHrjVmthmeO5PCgVoZsu0dsWvIRq04WhY2W2ywg6LQ7=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO5dfDvqmrMEnthoxSmmg4TPNu4E07fsl768SXPMt_273WBPPzNbGL1NDwO5YVmkv3HKwrGF0qCUEEhNrfcEtbsjZX57u67oMR2JrczR7WDyCRS2TDlnXGJ-lnwu-_ezTtDYL2uvA33t0ZYRzsT1DVz=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPmBdlM76x_RSrtV1r03ZSR50AwvLPxRaPJbsaSaLp_cGZuRqKiFkv9VX4wMOLNVcWlnhbIO6Gj02sGvPZfDs5YNwof-rh6ZvVP4NXLHxk8fLgPR-B69WBbx_XdvO2-FWP5k7rcvIZ34WuD903Zdox2=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczN8pA7qRt54L9UkDpyLGve_GpfU53YW3JIEch07dJcuSGIWpQ9A7-iZ1M-sIZC_pGWwipzKSbRs-UN8__iwRk_0onWtnKjWn85kSbrhc1t8bSJJYkhPdWCjWPQ3Ud7C3fcCdZ7tFCGRAxPbOZNLkRKh=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_usr_2",
+    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2024",
+    "url": "https://photos.app.goo.gl/Tc8F32DMe4coSMFB9",
+    "date": "19 August 2024",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNc9c91-dF77o7mO_mCYQanU1WGOBMBoVXpGVaio_J1iYhexPCs7ofSGXUdT5CHGCzjL86wbM-CF7s4o3H_P6I1Xf3j4ckxU5BxIl7C7VDHhWlEvSihEth4vxmh7p30n2tw_ugVEgNh6DP5z3yM5QWN=w1547-h1031-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczO-_GOhupT2V7RuILFcOWOMZtbZOsHePJXMbldVNsl6y-EHJeWHiyCYYx4rEcumvh5cezszFntkC5LAmCwzw4r0Bu-9FEzgL3Pq5AihXYBvp91zVQONYmxXSbHPKhAOudUKl91EVuCT1XghvJ_rPuTG=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPhQ9fAZ-qPlny5saz4XjRhrgvdV8ZNwwtmoKQoVtVcSdULLhELAYRHvyOGfKW1mNwguHrEnsd38UTKO2nxps6_so80utmnvplugKIF-9X8cPU1lRw5wjb9017h050z9Z9Ng-uNCyXBU27Js0_GEkP_=w1547-h1031-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczN6Abd92Q6T47cQD7JzJIShHywv-W-vSS-iLebHC3WFZRCG7Zy_TqyEmh6aCr5LtJ8b9n2csZaqyC3eh4KgaTQzvC6kKuhe2yer2VtDgDU6Ds6yNu_4rxU1LXBSBkH04nykcvJ94qMn2fxw3Xxs8zAu=w1547-h1031-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789482124528",
+    "title": "KARNIVAL PSH@TVET BERSAMA KOMUNITI 2023",
+    "url": "https://photos.app.goo.gl/6GT8hsnYzruitdoz7",
+    "date": "23 June 2023",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0niw9SlZXN7rhaIejnKIwi3nHWYgFegX2Zs1IcMH76T8KxsnIqnD8mllN2GlysFHpzSa4ab7kk5JH7W5iJ-S8fEsP07Wy-EAgSX2C7RI4TAVXaA4x_B7X6Os3YgNj9oZQ82UDcHrrEOcdksuMHD0S=w1418-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNAeGSWX1lc1MhznZKQiG8KVfDbcGH6uZIJRmaIUUbYehRbBtl5_fo6yWgGJhlgu8qGCcGr0HB6dGcgHLeSHwn9WAm7Zg9pvQzX_SkV7eUDbyi7tATLfBCsPdCk3i5P3fHjTQwjcutrwyq9sHmDN7SI=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczOt5UUXHThu1r-Asg9fKzpohgyDQR7ZkYMroUDcDE5JYHSHN7R-ZeKvghBd_nf116lCm7-FP62zG9KoYlhvOsZuO89P8pMvyc8esCc4dnOa21I6_JjZC7VyqHUHdxtGtvw0SNbgPqVREAtNuaXN28g6=w1418-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMLa0keSOaEKl8a9ip7tcGdjMEv7foT39awpzKpj6bmQugdVvGhUguTm2mUwS4BNbxzLYWtexrUehr99TnIdFVtkf_agXsmo29ae6bT96uwCVqKVMxHVn_tMn8kZnzJiat0ZJkH5QH2ldhTpm_T-KPD=w1418-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483377577",
+    "title": "OFFICIAL CORPORATE PHOTO KKMT",
+    "url": "https://photos.app.goo.gl/x1FWnAFXp7XtFQnUA",
+    "date": "",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcKbbfqacFcIOzSrtfS0QanBg-UZhFC-0d8f0RH_p7qhMiTKLY5uDupcx-SGLKr0jOqFjDGOSiHYSEua_tnBTr4ntoABJ4_K5yzlIZyRHicTp_WojJ-NPaC4vDq3gDR8PwWE31_YIAPQhDiRRM7lHh=w630-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczNfj_q3C6FLtZPAP4mWUazXE51A9NOMQWkj0KcmOoc9ZNR6GY3ez3EiBsCAZfQdIHzU-qVh8f1huABj416pQ8sYzZC8bMB1WRde3ckRBs8aKqgH4QUGUTr6phIP0MQ7ikZSzCXjF4WN8vRT9lj0K8lQ=w630-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczO9ThQ7dvCsG3qzi6nujfX94KwP5cviC5t3MBD5E_lXpUhH8I7Y502uuYyuekQAooDB2PtPpL76l8jTFlMINvYy-equYy8nuIIG-kKixziN2i7f0jjs6_IH8K_jH9FplJRzqxQsGaMtutfcweUbrZvB=w630-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPBU_npQyPFKGr4a9w_7kVVytQAWE8OKYYFWnMSQMDMBVg61A8jrHgCtUnWlsy6-H0tKtMKgRqc38cIeLG-bqO0zP97-PaVSzEtK4kt0NZgM7AgN9CSjjgLQHoaLnl2kB5lPNdIyOYsRwB-rwPHLn1Y=w630-h945-s-no-gm?authuser=0"
+    ]
+  },
+  {
+    "id": "alb_1789483230797",
+    "title": "OFFICIAL PASSPORT PHOTO KKMT",
+    "url": "https://photos.app.goo.gl/fv9RqjpB4iTjqxX88",
+    "date": "",
+    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMJ6C9iD9CuvcKARf142RNnXEewbV2QYLMwajIL3g2HU3O9TQ1A-rniGM0oxIwW42KKZWlcxw8rZeRF2AeUMNQY8GCSm4LW_9PJyjHT2aBVTnea_r4SJJp4AOtZ08-6XWuT9cqd313IpzPtF5MzVQbq=w735-h945-s-no-gm?authuser=0",
+    "favorite": false,
+    "previewPhotos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczPMhcz_A8XIqsSFUw8H95J0oYgdtp7kwO8hWCrIKvCVzdprPybo0qmmkGPDBSvqLVAmQx2ChvfCQkNQiCa4Vrf1fH3RuwcXmR425pQvJiC_SgGqne4zV4P7nF87vE_Ej4yKnlPKZ4xz8Rh0Vijha2wz=w735-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczON9uAD4KZNI6QacflKXJ3PqqUaj9ynsZCKjbmRIfVEoBZ_2wNPDCgcO2m_yM-TUcgI1KsUNIVGpe7xhgT7bGwQSe3fYg6mg_oPofK_orNCoq0tfh7KvzlFf_PcvzCz1BwNv4TqNIfG26WDyPmzJdlz=w735-h945-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczPaK5ATlkJr8fTL7D9QuOWanEOrB0bMap_MawZopsEThHJMRxWOqUOXtFJKvdkHWtAT9FTHJpBSjXo5YC1a92emCaRGr4KAHv_N_Vqzvi8HpFztsnOPqjlpUp6DSbMIrcbhtjPtUFTai7KQ2SO9HZRh=w735-h945-s-no-gm?authuser=0"
+    ]
+  }
+];
+
+        let albums = [...SAMPLE_ALBUMS];
+        let isOwner = false;
+        let viewMode = 'grid';
+        let searchQuery = '';
+        let draggedIndex = null;
+        const hoverTimers = {};
+
+        function initApp() {
+            try {
+                localStorage.removeItem('kkmt_google_photos_albums_v2');
+                localStorage.removeItem('kkmt_album_fingerprint');
+            } catch (e) {}
+
+            albums = [...SAMPLE_ALBUMS];
+            renderAlbums();
+            updateStats();
+        }
+
+        function handleSearch(val) {
+            searchQuery = val.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            if (clearBtn) {
+                if (searchQuery.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+            }
+            renderAlbums();
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('searchInput');
+            if (input) input.value = '';
+            searchQuery = '';
+            const clearBtn = document.getElementById('clearSearchBtn');
+            if (clearBtn) clearBtn.classList.add('hidden');
+            renderAlbums();
+        }
+
+        function updateStats(filteredCount = null) {
+            const count = filteredCount !== null && searchQuery !== '' ? filteredCount : albums.length;
+            const el = document.getElementById('statTotalAlbums');
+            if (el) el.textContent = count;
+        }
+
+        function setViewMode(mode) {
+            viewMode = mode;
+            const btnGrid = document.getElementById('btnViewGrid');
+            const btnList = document.getElementById('btnViewList');
+            const container = document.getElementById('albumContainer');
+
+            if (mode === 'grid') {
+                btnGrid.className = "px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 bg-white text-slate-900 shadow-sm";
+                btnList.className = "px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900";
+                container.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full";
+            } else {
+                btnList.className = "px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 bg-white text-slate-900 shadow-sm";
+                btnGrid.className = "px-3 py-1 text-xs font-medium rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900";
+                container.className = "flex flex-col gap-4 w-full";
+            }
+            renderAlbums();
+        }
+
+        function getAlbumSlideImages(album) {
+            const list = [album.cover];
+            if (Array.isArray(album.previewPhotos)) {
+                album.previewPhotos.forEach(p => {
+                    if (p && p.trim() !== '' && !list.includes(p.trim())) {
+                        list.push(p.trim());
+                    }
+                });
+            }
+            return list;
+        }
+
+        function handleCardMouseEnter(cardId, album) {
+            const slides = getAlbumSlideImages(album);
+            if (slides.length <= 1) return;
+
+            const imgEl = document.getElementById(`img_${cardId}`);
+            if (!imgEl) return;
+
+            let currentIdx = 0;
+            if (hoverTimers[cardId]) clearInterval(hoverTimers[cardId]);
+
+            hoverTimers[cardId] = setInterval(() => {
+                currentIdx = (currentIdx + 1) % slides.length;
+                imgEl.src = slides[currentIdx];
+            }, 1400);
+        }
+
+        function handleCardMouseLeave(cardId, album) {
+            if (hoverTimers[cardId]) {
+                clearInterval(hoverTimers[cardId]);
+                delete hoverTimers[cardId];
+            }
+            const imgEl = document.getElementById(`img_${cardId}`);
+            if (imgEl) {
+                imgEl.src = album.cover;
+            }
+        }
+
+        function renderAlbums() {
+            const container = document.getElementById('albumContainer');
+            const emptyState = document.getElementById('emptyState');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            const filtered = albums.filter(album => {
+                if (!searchQuery) return true;
+                const titleMatch = (album.title || '').toLowerCase().includes(searchQuery);
+                const dateMatch = (album.date || '').toLowerCase().includes(searchQuery);
+                return titleMatch || dateMatch;
+            });
+
+            updateStats(filtered.length);
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            filtered.forEach((album) => {
+                const realIndex = albums.findIndex(a => a.id === album.id);
+                const card = viewMode === 'grid' 
+                    ? createGridCard(album, realIndex) 
+                    : createListCard(album, realIndex);
+                container.appendChild(card);
+            });
+        }
+
+        function createGridCard(album, index) {
+            const div = document.createElement('div');
+            const cardId = `grid_${album.id}_${index}`;
+            div.className = "group bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative";
+
+            if (isOwner) {
+                div.setAttribute('draggable', 'true');
+                div.ondragstart = (e) => handleDragStart(e, index);
+                div.ondragover = (e) => handleDragOver(e);
+                div.ondrop = (e) => handleDrop(e, index);
+                div.ondragenter = () => div.classList.add('card-drag-over');
+                div.ondragleave = () => div.classList.remove('card-drag-over');
+                div.ondragend = () => handleDragEnd();
+            }
+
+            let ownerReorderBar = '';
+            if (isOwner) {
+                ownerReorderBar = `
+                    <div class="bg-slate-100/95 border-b border-slate-200 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-slate-600">
+                        <span class="flex items-center gap-1 cursor-grab">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+                            #${index + 1}
+                        </span>
+                        <div class="flex items-center gap-1">
+                            <button onclick="moveAlbum(${index}, -1)" title="Move earlier" class="w-5 h-5 rounded hover:bg-slate-200 flex items-center justify-center font-bold">◀</button>
+                            <button onclick="moveAlbum(${index}, 1)" title="Move later" class="w-5 h-5 rounded hover:bg-slate-200 flex items-center justify-center font-bold">▶</button>
+                            <button onclick="openAlbumModal(albums[${index}])" title="Edit album" class="text-blue-600 hover:text-blue-800 ml-1 font-semibold">Edit</button>
+                            <button onclick="deleteAlbum('${album.id}')" title="Delete album" class="text-rose-600 hover:text-rose-800 ml-1 font-semibold">✕</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            div.innerHTML = `
+                ${ownerReorderBar}
+                
+                <!-- Image Header with Hover Transition -->
+                <div class="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer" onclick="openAlbumUrl('${album.url}')">
+                    <img id="img_${cardId}" src="${album.cover}" alt="${album.title}" 
+                         class="card-photo-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Google+Photos'">
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+                    <div>
+                        <h2 class="text-sm font-bold text-slate-800 leading-snug break-words" title="${album.title}">
+                            ${album.title}
+                        </h2>
+                        ${album.date ? `<p class="mt-1 text-xs text-slate-500 font-medium">${album.date}</p>` : ''}
+                    </div>
+
+                    <!-- Action Buttons Row -->
+                    <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+                        <button onclick="openAlbumUrl('${album.url}')" 
+                                class="flex-1 py-2.5 px-3 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition duration-150">
+                            <span>Open</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+
+                        <button onclick="copyAlbumLink('${album.url}')" title="Copy shareable link"
+                                class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                        </button>
+
+                        <button onclick="showQrCode('${album.url}', '${encodeURIComponent(album.title)}')" title="Scan QR Code"
+                                class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            div.addEventListener('mouseenter', () => handleCardMouseEnter(cardId, album));
+            div.addEventListener('mouseleave', () => handleCardMouseLeave(cardId, album));
+
+            return div;
+        }
+
+        function createListCard(album, index) {
+            const div = document.createElement('div');
+            const cardId = `list_${album.id}_${index}`;
+            div.className = "group bg-white rounded-2xl border border-slate-200/90 p-3 sm:p-4 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4";
+
+            if (isOwner) {
+                div.setAttribute('draggable', 'true');
+                div.ondragstart = (e) => handleDragStart(e, index);
+                div.ondragover = (e) => handleDragOver(e);
+                div.ondrop = (e) => handleDrop(e, index);
+                div.ondragenter = () => div.classList.add('card-drag-over');
+                div.ondragleave = () => div.classList.remove('card-drag-over');
+                div.ondragend = () => handleDragEnd();
+            }
+
+            let ownerControlsHtml = '';
+            if (isOwner) {
+                ownerControlsHtml = `
+                    <div class="flex items-center gap-1 text-[11px] shrink-0 border-r border-slate-200 pr-2 mr-1">
+                        <button onclick="moveAlbum(${index}, -1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 font-bold">▲</button>
+                        <button onclick="moveAlbum(${index}, 1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 font-bold">▼</button>
+                        <button onclick="openAlbumModal(albums[${index}])" class="text-blue-600 px-1 font-semibold">Edit</button>
+                        <button onclick="deleteAlbum('${album.id}')" class="text-rose-600 px-1 font-semibold">✕</button>
+                    </div>
+                `;
+            }
+
+            div.innerHTML = `
+                <div class="flex items-center gap-3.5 min-w-0 flex-1">
+                    ${ownerControlsHtml}
+
+                    <div class="relative w-20 sm:w-28 h-16 sm:h-20 rounded-xl overflow-hidden bg-slate-100 shrink-0 cursor-pointer" onclick="openAlbumUrl('${album.url}')">
+                        <img id="img_${cardId}" src="${album.cover}" alt="${album.title}" 
+                             class="card-photo-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/200x200/e2e8f0/64748b?text=Photo'">
+                    </div>
+
+                    <div class="min-w-0 flex-1">
+                        <h2 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug break-words" title="${album.title}">
+                            ${album.title}
+                        </h2>
+                        ${album.date ? `<span class="inline-block mt-1 text-[11px] text-slate-500 font-medium">${album.date}</span>` : ''}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100 justify-end">
+                    <button onclick="openAlbumUrl('${album.url}')" 
+                            class="px-4 py-2 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition">
+                        <span>Open</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+
+                    <button onclick="copyAlbumLink('${album.url}')" title="Copy shareable link"
+                            class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                    </button>
+
+                    <button onclick="showQrCode('${album.url}', '${encodeURIComponent(album.title)}')" title="Scan QR Code"
+                            class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                    </button>
+                </div>
+            `;
+
+            div.addEventListener('mouseenter', () => handleCardMouseEnter(cardId, album));
+            div.addEventListener('mouseleave', () => handleCardMouseLeave(cardId, album));
+
+            return div;
+        }
+
+        function openAlbumUrl(url) {
+            if (url) window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyAlbumLink(url) {
+            const temp = document.createElement('input');
+            temp.value = url;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('Google Photos link copied to clipboard!');
+        }
+
+        let activeQrUrl = '';
+
+        function shareHub() {
+            const currentUrl = window.location.href.split('#')[0];
+            const temp = document.createElement('input');
+            temp.value = currentUrl;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('Hub link copied! Share this with anyone.');
+        }
+
+        function showQrCode(url, encodedTitle) {
+            const title = decodeURIComponent(encodedTitle);
+            activeQrUrl = url;
+            document.getElementById('qrModalTitle').textContent = title;
+            const container = document.getElementById('qrcode');
+            container.innerHTML = '';
+            
+            new QRCode(container, {
+                text: url,
+                width: 170,
+                height: 170,
+                colorDark : "#0f172a",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            document.getElementById('qrModal').classList.remove('hidden');
+        }
+
+        function copyCurrentQrLink() {
+            if (!activeQrUrl) return;
+            const temp = document.createElement('input');
+            temp.value = activeQrUrl;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('Link copied to clipboard!');
+        }
+
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+        }
+
+        function toggleOwnerMode() {
+            const btn = document.getElementById('btnToggleOwner');
+            if (isOwner) {
+                isOwner = false;
+                document.getElementById('ownerControls').classList.add('hidden');
+                if (btn) {
+                    btn.className = "w-9 h-9 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition shadow-sm";
+                    btn.title = "Owner Login";
+                }
+                showToast('Switched to Visitor Mode');
+                renderAlbums();
+            } else {
+                document.getElementById('pinInput').value = '';
+                document.getElementById('pinModal').classList.remove('hidden');
+                setTimeout(() => document.getElementById('pinInput').focus(), 100);
+            }
+        }
+
+        function closePinModal() {
+            document.getElementById('pinModal').classList.add('hidden');
+        }
+
+        function handlePinSubmit(e) {
+            e.preventDefault();
+            const pin = document.getElementById('pinInput').value.trim();
+            if (pin === '1324' || pin === '1234') {
+                isOwner = true;
+                closePinModal();
+                document.getElementById('ownerControls').classList.remove('hidden');
+                const btn = document.getElementById('btnToggleOwner');
+                if (btn) {
+                    btn.className = "w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 hover:bg-emerald-100 flex items-center justify-center transition shadow-sm";
+                    btn.title = "Lock Hub";
+                }
+                showToast('Owner mode unlocked!');
+                renderAlbums();
+            } else {
+                showToast('Incorrect PIN. Please try again.');
+                document.getElementById('pinInput').value = '';
+            }
+        }
+
+        function handleDragStart(e, index) {
+            draggedIndex = index;
+            e.dataTransfer.effectAllowed = 'move';
+            e.target.classList.add('card-drag-active');
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+
+        function handleDrop(e, targetIndex) {
+            if (e.stopPropagation) e.stopPropagation();
+            if (draggedIndex !== null && draggedIndex !== targetIndex) {
+                const moved = albums.splice(draggedIndex, 1)[0];
+                albums.splice(targetIndex, 0, moved);
+                renderAlbums();
+                showToast('Album reordered!');
+            }
+            return false;
+        }
+
+        function handleDragEnd() {
+            document.querySelectorAll('.card-drag-active').forEach(el => el.classList.remove('card-drag-active'));
+            document.querySelectorAll('.card-drag-over').forEach(el => el.classList.remove('card-drag-over'));
+            draggedIndex = null;
+        }
+
+        function moveAlbum(index, direction) {
+            const target = index + direction;
+            if (target < 0 || target >= albums.length) return;
+            const moved = albums.splice(index, 1)[0];
+            albums.splice(target, 0, moved);
+            renderAlbums();
+            showToast('Album position updated!');
+        }
+
+        function sortAlbumsByDate() {
+            albums.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+            renderAlbums();
+            showToast('Albums sorted by date!');
+        }
+
+        function openAlbumModal(album = null) {
+            const modal = document.getElementById('albumModal');
+            const titleEl = document.getElementById('modalTitle');
+            const editId = document.getElementById('editAlbumId');
+            const form = document.getElementById('albumForm');
+
+            if (album) {
+                titleEl.textContent = 'Edit Google Photos Album';
+                editId.value = album.id;
+                document.getElementById('albumTitleInput').value = album.title || '';
+                document.getElementById('albumUrlInput').value = album.url || '';
+                document.getElementById('albumDateInput').value = album.date || '';
+                document.getElementById('albumCoverInput').value = album.cover || '';
+                
+                const extraSlides = Array.isArray(album.previewPhotos) ? album.previewPhotos : [];
+                document.getElementById('albumSlide1Input').value = extraSlides[0] || '';
+                document.getElementById('albumSlide2Input').value = extraSlides[1] || '';
+                document.getElementById('albumSlide3Input').value = extraSlides[2] || '';
+
+                updateCoverPreview(album.cover || '');
+            } else {
+                titleEl.textContent = 'Add Google Photos Album';
+                editId.value = '';
+                form.reset();
+                document.getElementById('albumSlide1Input').value = '';
+                document.getElementById('albumSlide2Input').value = '';
+                document.getElementById('albumSlide3Input').value = '';
+                updateCoverPreview('');
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeAlbumModal() {
+            document.getElementById('albumModal').classList.add('hidden');
+        }
+
+        function updateCoverPreview(src) {
+            const previewImg = document.getElementById('coverImagePreview');
+            const placeholder = document.getElementById('coverPlaceholder');
+            if (src && src.trim() !== '') {
+                previewImg.src = src.trim();
+                previewImg.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+                previewImg.onerror = function() {
+                    previewImg.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                };
+            } else {
+                previewImg.src = '';
+                previewImg.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            }
+        }
+
+        function handleCoverFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const dataUrl = evt.target.result;
+                document.getElementById('albumCoverInput').value = dataUrl;
+                updateCoverPreview(dataUrl);
+                showToast('Cover photo loaded from device!');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveAlbum(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editAlbumId').value;
+            const title = document.getElementById('albumTitleInput').value.trim();
+            const url = document.getElementById('albumUrlInput').value.trim();
+            const date = document.getElementById('albumDateInput').value.trim();
+            let cover = document.getElementById('albumCoverInput').value.trim();
+
+            const slide1 = document.getElementById('albumSlide1Input').value.trim();
+            const slide2 = document.getElementById('albumSlide2Input').value.trim();
+            const slide3 = document.getElementById('albumSlide3Input').value.trim();
+
+            const previewPhotos = [slide1, slide2, slide3]
+                .filter(s => s && s.length > 0 && s !== cover);
+
+            if (!cover) {
+                cover = 'https://placehold.co/600x400/e2e8f0/64748b?text=Google+Photos';
+            }
+
+            if (editId) {
+                const index = albums.findIndex(a => a.id === editId);
+                if (index !== -1) {
+                    albums[index] = {
+                        ...albums[index],
+                        title,
+                        url,
+                        date,
+                        cover,
+                        previewPhotos: previewPhotos.length > 0 ? previewPhotos : undefined
+                    };
+                    showToast('Album updated with slides!');
+                }
+            } else {
+                const newAlbum = {
+                    id: 'alb_' + Date.now(),
+                    title,
+                    url,
+                    date,
+                    cover,
+                    previewPhotos: previewPhotos.length > 0 ? previewPhotos : undefined,
+                    favorite: false
+                };
+                albums.unshift(newAlbum);
+                showToast('New album added!');
+            }
+
+            closeAlbumModal();
+            renderAlbums();
+            updateStats();
+        }
+
+        function deleteAlbum(id) {
+            const idx = albums.findIndex(a => a.id === id);
+            if (idx === -1) return;
+            albums.splice(idx, 1);
+            renderAlbums();
+            updateStats();
+            showToast('Album removed.');
+        }
+
+        function openExportModal() {
+            const modal = document.getElementById('exportModal');
+            const area = document.getElementById('exportCodeArea');
+            if (!modal || !area) return;
+
+            const codeSnippet = 'const SAMPLE_ALBUMS = ' + JSON.stringify(albums, null, 2) + ';';
+            area.value = codeSnippet;
+            modal.classList.remove('hidden');
+        }
+
+        function closeExportModal() {
+            const modal = document.getElementById('exportModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function copyExportCode() {
+            const area = document.getElementById('exportCodeArea');
+            if (!area) return;
+            area.select();
+            document.execCommand('copy');
+            showToast('GitHub code copied to clipboard!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            if (!toast || !toastMsg) return;
+
+            toastMsg.textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-20');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-20');
+            }, 3000);
+        }
+
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+</body>
+</html>
