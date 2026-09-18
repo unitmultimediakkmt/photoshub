@@ -192,11 +192,27 @@
         </div>
     </main>
 
+    <!-- Footer with Visitor Counter Badge -->
     <footer class="mt-auto border-t border-slate-200 bg-white py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="max-w-7xl mx-auto px-4 text-center flex flex-col items-center gap-2">
             <p class="text-xs text-slate-500 font-medium">
                 Kolej Komuniti Masjid Tanah Photos Album Hub • Direct Access Portal • Created by Hafizs Abdullah
             </p>
+            <p class="text-xs text-slate-400 font-normal">
+                © Unit Multimedia, Kolej Komuniti Masjid Tanah
+            </p>
+
+            <!-- Total Page Visitor Counter -->
+            <div class="inline-flex items-center gap-2 pt-1">
+                <a href="https://hits.sh/" target="_blank" rel="noopener noreferrer" title="Total Page Visitors" 
+                   class="inline-flex items-center rounded overflow-hidden shadow-sm hover:opacity-90 transition">
+                    <img id="visitorCounterBadge" 
+                         src="https://hits.sh/kkmt-photos-hub.github.io.svg?view=total&style=flat-square&label=Total%20Page%20Visitor&color=2563eb&labelColor=0f172a" 
+                         alt="Total Page Visitor" 
+                         class="h-[20px] select-none block"
+                         onerror="this.style.display='none'">
+                </a>
+            </div>
         </div>
     </footer>
 
@@ -1040,6 +1056,20 @@
             albums = [...SAMPLE_ALBUMS];
             renderAlbums();
             updateStats();
+            initVisitorCounter();
+        }
+
+        function initVisitorCounter() {
+            const badge = document.getElementById('visitorCounterBadge');
+            if (!badge) return;
+            try {
+                let siteIdentifier = 'kkmt-photos-hub.github.io';
+                if (window.location.hostname && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+                    siteIdentifier = window.location.hostname + (cleanPath ? cleanPath : '');
+                }
+                badge.src = `https://hits.sh/${siteIdentifier}.svg?view=total&style=flat-square&label=Total%20Page%20Visitor&color=2563eb&labelColor=0f172a`;
+            } catch (err) {}
         }
 
         function handleSearch(val) {
@@ -1121,7 +1151,7 @@
                     if (curTrack) {
                         curTrack.style.transition = 'none';
                         curTrack.style.transform = 'translateX(0%)';
-                        void curTrack.offsetWidth; // Force CSS reflow
+                        void curTrack.offsetWidth;
                     }
                     state.idx = 0;
                     state.isResetting = false;
@@ -1153,7 +1183,6 @@
                 const slides = getAlbumSlideImages(album);
                 if (slides.length <= 1) return;
 
-                // Stagger transition intervals so albums cycle smoothly without all shifting together
                 const delay = 1800 + (idx % 6) * 500;
                 const intervalDuration = 3800 + (idx % 4) * 400;
 
@@ -1220,7 +1249,6 @@
                 container.appendChild(card);
             });
 
-            // Start automatic background slideshow
             startAutoSlides();
         }
 
