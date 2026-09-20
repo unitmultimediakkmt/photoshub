@@ -95,8 +95,8 @@
                         <span class="hidden sm:inline">Sort Date</span>
                     </button>
 
-                    <!-- Private Owner Visitor Counter (Beside Sort Date button) -->
-                    <div class="text-xs font-semibold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-1 select-none" title="Total Page Visitors (Visible Only to Owner)">
+                    <!-- Private Owner Visitor Counter (Clean text format beside Sort Date) -->
+                    <div class="text-xs font-semibold text-slate-600 px-2 py-1.5 flex items-center gap-1 select-none" title="Total Page Visitors (Visible Only to Owner)">
                         Visitors : <span id="statTotalVisitors" class="text-blue-700 font-bold">--</span>
                     </div>
 
@@ -133,7 +133,6 @@
         
         <!-- Search and View Switcher Header -->
         <section class="flex flex-col items-center gap-4 w-full">
-            <!-- Instruction Description Centered Above Search Bar -->
             <p class="text-xs sm:text-sm text-slate-500 text-center font-normal px-4 max-w-2xl leading-relaxed">
                 Tap any album to open and download full-resolution photos directly in Google Photos.
             </p>
@@ -201,7 +200,7 @@
         </div>
     </main>
 
-    <!-- Clean Footer (Visitor counter removed from public view) -->
+    <!-- Clean Footer -->
     <footer class="mt-auto border-t border-slate-200 bg-white py-6">
         <div class="max-w-7xl mx-auto px-4 text-center flex flex-col items-center gap-2">
             <p class="text-xs text-slate-500 font-medium">
@@ -226,32 +225,26 @@
             <form id="albumForm" onsubmit="saveAlbum(event)" class="p-6 space-y-4">
                 <input type="hidden" id="editAlbumId" value="">
 
-                <!-- Album Title -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-800 mb-1">Album Title *</label>
                     <input type="text" id="albumTitleInput" required placeholder="e.g. MAJLIS KONVOKESYEN 2026"
                            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
-                <!-- Google Photos Share URL -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-800 mb-1">Google Photos Album Link *</label>
                     <input type="url" id="albumUrlInput" required placeholder="https://photos.app.goo.gl/..."
                            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
-                <!-- Date or Year -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-800 mb-1">Date or Year</label>
                     <input type="text" id="albumDateInput" placeholder="e.g. 14 September 2026 or 2026"
                            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
-                <!-- Main Cover Photo Input & Upload -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-800 mb-1">Main Cover Photo Link</label>
-                    
-                    <!-- Cover Image Thumbnail Preview Box -->
                     <div class="mb-2 relative w-full h-28 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center">
                         <img id="coverImagePreview" src="" alt="Cover preview" class="w-full h-full object-cover hidden">
                         <div id="coverPlaceholder" class="text-slate-400 text-xs flex flex-col items-center gap-1">
@@ -274,7 +267,6 @@
                     </div>
                 </div>
 
-                <!-- 3 Separate Columns for Slide Photos -->
                 <div class="pt-3 border-t border-slate-100">
                     <label class="block text-xs font-semibold text-slate-800 mb-0.5">
                         Hover Slideshow Photos <span class="font-normal text-slate-400">(Optional, 3 photos)</span>
@@ -282,7 +274,6 @@
                     <p class="text-[11px] text-slate-400 mb-3">Paste links to photos from this album to smoothly cycle through when hovering:</p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <!-- Column 1 -->
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
                                 <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">1</span>
@@ -292,7 +283,6 @@
                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
 
-                        <!-- Column 2 -->
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
                                 <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">2</span>
@@ -302,7 +292,6 @@
                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
 
-                        <!-- Column 3 -->
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1 flex items-center gap-1">
                                 <span class="w-4 h-4 rounded-full bg-blue-100 text-blue-700 text-[10px] flex items-center justify-center font-bold">3</span>
@@ -314,7 +303,6 @@
                     </div>
                 </div>
 
-                <!-- Form Action Buttons -->
                 <div class="flex items-center justify-end gap-2 pt-4 border-t border-slate-100">
                     <button type="button" onclick="closeAlbumModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
                         Cancel
@@ -422,709 +410,709 @@
 
     <script>
         const SAMPLE_ALBUMS = [
-  {
-    "id": "alb_1789484022625",
-    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 19",
-    "url": "https://photos.app.goo.gl/geA97raEnuXboqQf6",
-    "date": "14 September 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcboBGJ3HMrlBwBcoxKCD7EhM14P82VYH0VRCH_8ONsKdI1DqOVgoLmSbWJ-kUAYoWmVJQoHXyVNlLDOWDH0_hYRkZ-1wLRxDpzzwjAIrs153ZFd7adBIWetRTBbtUchFacLHCEPNBiL7vhw73pPoq=w1679-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOg1h2780c7dhaDe_CpF9YlJAPa14IhCPHdKCfuHCMzxs1r4efQckHy_ypKh3gTOjEgWMYt95m_AZ3CMfI9nD9EE0eq1_PhkVhbQVbU_rJ8jGvbyv0lQ4huCBFjEt6bb8_5_0OW6BydvJYOf45eC0i0=w1679-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMheAN2OwDbat_tB8zhGjtcXeRP8WcspOG_teYpPqs5JkZqRv9jdQ0DQAExf0AHz-Ke0AQukEwP4IDbOuWdPtfReVIdP15FZUCuHNwnDZSH7-HB5cHssdwcHwjImYfgR8Xsjc4XlKmYQfaIWSa16byz=w1681-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNuquxuDMR1VL8Sbts5cS-E6PGOoxS87Mv5c_yO3lrfyXq7oo6w1IS_YDNHM4q0lzSCUSfSLVaLDt54cAMQJNPAGcIbzGMEepUP4rAJ0IcA_vIspVJB2OjDwfR6f5u0KshUR8x4M5K_sDEoL2R24Bta=w1679-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789483971802",
-    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 18",
-    "url": "https://photos.app.goo.gl/HAqjMbbw2MMHsTy59",
-    "date": "14 September 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP7riBmSw8bnwOf7A6t6JgXMvS9BERmbFuKqslq5KSpEliJjWrp6HKSUSVw8ixQqskdlvY8I8BhqGMjkJFvlOIC6M9RhaX3oXI4oDeXwunoq3-o6TV5ef20-R6oJpfZso-O5UzXp6Jj-FXP10Uzwnvr=w1680-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNp5Eol97VAKycG8Mr3a-pOt0UE59Crt2ruifZioWAtE3Nw6ocAjzxN9WpZG7jXOZGdGJFsujAvJMusqVTduskN9FDyB7O1JAXjqYf9t9OAIx6qrhEF7iIBVBNlGtF-Gv7sBtEncfgLMWzSJCFhi0aE=w1680-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNSbSqeb75wiZoIVlI3Z9RWWF5RMEs4Rt0CzONQzrqRujSjPtSbzgWaicGrQ6fR-ZO92-CkjcKL4Wl_ayzUm5MsQtAO8IVHlVU2GlES9V5TYmDFSAEnxHc2LS2BxwI2RXeMDXfG-IyDnNLjCi6GeRq-=w1680-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOMhndwGpDm2BRYXYVkIbmlod3yXQmXznGStV08W1zbFmCaOm_v1QsolmVtb_q4yG_NgIwzVo2Bz1zJv3LvPBe8tzf83VpCIrhEdtFxuL-YBONWLWmNaCmKzlAqY9NIE6xogFfXSwh6KefaiBN2Xh9c=w1680-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789483923007",
-    "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2026",
-    "url": "https://photos.app.goo.gl/VLwGkgwjm2e7snMk8",
-    "date": "13 September 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPy83HwmGaYxmhIZsLCXUSg5lWX_VcX-SjeSpcy7YNXMR0H4-gRKM8f9RcvBEs_OPwKuQa4dFOs_vkks-vCNRebrt3b2C4JglQajJy9A19e34TbyTUxiNkyQQtQ5JyaiNnWzJcvJWBCHQQAUOp1KyQL=w1681-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPno1WM_QqKo5E1AXPHc5ak-lo-ropHy1yHk3lYj0oqBaP5Yj_x87rzg55GbgzURjWIMiGKcAH4uhH_o0EKkQubmnK0DMWIhJu3vadYBUDNJC46KSoliG5q62cmJzOl3Y9DR4NZ5Saj6HIRdIOohxot=w1679-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOuarrelyJKYMMsUDLU7rKO4-yvpw57YnoZgtwvKt42sHU8n2BQqsCvu8qVPPJT_9iGZLuSaLaT7wetrHnJMI4CtD3A001xHadf6114mBf8rpH7EtFqG4-uEaLPKrZ5sRx-Sgsq6EHkt3w1_e69Ftji=w1679-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMAFxC1868GttdUWNPtZPVu0pG8Ykgc_fjBua18XCPW4PywU0YUihU8SOvQnkkpwsg1IdIgvfXsr1gMybj5xZHyV-ZIMcqvwin8uywvMEjI-Fzy3F9R-eoH3A7v_VoXekLe-_EQCCxpX-yPl7QgaL5p=w1679-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483851813",
-    "title": "BENGKEL PEMBANGUNAN GARIS PANDUAN KAJIAN PROGRAM NEEDS ANALYSIS (PNA) DAN MARKET NEED ANALYSIS (MNA)",
-    "url": "https://photos.app.goo.gl/b8hC3BXpnK74Ew5M7",
-    "date": "9 - 10 September 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP6XL8Mhkt-nlDIKpkh2f_HiktiWempUyM38zv12UE6PcEedS5mCaWKECw36GyqleXH8vxghtEJtBoBqI4D6vRC8DW3jbOMTyq6UEeuyNkwAr1Dgd_a2JigSMPE869T90U1pJgIJGCNeTlPdVSTPQYi=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPAvAbVm35oll_a_XTkz9W9IDJ9_ijIT7RzMvM7GKF37yniqsy0_rf1CGU2rpi8GXkH1YfjcyociKjQM7WLFpRwYnNmObe31KAaaFU9XtdTRif6SqzB2G9sHCcYoLVrauYJVtYM6GPmX-_BUcy2cr85=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPfTkIQyeTXUiq9FxzgWJ78L0wXWZMtG_ul4pLaByF8ecktCqP2KtPW7Wosf2oPsVGbILXX22W8PDuVOL77jqI7nC0dN7apnezlsEJ-T2dVctKe5YMaA4oKLtJOTBN_lUuw7NDrFJpGWDX04D54K9Q8=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMwqKPDi3IFeyGT2qycpIu6A93KSt29vjc366LUJgRKguO08KcTGssOeD7wZEaq3h9VaFY8r3kDNnm4mzN7GtCgpMjvvYBlsItzvnEAtVwaK54mZ1E40lVMh3WLpoTlZpUmYMqFwdsVfC_hD3UdOfKU=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483770546",
-    "title": "KURSUS UPSKILLING PENSYARAH: MOBILE APPLICATION BAGI PROGRAM SIJIL DI BAWAH BIDANG PENGKOMPUTERAN",
-    "url": "https://photos.app.goo.gl/YYHfASpQGzfBxEW67",
-    "date": "14 - 16 July 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPu8IchG671k4nBCgAndgBFMqz5fT1TK5yUVPOrxpAZQK48WTfJBuhNGPec4mVAPcj6h3nyG7SY-j1LJkGgHb-LGe_pBHMLtEwVsD9dzzBounY0aZROCsQj1UPd3xC3zajQscVKBwY0TnTqt7X1wYNb=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczONVfuesme1NsVXdZGXbAq66FZg5kknuAT_xI50xTdsG_W_mMD4v4C7Xb_eGSp94Ex1uMunloosLH1aUFTDooUC9n9nyElTs86TaKj_8USvGSJfHwtY9mkdDuozSv4LfkMNnZ8Hrvvp4IxpYS-WhKeI=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM4xq4WjIAwHZU9tZXInzyBlcGGF70RI1fVvOMubX5YpcUuuvpvc0eHFn6XChJFKZ5vfxHqtMZ6G4BPan0yy-IRClIGwZTq8rTeP12OFTp4568KMxGrozLcXZcNciEoThwgmhOWa-gyv-MPXSL-OD7l=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN_Voi5koVpyxeDdw4D03nwcHD1ZxAqyQaYTDIRrLscDjLwAQBkbQ7Z71NKl2ihzVn6Fi0JxI6bwOquzb4mnTR_WSMfTtxrPLUoDaunAaJzn2Omv2Bn3js7t4bwlynlzkYdCcqj3bDy2qwyudOhMydV=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789478113781",
-    "title": "GOTONG-ROYONG PERDANA EKSA BIL. 2/2026 DAN PROGRAM GOTONG ROYONG MEGA PERANGI AEDES BIL. 1/2026 PERINGKAT KEBANGSAAN",
-    "url": "https://photos.app.goo.gl/Lx9YcXH7zniaqiZo7",
-    "date": "13 July 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczO8y-plT_0uv-N1yQpz-LyjoGgmWJ1ydHW3mk8jnu03U9Q3PAUq6CAS5y6MOoLNvNXDR8fgjWqcPfboFsoL53LTnOVduBK5KpeivkKxRGuIuiVi9kXKM4nwVzFFpxub_JYTxaF963dA6xe_5hT9Grct=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOTzGHxBbcO8QwIRI97n9iUw5F4gUHSqsgaDEYNWldixCi_NC3Ui-zCyKsaDNQNdFw3cxiVVucS7Fm4X-YBGxkk5mu_YmrJRlHkQT-efrxho1eOoeY6MOsge6qkF4tU8RIU30K88n0-DibKuY_bg3-D=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM2c61wcsSXnKWwlu3qw9QBG4Jbpf6SznPgF_spYPWz3QpeaRByCvTi605D7JdPi3Dv8oz-R9_ukAmVV_LwG_Wtrspl0PvX2mLZCeYrbk5uHaYZm2Q5AG5HShbCoICoXZ0NpGyVUMYx2pOG8irxJujS=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPFyUVtgeS_oW4gmg6Atwt5F5eKWqq1BXerd_z89AkQMGnMoNev1pdSjTeyJQoY106Xp3NgoGF7Bv3FqbZn2s6PlW5dm5cZMB4CUBt5ocHRvrU9JrfADnWRSJBWfwZcaek4kQA25GlaR0nV7Y206M0V=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483622233",
-    "title": "LAWATAN SUSULAN PENAZIRAN AKADEMIK (PENA)",
-    "url": "https://photos.app.goo.gl/p1qV5xxnjYwhXuMc8",
-    "date": "9 July 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPgXwXgdEsMLSGvg8PxNN4mRc_KpBAH1kl_dBsbGXESOpHKVbyP1r-vA9K-2qvX8PZhx8H7JNHIE3IJi-7NhfEFEgDJrowZiH6edvBc9afhQ7C8zL81CXFEL2pMwuGSulvnlX6ef3Uatu9tM9XGAYxF=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOt3uo4K_dEqdFnTASRNNQBg4vOciB_kKmiP6unCB0prtVy3CmutcCVnt-cdm51W862PnEhXn_pgQev9ZWJpYJSTZcY0h9_UQQXXiVWK-hQ3DVzJMYaLsnIYIud9532jiLz6PTRztnxyAJEIi1j2HLC=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMD9vvm8fA1b_3fqXKWQWW4N-ALYjsFluKIXNgUXIqAnMrEKzpwScJlY0d1MjYpuZ5hW4sFJwxWX74i_gQnTNv-6RodPUZmBJpzAJ_Zk5zmHdSXAU-XmWBL-EUIO3Keoq16e9nB0Uk_r-CtTj3uhLd_=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMCyFVqRKsse335Ya1emYQtbjCyN5dfY3h5s2ceW9gkjyt3K_HmJfQcRX0MRXvCvX9WvWrdUfb1WXP7XbXwMbGCT-8E-M_CzCrHrY4MXLl0HLVMmcgoH9rQa5Mpy8qUl8uy-_HFelwRnYBKuJ2TgF0k=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483560824",
-    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2026/2027",
-    "url": "https://photos.app.goo.gl/Y7jsDYTNhXE3WKJeA",
-    "date": "23 June 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOrBAbQA8vuj_7m78957qlW3chH_e0pEqHCHWukBKSMrrM40MecsVpw3ec227mqPPK7c3ONaYJ5-kSkObrWo_x59fqwpMcQAHTTYbutsFfOs5oprCW0dRbsjl0mWgJBSbM7U9-ia-aB-RcSNw8PvjPd=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNB_PI5o5GojJ4t0Ddl5as1ZAYNvCGNlAtX8Nwb4J4dToow7VTV8F849p7m47sdzfkS-gBlpX7AG1YoEmXEpJZ_2yGrDo6_t3cwUjesCdwfgEbexqn56VoBefyLLpTadMCOzv3-YP97x_pnhyzdVXDW=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOA3-02vNNeJc1Cxw3TGsuv1D4Iw2rLptisU1CHebBrvEfbyObntdJYwWHWEGh3Ul3Egxlm1BxYI70s4_Lhvkitsc8ZsL3IZwT6cGeAZJz4u1WctbBPPnauX9CkXSKWDg4HCc1W-9ssAtWpnT43-Tqq=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczND90_a-S-O-WXF7cSu5SMwLotcNtS0_mBabyazm8Usu869qjdWrknvE7UyM2w4c4t36lThEtLHJXGBpBA1XqM5gMN1oxZhmrJbN8bpiLEWi3gha6WIps7JPxC9CtvQGpoQeJsnRedzAm2WXHitMhGr=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483503279",
-    "title": "MESYUARAT PENASIHAT PROGRAM SIJIL TEKNOLOGI MAKLUMAT 2026",
-    "url": "https://photos.app.goo.gl/n29j3rxdjnJMKcib9",
-    "date": "10 June 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMT0c_hJTaKAr1rqUQcfiy80bDFtxzac7Xp6XigUOQeCDdtj4H-ycvRIxfDhvY_ntgm1L93lWxBUHS0R9aqdD43aW3TS1rddaSPcjrSGBdQH0BhAIrBcHKBBkhTejkmz4M85yPusF1atTqpZNcwx6HH=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMl7Xhd9JXJtSPfHXa1RMJ_xNKdVniOQOLjqiT9THMfzjT4wNihzxicekBhqcMSfU2g11OzS_2j09Zci3IqJsdNA84iipkyTO_wtIManWtGv8x_XzlCSVS9Q3YQ5FyuPPi-prIZJq1TJDgXxpW6zyNj=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOEKwvWPIAG8Vc_skvga5CKp2y494tV-XgIsT15z5BSses5cqM0PunMRYwrZ0NLxfqyvaO4rg0RZ_5WdduBIxAxbZKyNh--DSK7vIx81YSUIrypAIIZAgMSnrOqNZk9mjgpGYdDGaEj75c8rZRmXstw=w1417-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOKvxCLEjU7EIs7dVvSH5BkZ4pICCurf2p42YMscZyRiJowi6BpeIDhmfzIhx1zSqcSmcxwwjax1jHrQXybtBWt2UqRszQ8ujKUf3C_FJx_m0WHobezrGr8Nc_TcVjpqRwrUTLVNWgc_msPRJECz0vV=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483149823",
-    "title": "RASSCOMTECH PROJECT SHOWCASE 2026",
-    "url": "https://photos.app.goo.gl/8gVQxFh92gBoK3Mq9",
-    "date": "7 May 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPKrKb2oHKos6ImJ92Qj0Tpb6ZPbI2j40KpiukgEWQ_C6KwlIsG1ySbdzzWk_Gbyy33bHYg84bHoO1aZuYONsJvwaqFApXMSuaJqNKKY-SPzTHndmA-VF1iu9hAT3gQebC_yJ0eEknN_6nV1jOllIFW=w1679-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO69JqXc_qiPmFs24_RcOsJdu9Nhbh19t1mRVI7hCXeSU7iiJl94t59nkbfhWKUU872W3__btk1vUmxehV6lt_fOm2tNXtl4sx4gWYe7PgH_xq5SYbBWWc3tISvL7mpNe4qI2oOyeQfjFiJw05PBHm2=w1679-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOFxnDovSM3N3FCo4V3CAk00KqzAku-BBfszvEeCHLvayIPQnCHuY9kduxn0GvB3cpqvk0zg7J8DtIxZcHh126N3oH8bEy6bg7733IBeqWMnWD-82F_hY2PhQ63NqBwIaf9HB3_KRs2_gJIArWEXupH=w1679-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP6ciY5kNxwF1tScyD5mhlz6_LWyGKg7EeGDJVcQnKY9viVm84z9LHNXrR9gY0WCTQtJKcdK4PBoHswp2Z3wo7Ix9P-QTO_QhbXikCIMWonHA6jXVLW_zKz0NcedwRu2sVKnH3gHQrw4fxthtnq-s4a=w1679-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483684609",
-    "title": "PROGRAM UKHWAH PASUKAN SIJIL TEKNOLOGI MAKLUMAT (STM) 2026",
-    "url": "https://photos.app.goo.gl/XgPAqxruCh2DapjN9",
-    "date": "4 - 5 May 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNxqGH_G5WECuxPMI0HYyt6xeQ_vRnh2KWj5M-YrqWdrszrvg2-opzXWg0jbnIPJ8jB-0rLPW4hs61p0aNv25w04KfCNaAUQiFFWGlBu905J4gyfqBSb66Ff3ht2WIaZETW4nxVaeTFHEpxJmMC-hPm=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMmVGCCifuS08egolBkmO6xXSIWVb-iBqAQ1t0EUI51vTLcsF1I_zHqRI4_MInt3woVqhmBlbFlqYHprF0_3qwEQvh-e4uj--TlEvRZyN9GJBZDhIhsrbzUZbqSpp3-2A3yVnJZ9hxWIfdOiwgtldPp=w1417-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM4yVjgV0kLjjNK6bq2-snaPl6YsnfpEmlc6NcknQ5n8MXFIRsjB8HnOD-4xr7xNgzgT7_mPfOwSPIT6FHWnlJhMENCI30eB8HaosRQZTDhGdsRRSldDKITGVKW3U3zaXKWrwiOsJDPoMpruDHAa5no=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMVWK0DkNFq09l_Co3bVRYB-gLuB4WZb8VGRZHRNUHzbeAh9Po44snwRHVFJ1PwN_BQqMFb1ttyEJ2ebGgnrYluk4IqSuCbBYoEoTBYMzOTt09CpChHnWrB-yql5qFsaoP-n8zcUKZnvU1UkyQ2u7Ft=w1417-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482919773",
-    "title": "LANTERA QASEH@KKMT 2026",
-    "url": "https://photos.app.goo.gl/zV9RW3PgeubpMj727",
-    "date": "27 February - 13 May 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN5hn4VxYlFb_HCJtgYVTKBjYLjzEVu0w5YteElHP6v8FTHXW-iJ1nlVtMLsKu0KEAa6GzbbKOjZGgdkHaUayzJTANE-FADWUMo1o4HjUaHtKFtuQSd3Ak7xaV4CX4Mg5l60qqBmdTIXkMjrx5CDY2X=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPEl3ETtUNc3EmEQcW3kweByFhz0eBgQTnqRc64IMrC3c_Y6Os2DQqqX-Wd-rHfHldn1kQLbEkArYkgCr-PCXyd235FmYdgBNj_BLUU3e2WUUMRtFb1dxkZm2CQkqJ5PLTTSkZJYiyrc7dlc33hbr9y=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczODk6rYMHXcJxlG0vflNYzMG_2_YyiI4JwPgcYj5bcIFPMtjbUuQt8tjOe2L3KlDbkGO6y2EIhgQY0R3bY5JhphplcWmYGR5Vxehm651hUPCMOotHBinDNggFOFtYJjM2ceUvXnY2ApWXHPI4aVjjIV=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOgP03FDwKiJUWOCkH5ITVjWuyw3A9QgWb3DJdalHKpn12-b-wKV6piCDh0ecAvQ7SEGAvan_5TfxwztfyZtJYjuOZo0Ysdhr9EC5qMauNvBZUA4SzzCAfRSlYRS7vJoIvdTNo2xjCMeR-XL8R5V-I_=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483050457",
-    "title": "MAJLIS APRESIASI PELAJAR & SAMBUTAN HARI RAYA AIDILFITRI 2026",
-    "url": "https://photos.app.goo.gl/4NJ8rLna3GzKh3KG6",
-    "date": "15 April 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMljD83vSqbKKJ64RYpMwI7MBR5zLf_ju312uQR0W75sBUe-6hCkoGvB31CqTjmydV7-fEoitThgeVo5CA_pRbHTrts-5QG6DQ6dBkJEM9jQQchAFSuQKbp9vl730T1w5u8SRK6iw21_Kuv7IWraZ-I=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczN71bG0_w_c97T8S80AVnIGiPQzC0CC0qiUxL-qUyxReyrSazEXcKaF-LBRttu8UpeAv2lwYfrPK1XH4iMdT-QPjUoSReT0cz_ckg4E7cV6ngaS7_3FDCnD1S88ky3kOgUnskiOtOayAyEmZMnlDSKC=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMkm_H_-mFJiG5bs26n1eX2AOw--5Qo3QyE-XpnQSIxv56m1crhCjv0zYkFCuLT27JGUF5jobKwllo7ydAneZmluM_wXc0-SolaYdnIErIKwRLDfxdUv1HbDYfPlm7md8yIBNhiF7FUezVXTxHP-P2S=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPgNGKmPtulT5mjudRVDOazl8E1yFwxKc1pLSPluFZ6ASymOHwiXqQrdzlpM0SbTsrLhvYymL4CIR6EIjToWH5023gwZQIHDvhfijrEp0_oVwgVB_J8AQ__0RV7sGybm5QYXUI-AuoYvdHlQp7U4CMv=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482814153",
-    "title": "PROGRAM LATIHAN PENGUNGSIAN BANGUNAN (FIRE DRILL) 2026",
-    "url": "https://photos.app.goo.gl/ViEc7PJrbHwxU51AA",
-    "date": "12 February 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMzUvUgD_xmDM4SDASf2SQMAlauKPe6TVK9x5rTIrdwvx-o0zJH88g7tihFSqP0JwEXrEcCNIaYHy5w0q3UtwsdKTvkWekXfsrAXQtvkfloUd9KZSNSfYJvSOe9MSzZSw3YHwr1HQv_fEJI6ojh4sYv=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO-7alwdwciahtRwwfzeeWGWgHkR_o4MWS2_esaV-eedTmNJOvUAm3PxgCWUrKEduae_UegLMcuSjCnpr3lXhKYdKxHlnaaXRxxgrbBAabfYVbKC-LdSnBvr4qqN0dadjn0Ks57m2IkEQZ4UnMo08Rj=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOPKae4IUT6nYZtU8CtldyLiYFM6elIScTwq6Oo6tM5QG8iZFV7OmGRpR_9iFUewpR4vY0Aw2IKJ8x_nOli9fH3XT26guqIVzm3MKA9O9Jv89l4--q89y64jZGH-hmwJ72vNiQ4UgvvJ_DFFBZtBAlW=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMKe5KSK6m-vXtmpg9ITjB9Tz-V4vH6A3Ij6ZO4ph-imm9FgXP01MWZYvuhwTkRyC2bD-ELeSeE_TCRsPSSp8YVZMwH_5gGkP5gfMiQDhm2cn3jVc8GvMrPszsyu7qJsZfqoa97q-3kG0Vcbls0K0wx=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482726722",
-    "title": "PROGRAM DERMA DARAH BLOOD FOR LIFE",
-    "url": "https://photos.app.goo.gl/rgfc1w7zyJirnUHV9",
-    "date": "11 February 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPo2Twlai-DU3YwCEp04b1SmP4ONq-xKkJqo5Jrrtu_ASwz3PAUKxS-4LLs8eqBRR6r4ayLvBRxoaseBljIuVZzroM3UzPDVwTukBsAOY6nhZvy0x6vPm90wrCWqpfn4I_T0QIISKeLP6R_uS7pmlQD=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOOrbZa7wRNEJkOXn6DTT_LLg2MdfVbo8kaihlxwivhcU8D383H70bX56Ls69Iu1ocPHrbtejx0XL8rt8q6tFZbcpgBYliAY3QnZRwA5RzHCIxEi5fnUvxbKy_aA40YERVgyb1WM0RtHyNil3gTaZc7=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM4b_x8Q9nDj26x6rF_sSO_TsktgAaHjy3NCIqhtrTGd7kePXdd0fckRwi3L9pkp6I10pNau29jWh8OkT02EgSmESaqeyxmm-xtkpMYPrHmjGv-xkQ4eUexKz5LlLgoHun7l7fk_pa4Qf6YC0Qy4fFn=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOraLDNDicZJjChvoBJtqEo_CK1o6FTyXoSLg4K8XbMyC14DLMw3EoUIcUxSW9DXdfhl9XcQcp5-Ca1aSW4Kfq550Zg-SUf41WWtJI87cvcf_4-XlsQwAqO3AaP6_4MzHGB76RdtxbJEO7voyyYkhka=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482671751",
-    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI II 2025/2026",
-    "url": "https://photos.app.goo.gl/nvvF19xLsGnmZKjC9",
-    "date": "6 January 2026",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMbu9sT3qJQuaw5ntxyfhzrK2FuiztNUt4L8575vwS2Emi58XFYyQP5m1tFJoCwei2Nw0Y9DDsCYi-b8rrB5ovK9wwby3DbYriIP79PBUS4M4mghR5jzp5TVuT8K93blpWvav_K1IFK6pDi9m8RFwTk=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczP-xvFChXjJenqidBjZ2gtaT2648F8amjXaF6RWwEmqCHnM_8voEiLUfjJv5mlangOkkmulKnTHK6Ic3I2NFzGeJxLLT6X03mMA4JDBF9Eo1H2slazMRGqJmV-oR1uha2fuqfcvp2P96M0UmcIyLJB7=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOmbqWNUuCMujB2_v400vhpnbu8TEi-TIN-liUfpP8MhaaL1LDLyz86ygnMVIEhaQILQ3ws_IB3kLyDm4ir7kPCJPAcVOPmTq7Qq1J5pRH8ZBOZ0HGPa0Goq2PTNVMYqYXNruidNMM-BL8nSjYN2rmc=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczODVJs0blD-raP8ghF1riYml-VgI7S9HU-WY5_qSWn1mpuxebIGkGtAd2XGJTyZ10XoS9vIzXZU4RrGnU0r3ZnQ-Bi79CrvUj8lz5nSwZm9TaRyWx3GSSjCr740CToVXgjuCnDYgKR_kn8sb_Px43fr=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482591972",
-    "title": "BENGKEL PENGURUSAN PADANG DAN UNDANG-UNDANG SUKAN BOLA SEPAK POLYCC MELAKA DAN NEGERI SEMBILAN 2025",
-    "url": "https://photos.app.goo.gl/MX8FZ7RSuN8ja24K6",
-    "date": "18 December 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMe2OuEWAbht1xva01fGr-LT_MDMUL97XqeDZ0xqbFm4dKkb7-teTiEYwUDKuyan3Pkj7QA5T985kGtamvffL9Yk4oG7ZgJD7rb0G_QgDObi9IItVXK9_AfpoMsgIswshpDZTRJ9MNlSr8sQtY6lPoi=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNqqS8dNP28zsfVg1_OdleC67N2O5a0mNHfn9BJR1UF-uyq7o49lld9ZtsMxfg17UvQZdvwG-cTuwoIyYEf3--MToveFKMIOuwlj6qoqm8LF2-Tm3riSGEScX93XrXdZ3paF-UhmBDXmASOkYdOUk9n=w1417-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNEOCw2M_J_2q3MtDOqc-kDnlFCgWEE1SwMlWn2BqkNgQjNEjRIoNEu8CZPLsie1WZpbU4VVMy4_tFiCTJexECw-BKJx6u5KjDABllgexQxMUYORqkaL62xZVMtvWyRGGnmX2HjbGlZNuqyWzezEGnw=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPX8UHUOiAGKqQzaYKh4N-4U-t2-6va_KIFRXn88c5InRp7mQ6kpS-dR8w_QD8oi4nvXgzFxZl1PtLMndWi4bbAmuRVODB90q3DjD_I9sJMLf5-Tp4s8lU7m51h1UgusPABJnTNRqMUC9s6vuBVPvwg=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789877721030",
-    "title": "MESYUARAT KAJIAN SEMULA PENGURUSAN (KSP) 2025",
-    "url": "https://photos.app.goo.gl/JuB7gmmFj2qvfdp19",
-    "date": "10 - 11 December 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMOOwGxSpKaL1-6yinia2dueA39zubn-aqKNPDMO3QmQsquRC1pf4f_ub8jtIK1_eMnuQY9_b9ruiewCWh9jurKaSIuoCDYe-GRBpmhINEBn6i3VdHvIS8YLXFU-_e9XRWU7jPXQKIhMWRCYvVfhV8K=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPchZspcIHvUwS1t-U3FXd-_c3TPkWyMJsRld7WnkvPgiwxkxRzMWzGtzUpU8fzh_lenyk7IMAg2cYutGG_mixrttUCaQIkvmD2TqUGrhMkO4ydOGv8Jm4nAuXtsZpgTdQAw-nvF_aWdNkY8rYDa-u8=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMpqXLOdfJa1GDC8OmqOWeCRxFqulxf_b4eyvymukzPZ-Dr0aAoQWEaKu840b7Ts80qyJjTmiY7J8yPJmx4Q03DOh2-z_V9RN1xMLHxYz2pkRPK85EE-w24JRU8fQ4SAn8CaDO7YWl2ol4gZfM6fOQm=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMeAh3bjt8_noQI3yWOBK76gNtTFbV1iNp3TVamyvOsVfEFNXfBNI-i_QLxJVp4u7InYtNEjw3T78kB5UWHreiZvkRA1Og3pU2MiPO0ob3NBipXhizeLTSERHb9VxUZm3uqoX0HIxsNosJ7LftE8N9N=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789482507647",
-    "title": "PROGRAM KURSUS PEMANTAPAN KERJASAMA BERPASUKAN DAN SOKONGAN KESIHATAN MENTAL",
-    "url": "https://photos.app.goo.gl/bvWzT1zqHG4T2qADA",
-    "date": "15 December 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOyoFG3hO2maMRf_8693ORratPeIc4nRG5bb20_aiiCIJqHw9Kbc6UdqbnI2mcNkLB3B7_4Uldv4K33qzrorsXZt-2cXAMGKe_5PpdcQsUhHXZs3HScpJLAtk556QozgX3kmZ5W6G7ErVOQKs9DRN2x=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOH-sqRKO6glixkhTwnBlKVn_1ZiWZSA5IYhX1yWgsgO4KjSZNp1gh1peq9zAOo47Zxs0_ZvLyZ1yBllVAIAxHpxyj_ssrhmn3zCr7w97RLlunwUD-Y0p2fvIASynM9XKJNJUGg9ZxBMpHvXS-Ax6H_=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPWtwEWsAndm04UAUiv8KMh6LBzMO-fv3URYx4usyNwnW4LAlIWlfWZLDKa2D66nhWSO4C0kRfywRHkO5d85ibUu8rg1H3WSa0T62v5yfhM_ojcmazpxGWv8WzbxufTLCeIuM_VyoRPMYIUwDQ6raFe=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPkxIWS-X926Rhc3NkEndb-NT7KdMnF5-BFhrtCzHFcvUYlnRNKpXi-FjAc9GJoi26d8rhYPhUs1kO_MKrCkNou4Osw3PYKKDbNkqojC2jDQDortU65n351PIithef2CoQw9pjY_-8JFTyKwkVAH4Vs=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789481948990",
-    "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI (JPI) KOLEJ KOMUNITI MASJID TANAH TAHUN 2025",
-    "url": "https://photos.app.goo.gl/6hPT67Xk5LUVqJbA8",
-    "date": "23 October 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNXkA3_XjRaIC20UhUSoE_8YBOhQliB_uTTOOk2KXQhAid1fwehZc7Ai3WFvVkjfmL9YhB23EY1NfBzQkLmtNLbOTrGA2dTEJJQUAWL95CBeF45zkcAbpDaalBVg-mhlOxurJWEz01on9qFHqxjg8EE=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOmdqacn6Gd8CGMu_ZVRWiOZOX_d0Gt8pSDaJ0eP00UWN0c4N1_y2v3LSMP5WRAg5GPTBiiwqHw62FXC4WjOZPwHMdvB1BT0TM4tHbgnfMBXwRRSmuAOOVB4wKb2ipm8TNjXBZJqvuG6gj1_Vk2MEP_=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNIdGAIkfgJkl3TQFydbNiXJIyD1wW01R_HECfBhXhZ75hAOgsRJjqvh9GNsASFEYxwKCstdRdWpUECBSE5NhGu5apNz5eVNiysfQgtBJoJvj1fZaeL3o_VD0FcpI6p80ENUA2QmNGo4LPedPxQLJ1M=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMU1UtKeOeAv0zwysY-i4_c32mUpHmxrByFJnDdSjaSTuk0H-IWXA_9SJ2eX0uayI3SuN0aBLq6yj6Fn-mQ84pNstolhkqLI0hLSlC0Zm52zq2Rsd-VKNVBQwIN8-AfF8BuKgHilH_ZzryAgV7HXWMB=w1417-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789481886620",
-    "title": "SPSH 2025 - CLOSING CEREMONY",
-    "url": "https://photos.app.goo.gl/3tHJNypGkERabqvs6",
-    "date": "2 October 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNSSE8uWU-sxneC8m2ScF42p3EyUjY2Ix7QvBDJf4Tds1Mhgp4QMYNvj7gwDyUpMlMCzsqMvPuP7s2BEH24sjegLufvGw19xmq0KhYtzpc-BckdYGRAJW1y8r3MC2iWrwCO1DSoeG2nncBuEXuPHj0t=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOZtUrXBfBUTZJbdwakrzIkzyOcjaf6-6XMna3dxNderJZkLYgoJYBZLU9zpcNijL_ialwbLQCA_euS-UUnwtQ9S6-oj7qqyaiEXxfYkzC0qf4PfQfBRhiZhcYawgYvy1zNLQFvd5tH92uNAKvjMGNl=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN6mMnvMJUiRYqw_78Tm5aq4IuOPTaxsndgSBlWTsVbhs-ZsO6i0IyI5ZTx4e11XzUSpzxtAWEg_xX2m8XQEAWMUTI--FXIoq9h4rhjgR0AcGmDk-IbvCEEjU4iH9i1Dhh7gedJJ4AZSORiky6ZARoZ=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOlPnIib-l0N6zM40eo7ltmJ72wgDk1-DqkFepvnmN7t7CWY9SFC2kgdnqNbCz8gt5gAOgyPcs_4a0KBhuCRuOG4ggBcWRMU8KtJ6SolnSBGfkx8uA20bYJDKfBqVw39_3JVo5rW6GASB0v8iGiLuzF=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789481799833",
-    "title": "SPSH 2025 - COMMITTEE MEETING",
-    "url": "https://photos.app.goo.gl/LL1KZHUruxPcrcta9",
-    "date": "7 May - 25 September 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPHscQ0l8PRtG2fw4w94IbhxKEhJhz8vyQAIPeui9Ab9R5_RZL0_f-mExK27fURx6EAtlJ2DSUlRZymFVqZlQfB_A8x2K_XzkrV9lBxJFz3Ff8U-WVye2pkpbmjcrOlsBjzPQEkh-jqDBSj18A6yeQw=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO_LCjMa47rTKJ6_f0pfmajAdxgz7CxHo1buP6Xc2Qk5oXbyt2xxRhM6ob7bPM8vfG32gFHYlNVflFRsBI3yVJcVNxKNV62uwKW2dNBG7X9K3SrAJa2Vb8ubHHWQt9rU7dO9BWWIR8Mf3f9UjVOB0dp=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPd0m9IFhEtBX3MxSAg6vL9oSqO17HvjvZ8GZ-qN7y9bNDoJ2Yk2afq1svPQOI5TENeCaB6vqTse_o1Dn8kaIuNejFoA0TiKxTlGSsDaFpm6-wTW16_0_vaGnpI-_d_v27tD_O5NnMAtwK4ETqIUOEB=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP_4d9MkbxczyR7Vcyd5WnCkEmYbs-r8sl1vSVzgCjpYA8CUX31Fe7JjATckUvxvbitXpBeFky9GS3jD0PiopQpVhJd_0E2MEmyKjHQc28eSYR6BnBFLwsRrBX23vB7kZHyGhkVsufQEH64rqDfA_wi=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789481636020",
-    "title": "ProAlBi 2025",
-    "url": "https://photos.app.goo.gl/QaxafccDYjPgoAAE9",
-    "date": "26 - 28 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN-kZhYwBwCldGgXH3bY_kC3rhd6MrYq3pPU31RjS9gXJoAsu81Z7uzYNdmUzOhLVB4-blcIIEB-fk_nfIooRrSnmMiFRVaYg2w06s5pC6sqMjwuxFj4zqFjMnNFV-cFU9tcB1nTiMpNdHIi6cRKAhO=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMbb7ZrqcJjgV7FYqvX4fRk930OCUf0Kg_3GAURUdQJC5UkitzbX7QdNk7QT2b226PNGpGTBZDDCDj6beYsy37InDA5PfzzPcS4wtQDJ2nL7up4DbBF90HE2JJbyLwHCZN1bjMJCGYa8iBXD8JljKaa=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPL8_zVGEgSi4OcNFj5NdJh5YAOF1EcuIZMDIRMk7srch6esDLPklaLqyx3KEcrf-g0a67GOGI2trRL95Cvo8Au1PjmSFkF78sZjkpGuShns6J3FyPWd5zMCEKE7R0Lxn8v_N4jdbKBXduNhfvRs_00=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN_kRYQxr2wkK4syvyLqyD5AMx6FIR20Cxe-4BZUm3Nqsz6PxYDZvnC81JT9w0YH8CIeTMbYx50AXngTCjjDZYoiEF8ueQob6prHQsBIs7H4GXRRitP94q_GvYwCH0M539JKjSDing4Knd21_6fPPTv=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789481449695",
-    "title": "PROGRAM PENINGKATAN KEMAHIRAN (PPK) AUTODESK AUTOCAD CERTIFIED USER (ACU) TRAINING",
-    "url": "https://photos.app.goo.gl/SxTSr81N4wi4gicA9",
-    "date": "22 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczO7OPudkjIjQ-S6JqwY4y7my6lPOsiWCSAf0qP2mSFrpDTc7Fv_fKJ-vBsWP5onLEcs6Ntf_IuHH_HxTgZR-_nLyHJ5e-LX6rkWHL-ultbMMtNyrKQ_C0_4uDBmB3_mIhuerPtZhzcr-1Q5ZKKxbF8=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNplB47dvRPeI65WfQElL4x9RGXe4b4HEa600lQAibUvH1j1T3cUV7fQzYgMNQqgTRBosW4eH80Iitg3lwUpTxwVqCmVDduwTtAW1H4T6_m1wMpGRSZosO5qhUQXcGBdlsrOIN-ckkwqnq98_sKPm4=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNjThIlhu1MF8o6WkivIpezSLLOU_VdMurePD83rrpOAaE_9Qo9pbgc3rFbcEq03aP03MkTFPiUstzdQZNiFq7YjNoJbDo04Aqzdq1_H6ul8xDC1cqtHdLLHzCTEsmOuCaI5u-5b5S9Boz1H_jW0g8=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPfka7Rdz4oImoT7l5mjjVJThdabg-YNzSMG13xN46vn-R-EdHOJXa1wARW6POvn2YodpsCnvmsVc6C8iDKxesWd4-jsIAbopeWqVakc9hVOy8-n5WEONy3EdQ15Yp9mN_g4EzPgyj1TuJ5feyid2c=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477998651",
-    "title": "KURSUS APPLICATION OF AI PROMPTING IN OFFICE DI AKADEMI KASTAM DIRAJA MALAYSIA (AKMAL), MELAKA",
-    "url": "https://photos.app.goo.gl/WN24nvihnCond6Bd7",
-    "date": "13 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMcwKy2J15yVTdf4LoTv5mTanNVLw-3fshvM9vA0ZtvPsw_VxeRZ_BOqpqzhC3r8sBmy7cM2mzOw1NcwLXVKwh_i0gT0CTpeoZFE6nt2du75W-8jPfcVeekdL-PLkqhBLWqbzYiEMOs5ouSJi4VHEXa=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOW0X4pX8Xgfm7lq-C3GQ-U7vToVil6D9myAeerF0BvJtpHnEW5ZwDqC8TdCMWO0esjs94FO45vXYV7iqFHzinPN6yXfcurOefg_GJ71mfGl_aPsrzCY3T55Tu7VDGLZXmkCcxccIe-2DFTZYooq3Lx=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPDD-PHKj0evgRsHnKzJxiZp7SsBzQSzhzEpUSNSmJfcXot-EJavCSE9we4mkRUOgo8bt3-1YBDxt6IFSnI9U8SSsy2PEcDJVoFEJZxdkCpBJ1lD92zSkQ9t_9cT6aTq87fEmEKyLsKC_3zTzG6WXJT=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO2TvuIttdFBu4zJwXZpgYLNPeUZvhSP56exoe4hySe7rocWNFsZxtaLmvk8nrxrVNMIaDtyVD85DkfF8jgP9vK2odAlij1Orh4BVij1QqJTCWjDFjWY4SQsN6fWeC2bpzwHeqYZPE5h2eV3nO-Xtgs=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477928247",
-    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
-    "url": "https://photos.app.goo.gl/4UP82Rihcoy3ob3c8",
-    "date": "3 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOCiX2iG5UIml_13ZABJQzh5kM8h-s6HcX6pNycH1UerhWXSX_beR5YoaYUz19uIpmMpk6YznCvXtyCzjVJNCTlLFUlr8ElCZqAliYUKm-gQPAEyZSxZ3XS00z-y6kWug_6S1YV5YK5Rg7gt1dz557k=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMHMKA5Od-ysYvwvnXDUR4SGfmodyRr0hvYtobOxMUnBGc08_riwTXAMWYm3h_GUBi3XxDE2acos70VbW8WfOkSRysySbhZDSnavH1LRJsCCHV7LSIGjUsFLDLpLUy1GioRRMXoGcs9kDf7-TH5kE8G=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMmRJCulFphtvzptwjetqhKsLuA8Jpv08ej-Gs9HrHnvz8zJjDBu-ohMG1_k0OhtHlpnGoYXzIU63TEaHHm_-35PJ7YNcrALo5MUnqK-lagbY7vxS5jx_wRR-n0hdXl5Mpo1rUJc4yqpw4THrk9WmBT=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNpBtj_Uamt2d_kyMDq3Ed-6rEZK5OtNVz-dljYV1TNmFqF-P0VtLq4hWqFhDvzWX0O5nVnERbgZHyrCOgsPRvkzZtL-WySYbjL2XoOBznku7fYgzyThGKhonp7EMzKTXbjryjVkJ4tIJGP5dayO12r=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477867342",
-    "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
-    "url": "https://photos.app.goo.gl/ZG12mU7u2kAPK1Ni7",
-    "date": "2 August 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMCMZUsykUdbFFJ72aXtzKRz_iVSzC0InE4p_IDZ_xiCnfodAG6Pej_1xsHSbsxOuCguzdMF-ibzoRJf1X0SORqkc4xdv7hGXq4OCsm--TtmdmASEF1oxtNAL4DaEF3Z5Md7W6efC0osrwrmOf_zWyV=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczN7han-Q1tYSHegxeavjpqPmiiWETGMqZhCQOlUMkr6VKCOnbrdkbwAbI5_eLtOXeplwvej477pQW6Xjox_dqlY3TtPOq-8XBloFXU51dhTO_7EBMYI9-Hwk4duOLmz33rLWg_reCnxDoldxTi6H8_W=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNJlOmQRPHr5fTFjLk9-M4TQdD1T5j_8-tl0kLZORxOskuRJ6x559FnejJb0Xw3CjfNhfBJgEar5zIdS0uIFzYF0rPuuzGGTnWPQxtLg3wVeHwHdhggABipTE_0lmYbqRhECte__rtPaJ7_m5cDiDrj=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMKK2AKAPEMNR1H7J9UDJ3npxKNnqT8OGSqj1ctBMEiV2GpvoCIuydbD_GG_a80sP-ZOfZUG0cUAeRj-4cghN-VCfk7HqGrJ3wvcZHgC2K0tl4Xw1LiXf-6BpPsbe4GU56B-1ODjVChkUDDQ8wQgDYG=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477803940",
-    "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2025/2026",
-    "url": "https://photos.app.goo.gl/izhot5vAUy773jRX9",
-    "date": "29 July 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMb5Ohm77Oryw8tKIKoe7yFdnyNU4gDmBEtH0dHrfbTjWEt0161hI8scT1XOrX7o4Va_AEHhTcfMC7VPjLDfnmE3Ardo_wod8BNbsj2-g9_9T1Si8U1lbDDR0NCIGaEcLr4VzdvJ_skD50uQyQbO7iT=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPdO745bWnASkEoe2XXy6lFR0ubn4Lw0p-tw4iS5ul8DJyjU-_ZQFB7BtjJDLY6l1uMvLqWN9aFvcwQlLDSP9Pmv7EwNjY6kBD8sY0EzrnU7omMWswrVHHd5zFj4BnaywulAhrlzF4Tu3PRw84ZmRaa=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNgvJQe2T7oeYErTkclPWSYLE5lnCobMjsS5Zu0wdeDJ4jEoWF0RuOq5a7miPoDN1RoaJjxfKjPLtdfZzwqPw2x7RccrkPaUp7XJqzPzeEK_Vsc0iTOojNQ6WXLVLn7aVQyuvwYIBZCXr-gQUbnTHQ0=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMB44qjNJyxvC3GawZ6o-NU4DwijgEvjNVj4L4nKx5v14Y7wBjN2xDVyBZixrGghI4GJrSaYZluXZNmDO2a1yuf7hfkYuxclAKN9_D3U7bK82InsmzCnFMFHvoXfALdk4V-uwSY08jtdYCjJSmdn8fS=w1546-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789877209637",
-    "title": "KURSUS KEPIMPINAN BERWAWASAN : MEMBINA MASA DEPAN ORGANISASI",
-    "url": "https://photos.app.goo.gl/BkXPREJ8K3tku7km7",
-    "date": "25 June 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNxDCJ0bBJ_z4hLZucGCTSLH8fLy_N_bbdqWg2KGUQSyIBmqTVNcC_DaXeAJLxTcVAnSg3_tFEMqqsOAB0FuQMDWPp48cLhkGodqbCqX_00QEfaRjPWbz6Sixkxa27BIEwazg6N9xTo-XGRT7RRa2Ph=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMymPhO4rEKgCqXoT-xw5WGnNV1wz0mQocrHSm3udvdQEPrtvCqu5zdVqa4Mz6gDMBl_jkrnfXvOpAsESNF4ALEmFdQRm77gfsOPxMDET3wUT0_gOcIsWlqvOQ8KkQR-NtG_Ur2TW_IJMyb3Y5Jw7lA=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP-_4I25JKDsMkJ2iZgP6eVAubHUL5Wufcge2xnBoHOGOP35eQfMYChjrNgCR4gojDAI8B9fLHtwsaDESW3_C945UH9fdFr2TVOxQx-4W8XAVvJ5ORw65nINC0nsB6-_iIXZoH16cKDsEwVEjkCsEmM=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNhOkjRduCKuBmu8XNk6H-3sJfHWaWQtamDGXqDVF2EbFFz7UNKgfAHcTt5wp52vBK4SHQdYzPB4pHlAYTRM-3uWYBmKirq5IPsngEZbz9YG6Vm-vM-8LD4wfdXGvB1zwwrz8xvjq8W6sqqNd4aiX-G=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789878551649",
-    "title": "MOCK AUDIT PROGRAM DIPLOMA TEKNOLOGI SIGNAL DAN KOMUNIKASI REL & SIJIL TEKNOLOGI ELEKTRIK",
-    "url": "https://photos.app.goo.gl/4qEoYxpbVPWUCQMp9",
-    "date": "17 - 18 June 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP1qf5D99KTzP6SrEkwhQLMbPKKZIGwCTlDL-k4mQYdJyeQmvAlta5EZI5FHjeoD8mv-vV7cF7IOy-5s8BzVbEX_N-3M_xOdDgKNtufozqPiwYcGEQq_8BDtKQP92eA0zaezR9HkEQvS1PaeyLMxqtK=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczObsKZPw6Ym4XaOHkU2fScHehkOc7FO4iQO4nV-Nk_OsvUcas1iOUaR5vWzaHRU5oFSVvZriSuwrEKA1u6ba-ujG2L3HN0X3DK92Z_FGhHvapAf1vvIZU-4B7bncuEzoOXobk5_G7_cVT6cLVBxZd-S=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNGP7lX2TaaBHjxZ6wB5FUHp0O8zbcS250W-LDoGLjMdRVCGRYfZFNHmnRQyD9bNxrz53yJsqBq-bD2YrWyU778PvCyfeoWg2bUvJNNECE2cQyJsCL42RQtm6YnEUZ4ElbrogVEI3HMQ-Ulo3ujVCHL=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN7FGJ4D4LY5iVbpUu_lEN9qJGDy5kUUpbI04LTvURvevKsKL2VgcKCvus50xORcYGT3Zj31rIipLf3S5vdc6bXUk2dUwtINy2c0p_H-Je3SKZDMV3Z9I7yQscboW46z0_HgAHx019yPjlz1ehF--l5=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789477484131",
-    "title": "SAMBUTAN HARI RAYA KOLEJ KOMUNITI MASJID TANAH 2025",
-    "url": "https://photos.app.goo.gl/8syBRnYK5UGQMs8U7",
-    "date": "16 April 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNGJd7lTFGsf5W9DH1BcTBL2_MpCiFlYwY-ZPxY3-rrwZRpNGpMxzjsvV45-TYEaek5vll9Lwcq5zhlUIEuv__Z5rQhxl9u8yfeJxOqjlFh7ZnDr7z6kYHpGo8NWlPCj-XbXc_6MD5It8E-H9_u9YXV=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOP4_xZKYjfQsZBuzZlHPoL63sTft7rOwTjgtJ8iOtl0GRQXbgTXCPyb6WgVzRC49VX4foRH9HCqg4ELj-GguF2u4H-VOwnYyToYbFe0Ppw8ba0My3mrhfEanGdvibqXlIdClfNEJoJthYpjh9wHR4P=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMAsAeIby04BovZZhdzADwjWNfCrEweA5N_LnHyoXGTNKB1CPNKbgFxYlP6G-8aHbdYezWdms976YL8fa73s_5AgoHtfguxvAb7HdlTARx7wkAsvK7360RFAk337DJbMLHvY-OXuASRO9lin36zRcN6=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMEiACAs3bHiGBQhvimu54o2t8yNBOmlSNiIpOPhEqSw3oJ4HsqxrSJk4sX5G5u5Uf4TevCFoA2PH62X-XSi1CzK4JR9W2V6_UX6IuTfXrXCpq_kkgno5wUaWkCKIZrRr8gEzGc04LQhOie6fcisv5T=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477717339",
-    "title": "RASSCOMTECH PROJECT SHOWCASE 2025",
-    "url": "https://photos.app.goo.gl/jaSNAuHCkFeR2nDL9",
-    "date": "14 March 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMfH1eIVKh1EaFnXPtOHp31XhoNkwtRfdTFWHIbH_PgXKhYqzFttSbk6FyhZB_VKmqcoew2Bg-ETjIKW2ZDKdTfncozSeYRUQKUopL4Di3gzowNPZdjJtt6C-ozl8SMKgSQv-OrSWdXhIWEomW9cFN-=w1507-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNx94TGbOHoEXl1T2Rq0yO_gZT8DNUgJ8JDtzycvna0nfAfWPxZQ8rDODQMjF_ZFtZ0isV5Fmaqpp4ruCr9xr4g10aHJXQOZSUCbpg_z_q8MQIvIawyWF-s_1u4XpaQZmydhE3kDR75WlWD_sjpnpdG=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN1vekmBGJTJxKcYLGxt4n3IK8y7JNEqYavNMCOz-sBBo-I5S0ZNgVAkxLiPVbfXGP3Cs0ME5WiFq5ZIhcharqjt7onIDl1i8C28D8c4VjRj7gD1a_kmXI0ts9nf78opoXDrxbMktMMWNrvSb7gwqoC=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMirmyLX-fYkpTr-twCB0W3ve9L99P-AyRVlU6IzJfoTx1NFOIH50xmM4QbF-UgWiAlSNWP7xwMW3S8lw8NW9HegPj69jkv9vrclUc8NOwD0fLmLzEOJHKeEC2O0PAK0PLRI06bDj3WRhjge-BthBIY=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477636440",
-    "title": "LAWATAN AKADEMIK UNIT STM : IT VENTURE",
-    "url": "https://photos.app.goo.gl/qRqdSBRMVp6mD23r9",
-    "date": "6 March 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpjIIBVx94qiLLUE3rJ7W-nDx3-5patYicKl9xSfW9m42X40G7RpPQQ9XyG7gNfBUyxFLMdfDnZM30NwbMlRuqv_QRjR8-3PCwyeWHYDUWvBRQZWKlMXkF4Bjl5j0O-uAEKr-o_6G69cdh9Rxwh3uz=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPG4fPoI7DG3ofem6V6EZPps8yHsea2XdSZZK9-RA7CWjUBTTo4p_3_-NOkg54qri-am9WB6X__8DyaQ9Fwl9SCZ2c-vBoLZvSM727mosxR5rLkNepnzE82XNkJoa1ZFFSvuW2YIk8cAwoFPQmf2TkM=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNXC8zbx977hrePM6_jZCxlMG8KbPDhgvmkpWk3bDcJy3tpRoI4RDRS1NAFEyIRfgZgU9BJ-dN44VhMYz4y-rEcIWpu-yDWpfW1No9vFPe4dqv6F0WZnvGOSdHj8LpS5ifjim2u77kbZ6BPTUyfCkGw=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNN-kNd1abfE3jJZYMDBYjDWi0iCU3bEA7Vesr0IqGnFOk5Y6Exllwytuy-B3WU6f6eCd_vb9WzbqkcYBmI3gWwFlhvqlWroDfumTBGFBL3vy5lnJxe31cCDMQ86_UjiIuIdyVABTJtmLS4O0X65c-X=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477399375",
-    "title": "MAJLIS PENUTUP LANTERA QASEH@KKMT 2025",
-    "url": "https://photos.app.goo.gl/4TR7ZiHZeeFnUdea6",
-    "date": "2 March 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMi6q6fgN3OZ_-06DwMzjFh213UEkpesI3E5utREUi_RH62_q1p9bnl-hsFqFkIIz5mmWBSSHKn0RHJkc7IckpnTBXJaZA2VVavZEWzK97MhsibubO1XIWCZlTlVxq290JKlgAcgtfiOW08ox0Vpgmd=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOrd2Io5IGQzTeseewPsq7shCZdHx98lSWAh1DUOH0xXxMmQi269nYkT3OjV5GJjMY7UywRB6bAQDqpvCH5ilj8BMd35jlTcn-mXF7TMj-FKsrCiH0M5p2GieLMveH8FXyqDxdpLBnIriiuyiMA3zQ4=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMcH6Urb7dpXAGf_Y4nHwEpuujhq1EEVyyDmx2pkvtcCHa3Ind6nwX-f_ysp-SuDKxpcP7ZM-tmR57rAQXQTgkTqhlBXau9XqDjfC5Ica5X9K8GhKdwXmFxlKWWJI3ZuumXUicPCVg_-hLmD-WFtIYD=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN2RS7j8TYYrwBQPraNu-Ebas20qTyUkMA8EYz-pPFsns4bxF8fPbFMZiLzlGIqxrj8MG-uWimt2Fiwfa-UWMQp7OfInM8hBa-QXfYccOx3wPxfC-DWHgPnYfUh87O4Um5UigRoO7knqraOWG0wb-G8=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477332586",
-    "title": "AUDIT PENSIJILAN SEMULA MS ISO 9001:2015",
-    "url": "https://photos.app.goo.gl/cRYtduuDRS7R9Mv4A",
-    "date": "27 -28 February 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPbJ4iDTXPrxmlXQ-voSHec-70ukIsHvfZCvw1CB_sv-KnsBMl1pRZuotXIu-XVCTyobJp6RA17g3twaP_J6MrrqbFQNCBVp5CdOzxfClxJX29bQzkUbvbaJ5k6QFQyj-SVQsZyBzr8A7YNIVzJ746v=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczM_OpTUn0mABhJmZq9spCUb2oBHVt4m-aGLEaM6KD5r2sJEAceJZj75er23w1UPblg-u4I3MJcHh2bbA1YCzhQc8UI1gIJsDo2dHxeLf7HJ9G_4UMkB3FrYXdXrhkjDUvp0mjGnFT4b1HAbdt7UFyKd=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMJ1b6HkQqweHjruAaaNuAUmaMCt8UIxr5kdUyLfX9Hq-0echg03fJzIn6FSBnlT7G_m9JFjKpWuItTfgPlibsCQp65PYYb1LRW2uYFXPooqapqiAS6GItWWd7Aws6PQ83XenlYn97IRGijfbKtb7tB=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOb6alpyYOIn3xDZaDjqkz7AnKM0Hf25NnWrQZQyRBzdLaU9YWAx3qJDhMVi0b6R0NuV4Bg_hgtPIBxh4Y2F7Rv-QRW-Gck5kv3vop9ooW1zrOQiXWUft20Et3O4Ln9OfUBlKTJ4DN3s2MSRi1D5BR2=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477258649",
-    "title": "PROGRAM MEMBANGUN SINERGI BUDAYA KEUSAHAWANAN MELALUI BISNES DIGITAL BERSAMA POLITEKNIK NEGERI BENGKALIS, INDONESIA",
-    "url": "https://photos.app.goo.gl/59B2o5s5YG8fvjwo7",
-    "date": "2 February 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOSogdLvDjoCri-AtDXixezFILR-0jwpEwUvzbWMtHymb0qDK86oGa4EQvx3esn54fjQK7P9oTIgsMZLKnMnBWA65CfIy4ab4gaLAdKW91kzdNpCNN11MBBhVSwdzwpbnWOfakBS5JKOEH9rqfm3uYc=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPPtk0-YJ48bXSbVJ2o-e7w3iEnoluX4kYdpbJt0Ek1xBzAfTtdeHnZAmAACZU1iT2G9lAnNtcyjRt-Nzze80U5rW8yW9-RWYkdWsKqyX0jCUfTytZMAyE1DURJnKVWwj4988GJGQcJxYM5zOe0j88z=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOIkPwy2neIHeyKbfNROxlf3p2hfcQVm6aOrKk6JlhWGKJfB1cTAHyphfuGCw4hQIuwNzmNSq0Qp1QcFRno8cTTD0bNzOLcWqauUb1HNMCcdwdTnpyPm1QXPHJmVCGHcietOvaYUdgc8yFJVkdQlTYk=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPnY3ldu8N7_8gmapXOO72zNgAHLvMnH8ED39UK6uGxzhdODM6UXf-MtFUNv2MfxpdxxJtSFYnNnqOVPm024d8npjAlx3xao_2hwFF4ewT8yy_vX9ztVGzqhUr6PCXx1f_OZ59qyPO0EiMeVgU-o8Go=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477198586",
-    "title": "CSR BERSAMA TADIKA JAIM MELAKA",
-    "url": "https://photos.app.goo.gl/1sP7ZqqAmkJzwnxR8",
-    "date": "14 January 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOAji7tzu1hEOcjhT4ItPjAfe20OBFjHVyyVXS2QYBbiZ85Ah6TIucv26NgQdlQzpc3iCNVTDBAxc1rv1dw2gun_X3OFuRXfeQ2vP8DB54Ai9HaNbpGPhs9ZGQyt4dLlGEA8MMce7W1_vH-pufTV6Ds=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNmMU4JHYoUTPfdcAFJJb0XfKOGr5LujiJJTtcSlLz6UQnJIMi7bnc0NG8YiPU4AzDOgUnjVmlTPT5PIJZ6hqP57aEncn-qPpQu2oIyLW00GsZAt-T454-Pt7iVlZTRYKGcZTgosARun-_76RFJbuzS=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPzVtZSK6quMKcVkmzaif6WAWnDEBvbDQQInpBK-4ep62MN9qk-QRG_JLDohRSDm1mob1XRCPXPtgXMQe5KHh4yw0uAvcieS53Eug1Fpt7-07H2Qc_DUgORpNcSvXsrWjSYJeGRb5zbfMctGIbUwUEg=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOnnhkwfsWMSuvhULife-Bm9yGi_7ZQ7Bu1R80BJv0899GrG18hacMl2JOsKvvPQ0N2JZmBeZasGvBgmf3AZPfQIftnnLFofMfNnQU0WQt5BGraYiedGQLOOm38L1izRJpEc9wMewE8PKBVO0deuB-w=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789875841986",
-    "title": "MAJLIS PENUTUP PROGRAM SMART TVET TAHFIZ ABQARI 2.0",
-    "url": "https://photos.app.goo.gl/PpQKPot6Lpfj3DcS9",
-    "date": "8 January 2025",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPdpNQH7H1mxR4OPXwYSyix-FKR5et1JVkPIgqt16YzYsa7CraPwuOJioBJ0WmGinKdScK8I6lJYBCTxma6FyulVge1z2ez3fUzthFqKdGfg4SIVmqOayfSEs6b0Sbu-vK3KqKbaOL3BtRzbRe0Ib6S=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNFdOtlTEE5FkH7ArGf9SrIVbzVluf2UABHHex8SpnxPuvR1_0jrnwvKNuh9aA_iThf0zQ80ppId-Kz6_ySAab5bSNLorfvQiS8kIptC60ubMqJ4E-Pl_VyRzRvZJKVbzETbnCXZn14oWRDJMo8wRNo=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP-7YORflLGgj1Ojd3qM-eLPQ-dbyaRKaCwu0YYV2GqN_Lyru06fVDdTXgKR-CJ6Q5Pb6UABkGSyZHZtfI4x2HyEOZzO9JYEB1dkuhm2QWhCzrOTwNiabdAvpT3TWw9Kk-Fdqfg_qv30rSzDOJRgRpb=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOtDZKPWxfUMH3Md5FgunMJTabeQgPYYkTFh8bZVKKxROo5tzVEPbUVHWxTwhpJR55vcgPqqo8Nj1neof0ughMNWK5PcBvfu5bnUGaQ6WoRYc-608I1Mv_phuD0vLGCd5qyIdGcPMMPof8X_L9Vv7nz=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789477148375",
-    "title": "KURSUS ASAS TENPIN BOWLING STAF KOLEJ KOMUNITI MASJID TANAH 2024",
-    "url": "https://photos.app.goo.gl/mY9UbUoHVXXenXda8",
-    "date": "16 December 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOMq65fVWTfO1WC3_H_57fqWoOmDAFnd_dQzzLGtiYw3t9M7DTJjH8jI74FJcra3ZE50TCtEhnBBReHpZ6sSZt4Gvb67RULKyIN2i8jGL_74jjDJ-EPp-eiok2EqgGO2asvo9HWuVvabdq0ku-a6P9K=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMiV9C068cqStFCaXelVYbeBOlP9Jt1y1r9MGl9gzzTUhq892GoQDY3C5SfiYdrsl4I9qKmbfvipqH_DzTUBiT_Sqk2Al4q5pDL9kTOEvZU531jEIvtfsM138VOMba-RqR9whB2dPwGzi5-OwGtGal0=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPHuLU0JtL1x8uQp06NdHzQ_BNJSi3VP9DNjwSL6WLMLpxhZ3uv1WirvoQ_5nyDQfngpFvhwExgVLkWbzcx7MMOrRiaUkA1RhBnArfc-0jyvnpdcaSYJITlMThbDR3R7PDFuaMnYkFb0FqJAd2Ka_Wg=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMxvIJCGGdo07RhCnt_nB0xf39-fFhCy5ihC7fDfqGK7Hy-bwUAxaouraA-ioGaT5XL79V4mPYARg2t2Nh4JXaWGx0tvnZ4MULaCfkIA0RZMyVlehlhPnl7b404sY7wf1ssKw5RUpjZOhHmP3qjp4fk=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789894511501",
-    "title": "MESYUARAT KAJIAN SEMULA PENGURUSAN (KSP) 2024",
-    "url": "https://photos.app.goo.gl/39w33BXpNzWDRD629",
-    "date": "9 - 11 December 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP3sr1qmpa-O4n85QZtOLfLzoTFFP_c3uf3HIBYwvEzNK6juyZlJyxDwSs41CHqAs8KbEovJB_HV52C7xUWn_kYYNmu0ig7GSmDJySub2gc-sVgnl275REcb5aZ2CgokD_1TTZ-IIt75xPVfEXqa2ja=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNxYsk4qQ0QhNMZVhlbkvE6BiPbGBhF2pbkvPvPZFun4R6IvvlBnY0MaGkUA4c9yBbohFrdJcNJsesa76fzGBziZKyd6qbD5LDxzjawc0oe4n5K9DaGvGJoloJaH_x_rsJnAoSm5_IhL3XZaAPoZRda=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNI9FUfFjmlHlTxwjFgDdzckvnNVPmv1Xx4cOaA6TkgZcKUWctK_ZqYesXI4x7ywgEPNVhlGpRJ3mt4ewMfRYh_PsH5JPBClfsc6DsezUxlYslyiASfuT6dij1TC7ga05lV1pkXpgTIuVJMCk609UPF=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMkF4F1MrcfB65TaTi4nO97sDg28kuDTDGvQsNLCvyx4Kgh-2cG7-VP29w1hXh2dTiyySqLZMq83pjytS0Rgk2cyfQsnimOqbqE_JSPYFkOLGfaAdaLtiCSo6gCQL_ZRwnJ1A0IV6arXxX_mb2V-5Vs=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789477025271",
-    "title": "MAJLIS APRESIASI & AKADEMIA KOLEJ KOMUNITI MASJID TANAH 2024",
-    "url": "https://photos.app.goo.gl/RF8Vu29SfLGNNi998",
-    "date": "5 December 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0eiP7ugrKCK-Y1z-NNEg5rVaoIT0uUez1tJgYmR2QII7peCv0Grkj9Z6lXKsn7Y9d8UwUN7XESq623z1bn_Hta7r0I8eZTgxSXJADW6xogFUCbWr0_n2BdhZAzcd3fcv9AMGsr_9eRTc3hwqMvk7v=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNbO3NR0xE6OuSOz-X4O3fzipdtCs8nx_Z-9JzNO5H9IK38jooSgYtbGfv1BnmVWA8spV8kx9w_02ob_J3VXpm8kCpnOq9WJuUNujERhs1frf908YZTcn7W1Qp2hRELl8hLzzsRfEC-u5sXrXrHt4nc=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM7Lpe1d5TZycZDMe0sBVtKwZyjXib18_9RdrUYV-dQGaBxoST9WB8PVgpPMZh6hYzVi7VQwsMkWmfVtt5gnNS0oL1G9Alp3icint0WHbJ8lAmJIKyy_IJGO9n8EoUh9fEcmePO_UY1uzoDs40YP2v6=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczP4LecfQMmVZWkquvWjraAn3EbV-1Z_c1N6QZ4JCzG2-RgYOp2-vafIZEvN9Wv_rRkM53wOEJTx_LYIqYH6wKR8eC47CHlsy-9Z_lNjztjkQ7gRKKlWZQpTEo1zUfDEryiGm_AYXI6g1mlOrXvTffGL=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789476965352",
-    "title": "MAJLIS PRA GRADUASI UNIT SIJIL TEKNOLOGI MAKLUMAT 2024",
-    "url": "https://photos.app.goo.gl/XoUy9fczCiMKaavk8",
-    "date": "29 November 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPIiHZReZnpxrRUaZsqG93ZPsHXCNFfaDewO1a3JvlSG49XY_oCqysH_iGZ_11y5rqXYgCWGignydds2P3QpgqNEMr5gz3fSfZ1V94tIajksxPVIG6NzoOTEVwQT1Wmq5f6ZEDXVmqT2PKcHPm6x_zS=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNYP9tCjGCSLOPUhjA9v3BT6ODYjt4eqj27Qd8z0qNgjvlL5ZLUsKp9sWVrvgiCpEvhxPOemspd0y6iokkYAZCOUuuz1Ik1l7xVtgcZizCEfslMpPu0bCKuo-y7KMU2khOIXtW4aRVBr5j05MUIXDtK=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOY3kwHrUMcrdorSBMj0mLGsrzwWBoP63VlOjNyMb4pc2qx29hTG2YOIORG9_rQhDaRnLdZWWBuCbDHgnU7yGRSYBdgczqE9OpJ_nckFby79YpZEgt8cnfFPJKypjOZj4D96-FzGr9rJJMBb5KIS7AB=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPHaQBuu2-8fDEyzWgrkinCzCfLJjaQhWY4CJcLthjXSOvvYS_2vqp77Tby_nyegaCHk0euWoSzHO_hmSU4PnJqkstwfJvY7AHQfS4fNV8jSdsn_qFeAnpNf9spFYk-zJDYeqeCPol-LKGCmyVLCmxe=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789476891118",
-    "title": "RASSCOMTECH PROJECT SHOWCASE 2024",
-    "url": "https://photos.app.goo.gl/cxcMm68zo9weeyFR9",
-    "date": "20 November 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNCYiUqPLpdQtzqX2McGFQDZYBiQrpQJV2ZnSst5vEDw8MqS5d92iZFyFOMZidOXyXZsd8f499vDUWjuQSbTVCegj5xBE3N8lRIA1A056TEHUF_ECjxeTR421fffdiv3I0rbDl5dDXCl05qzc2nBTyN=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMip83sbH2beL6iWlgnLW5Q-iDofj277wDET21Ez9c51cTnMWgLS9y9ZJxhDVqKtE83yrFIW5YaZ_cDeW9zQWx13R3no6dODVbid8ki8pgeBYJXjlsgJdTLLPbbKTOwK8Lwg8J-DioDWNVjPzxZIbnL=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPVVQ8fm0_2-CobZht5PAcjskzUmy80GjTrZmRzyck00KVqiumAA0fTWZvSZ5tZPM316mQmJbwiVta1RGEGS4_6CLbPTwKFVRbeyxZTbDtAupsMTS0pBr83Fj6_uakCNsd5I8aj7BJG_2WR_bmOfdjh=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOZX_X1vrnFDQUhR9OFyRpeC4fCy8ZVi-hqlGG--xnuk8NfqYfq6Jvkn2QPZB5r0RqEVFeUClXkp0kbcQzyRk7FG4wsqeiMeVwa_u1Wxz-ZBkdJfp2vDGSPvrJes2Bj7U8csGpRun2uEz-FRTvl9nWS=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789473852989",
-    "title": "PERASMIAN PENUTUP KURSUS URUTAN POSTNATAL & PENJAGAAN IBU BERPANTANG",
-    "url": "https://photos.app.goo.gl/wPMFCYJeoBiPxxo29",
-    "date": "7 November 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOER20VPDRXUegbRYJYghbVcFtT7xhbFlYVv2QKrZ2hJNUhDm838gipPMlfuRrRvcK4FV8Nb5MVmxVsFje4Xs_SbyKUBH1NwDA1YrFDV-Pj4a_Y88YUGaJuIH35DY_eq2fPkNUNNC4ojAdesO7CblT1=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPgXUgqDkpaZVqzUrE641mg15WwdVSaK-wOpuXME4pKejuj6H42fU2-D5stT3wwZ-fBfk3yZxxADGI2TmmyUBRCEk6xEdiAoh3oq1qqVfdeCMSTe-56c5G7r1825sO9dfsiV_YX7Tmc5VXUc5o38oK0=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM7dxDJ24fUo3m8xmq5lcLWrmiKmtl3avyhLwg8aVxxhKV0P4Oh4BzD54sUqV_xgo4K3iUodPqulX1sShN56oUXomUcVupBZA-O11hQjvJ_6ooh8mbnFMaNOZ2r0eRij8Ajh-9_vWrVC-4vttz81xZa=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM0uxjnyVf8EOYsJHMhRfO-LNIRfOgo1TMdhsdo35I9bzoX8w7ZrhNUcu2JaCoCcIpeVyaZonX_-XGnOF7-Q7GNfQexFgbvDST6duukYZz1smz9z7g6cubi01rdsAhduYYeJjdpUTT9g7O0VWW_LQHg=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789473763199",
-    "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI KOLEJ KOMUNITI MASJID TANAH 2024",
-    "url": "https://photos.app.goo.gl/WVX1fmhNizrbQwsy6",
-    "date": "10 October 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczN7Qlsma1rZlvgxLwSgByrU8-2D7KsMebTG4N1cpZb36Wx7MMCLCwcKJpB2DVwTX6_pnPbkSkIwRmB2iuVqmweRgzJFDEhJ9jYYWuWY9gVf3or8t3QyghHUQiExNiU-MbArqvIHTW9EXr0HtsdPD6hA=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOCmZoQluA7xfB9bKQouEml2NkU-XBtDOhi42eBRMOAXkYgJSW6ck_o8tTBWWKmYfO4qUZvstomCfzhq2BGAKmau47dplgGA6sAd_251kxDaPgVoDxEul4y9ADQf-uo14f7wWA584mLEt5iLhTI2o0h=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPFWQscsVBKfS2BqAu_r3FE7L0ziTblMMvHH_3HttW83Scn3gG7dMRbwR9DWUB5ECjglw2ffkBTzFklREmd28wYMDKdEiAm1cRGBePUCUlN8nu6fR2JhtAhZvr8NzAVzsbopc_ys-JR5XgQ5AbXgqmA=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNBGi1eKDpZa62qTlU7twOTQaLj2Do6mFqUCcbQYutZTcOEGvyxUGm0U6qf4zXE9m28XbA8JJVC6EQQ-GIHOFWkjl-Us0Cf772tRpkCtP5oQ51uqfd1A7YIADeKZqgOKgdhntwu8QUmTbneYKZ51b4G=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789894875466",
-    "title": "MESYUARAT PENASIHAT KOLEJ 2024",
-    "url": "https://photos.app.goo.gl/7HYJLCviLbJbSrAG8",
-    "date": "4 November 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMPK7XlXEuYI_q4by3pcwETM7NwQsMdk99U763pE4wU0re-qKYOKTuv-paJ4EUHR_4xEGycjbBAWKHk3k_mhnFISX0xjeM9pHCPDFevl0XIU2uUGtBdNJzoTSY0Q8hPD6r_PDEOdqqtynQfpj_jn6Aq=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczN3hKNfWbbIl_2x079ygvdLOKwaBt-cDSPfdqpa9sL3HCZKbTPDaqPUXnSix_HPUyY09C_2vxhJaz_vAnzErPiwtTq1J52jw-Fc8rr-Z_IPpE3OzKwd--zT3RnC4obpRC1fB3FWLFKvAole1yiKveBQ=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMuqOjgmlxCaWNkeQaKf2YEV5SR8hGGJdk1DxSuizEAjVqsOE7YOiCEFT4lDqPMbu35GwcCne1KdNtdBoItmotzL-xhRR9FR22dFoxTCqeWJc-ULoKjyAFObwXPO1qGmS6YIdX23nzxxyZkYAI556q4=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOtHD8qtRgpEdSXdEVc0fnDnsNJknIrNj9sGa8-Awm66z4-_ii0M_k6IHwwe56kWxA1bbhNVXjjmgeQqnveEp1nx8yzcxzjnS9OiklWfK7SFtsJQ6uvFHhRRFLuigAXPofOmy_MVFV66cZHOneF-481=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_1789473653547",
-    "title": "KURSUS KEPIMPINAN & PERASMIAN COLLABORATIVE CLASSROOM",
-    "url": "https://photos.app.goo.gl/phWMs5hpLKf1g8Rv7",
-    "date": "30 September 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpao7Gij7Zg9yehxxwSM1zPLFYS0DOntX6yPcnx4K450wrN11mOUcDG9Tr7deN7_c2DgAUCxFeqQ0s4C0X5h3A-k9XG3Gx_xPeibrKAiV3o1ppWihmIFobAuFuORvI89bY_T0nn3dAq2QgHp04PTAq=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczO0XbH7f62ZvBwyP7FTsWpGhW3yiE5YA6ngh8O21OOcKxseK4oTSLgBVhh_2daHXMJKwLTYdnWRO87F_IAPrUbrZvkPM1z0c7Qr-cpClrVM4TDsMz6uKGXqTXTOSZ6OQK1-T9aOhsT4wXaAsTamxECw=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczNWptLLEXTIYbBbioT6H9aUW5d5yO9TN10bC-N2wEwMdUuAtNY0j3y5-hFLS4it370Q2PlY609xx-iILIODXuqjjfRNLmH1VwwMc9D42cthLumB-4kS1zXfVg9wyTm3bMb52ffQo3uiTo-LQCrDzXd2=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMPAGSGB3wDkRjmnXgOLZG_juwFEJEB-5-ynhQmSuBzqJJIXl-nje8NZ9ZIbhkkqKDlIb68sVsOsYncc7kclXRTSQIp23Hxm4G4N174jtAVILxMYL8D2vU4WbIlceVUMpf7fAipQZ9c6vrDyuYf6u-M=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_usr_3",
-    "title": "PERHIMPUNAN PELAJAR & MAJLIS PENYAMPAIAN ANUGERAH PENGARAH KOLEJ KOMUNITI MASJID TANAH 2024",
-    "url": "https://photos.app.goo.gl/hULcYXf96hjTyqLSA",
-    "date": "27 September 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNY7pd9yiWF7FhZSRUsssqDcmyfyFljmy6ivMYhlFIz791_vSj6oe_faZQ3WYDnOz4l2xxdWTXTQCxCO6KtDrxQvz-tBqYHVogcb-jL23MMl4_tRnpgL5CdR48RhuFCgeWe-5YfXMK0rJROXGGgylyt=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczP_BLnLbcXvjQI7MDj8KS0igHDTk4bpU4CVk1oRarN8Gudt0NoeJqwNtqoKzAAA3IjqwwkYaLuuP6EIUN_BW1U-wVv6bKftsbBpONYGqzX2YsE1WvXqrJvRXTVjbqjbiqMjTFCKa2FtqRAPfYwhSJgO=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPqcrIiKbottniAp9Ev478P0qEKgUbFBkKWPAULsmEhEnzR8GJm7WOSjG5V5B0q6SZoUCSCE_tpqhovkTIcmfYrUk-E6wTYex4wdpaVEPWzJj_DtqQZMqt6dSwRt0QhV4utWgYzsScGNBvv-g9KOPQQ=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOKLyLnPF1i6613ETkl5_HPAJjI4fzmHy7bctwMVLmABwzQMG353J-x0zR6b0QHMWHHthdskSP4wTO41vEiBQVFMPzxIFWD0GIDiVOhUPP3m_DzCk9dIPxqj5oVAdtT-3KzXC3MOSR0a3idDKAMGWzf=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_usr_1",
-    "title": "LAWATAN PENANDA ARAS KOLEJ KOMUNITI KEMAMAN KE KOLEJ KOMUNITI MASJID TANAH",
-    "url": "https://photos.app.goo.gl/sfCav5466URuYixDA",
-    "date": "25 September 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpyDadrLWnrMGT74UDpFjAxrGcR0CQSnJAW-AWGiqoi65owQfTt6nvSpM2Qq0kz0S360ZmKyUj785plfCteNT8cvJNBLpeLU3BvsaLlpM90RHrjVmthmeO5PCgVoZsu0dsWvIRq04WhY2W2ywg6LQ7=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMTd4zSCI4yWpyKIkENl6e5SzZ2UEoQTxn6Tf_Pfv2afqjZwh-TePBMo7AjPNWZ2GfUZUpzzwWVIpaQJMgVFdAbxMghuEnWrIq8pqeqZp1hpjz4FWJmByc0UtgKgmK0NTBeeRW5HWbpgnIY9UiXSFc8=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN8pA7qRt54L9UkDpyLGve_GpfU53YW3JIEch07dJcuSGIWpQ9A7-iZ1M-sIZC_pGWwipzKSbRs-UN8__iwRk_0onWtnKjWn85kSbrhc1t8bSJJYkhPdWCjWPQ3Ud7C3fcCdZ7tFCGRAxPbOZNLkRKh=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOr3ewxMdd0icHJ5dWZTugIYmyvU-bSM0CYk5HO-4kY7xANjf8ita6suqAehc-4KKMfObUEzgW43PzwLFh5I98l_L9OQNuFFa0qCpL6WHWzoQ7dk19EHVPQWzG8HK26AQghAaoW1HCeV4MpFffRjGGU=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789895040322",
-    "title": "WORLD CLEANUP DAY 2024",
-    "url": "https://photos.app.goo.gl/u3YqCm3AK1EMi1XcA",
-    "date": "23 September 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOsg-L3XUeZMeYvH8Qgx3uJth6DTeihp418LTlF4yS8gYGPtdNRmwEKEAbSQ_S3aOHkO-DFlQDBV56CBBiuUdkzUPRL3_WME_2nT4kndtuROqG1wsAIA5KNKEECY5IatahV0xpBMnTQxKja4-qkZk6D=w1418-h945-s-no-gm?authuser=0",
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczMplzjbnzZYotIzpH-8wLtgRt4ssWCr6kLoi48uBKoTKB8Dmdv8_UHsDm_ioneECuE2mgxE9SB5pcgV0tpLFQf9VS2tbSvYesAK6FskpgclCzi-0yDDeXiAsRazjyBKr3sJ8p4nKh1bvkhaats65swC=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczO8Hw8oX4WFwClEpSQKFwh9RCutMRukcWQLuK7o9mSupc5gO0zAiZjsYDXW16t8kt373-bebxJ-KHO5d0fuo5jLtMFG2JeOcpQKYDc7nrxM0Kxsih9iJdQ9WvWwewIrtMaFtPTXYk4yaOoOzUp3yczG=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOrCFpZRDBmOcn48va_LbioDISa17um_ESYH5r1-hlzyVSFXk-lU_iaE8LC1tNLsjCIDd6wEfzGSnsx57dEIYfc1uncLFfsj_IHSHisueZiYDxIynTAmHnleftvWn1Z9oyyt2ENzvBMKiGK4IlGEQGl=w1418-h945-s-no-gm?authuser=0"
-    ],
-    "favorite": false
-  },
-  {
-    "id": "alb_usr_2",
-    "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2024",
-    "url": "https://photos.app.goo.gl/Tc8F32DMe4coSMFB9",
-    "date": "19 August 2024",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczNc9c91-dF77o7mO_mCYQanU1WGOBMBoVXpGVaio_J1iYhexPCs7ofSGXUdT5CHGCzjL86wbM-CF7s4o3H_P6I1Xf3j4ckxU5BxIl7C7VDHhWlEvSihEth4vxmh7p30n2tw_ugVEgNh6DP5z3yM5QWN=w1547-h1031-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOFgJXH2orqvSUKjVZnNBlA90Y2a2BYeIBOZi8MZ8WTVpxa9kt3rgKCSTJTjNJ5g2wzgHt17qSZZbus2kpItgNN6JP_7C6zdT9pjCxTsr7BmS5bHqQcSm-NA7jYgS1WNM68WNX1V_-CHFbcGPxEILSs=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMMYvkdELf7VO1Mz2cssrF-bVRoT_DMNY-Q9Lwpjtl90_zrVEkt50pGK9NixpSVGExflfcF0PRqOGtAtL20FCyo91Hn1KNonnUxHEzlBu49vvnOwML7PvkLJosux9ZhTxiZQu_22Zo2G11QmvZwQH-Y=w1547-h1031-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczMOL7TOwijZrYQjr_TxHRpIFtgvNJfTEJ5EOPjvSWuLu9eAJsQ0EP1dGy5yaBP2ieCKnAKtJUlu_EzHZZLBD94P2hEXiJu9KrLwYXeTkWrCM8prJ6mpQvroPIqF7CDBwoFQRCpMt4_9fIgySsELf6QR=w1547-h1031-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789482124528",
-    "title": "KARNIVAL PSH@TVET BERSAMA KOMUNITI 2023",
-    "url": "https://photos.app.goo.gl/6GT8hsnYzruitdoz7",
-    "date": "23 June 2023",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0niw9SlZXN7rhaIejnKIwi3nHWYgFegX2Zs1IcMH76T8KxsnIqnD8mllN2GlysFHpzSa4ab7kk5JH7W5iJ-S8fEsP07Wy-EAgSX2C7RI4TAVXaA4x_B7X6Os3YgNj9oZQ82UDcHrrEOcdksuMHD0S=w1418-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczPvDo8Bcm8uEwc5pKc2bD7KNsyNNuybI3Fu7OrKyZYfbpMplLS561cPnZV6hnye-RkDpef3PK2JgeqmE_8P8f69uMuhxg6GSpjexVKiEEJRWqYeD0Bs8aptfM-0M5VVM1j-GcY6b6jBfRPT_py_3r7s=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPfWBnIxbrQFJdzS9jUxxSiGJXABrn10TITkq9fkWKZyZTKqgG4VzPjggjvpwCTs4bPIGdWUxl8MALrwaKdClxhf0QLOmIAR9NDYKCZTyCngRmQRKU_6nn9A7ORiwquHRZ8pXS9ZbVutEBO36wE-9iF=w1418-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPGJkvYSrmsMbX9NKk8z-FPZUN9Nx9pnMiHl14bOswZIpzW5H-c47MEjVwDJdLLkOMPu745lMb32jH3iTi_JuO9A_9Xa_vK5aFxookZPsbozVhNgj0AJZ5zzGandbpg7gL1wCHlvOvFtM47AiDVRMXr=w1418-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483377577",
-    "title": "OFFICIAL CORPORATE PHOTO KKMT",
-    "url": "https://photos.app.goo.gl/x1FWnAFXp7XtFQnUA",
-    "date": "",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcKbbfqacFcIOzSrtfS0QanBg-UZhFC-0d8f0RH_p7qhMiTKLY5uDupcx-SGLKr0jOqFjDGOSiHYSEua_tnBTr4ntoABJ4_K5yzlIZyRHicTp_WojJ-NPaC4vDq3gDR8PwWE31_YIAPQhDiRRM7lHh=w630-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczNfj_q3C6FLtZPAP4mWUazXE51A9NOMQWkj0KcmOoc9ZNR6GY3ez3EiBsCAZfQdIHzU-qVh8f1huABj416pQ8sYzZC8bMB1WRde3ckRBs8aKqgH4QUGUTr6phIP0MQ7ikZSzCXjF4WN8vRT9lj0K8lQ=w630-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczM3nchGDvW-F_dZtnRNiOOubdlbTi-kG0wY4aVeXEePyndd-d_Ol3ESBi2D4tdNE3SglwD72ww2pk1O0TNwAV1pqbuG3ly_8LxKVTnzgQjEUnrUlSaaDpP8ZMJm9hklOraeOqdhep1hwukrVLLxEinj=w630-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczN8ZaFER_0E5Rs_egdHseLIUqLczqTtXWoujK17pqSekA_Oo3IUI2iS1pOuXp7Ud1QuUFa21MYc6jV43sWhaQemuZOmfpimoh7XUCJZXMWDgxoaFgXWUW_PM-aNfUW1CvmkUNroLpcFdvZchQRsfnwk=w630-h945-s-no-gm?authuser=0"
-    ]
-  },
-  {
-    "id": "alb_1789483230797",
-    "title": "OFFICIAL PASSPORT PHOTO KKMT",
-    "url": "https://photos.app.goo.gl/fv9RqjpB4iTjqxX88",
-    "date": "",
-    "cover": "https://lh3.googleusercontent.com/pw/AP1GczMJ6C9iD9CuvcKARf142RNnXEewbV2QYLMwajIL3g2HU3O9TQ1A-rniGM0oxIwW42KKZWlcxw8rZeRF2AeUMNQY8GCSm4LW_9PJyjHT2aBVTnea_r4SJJp4AOtZ08-6XWuT9cqd313IpzPtF5MzVQbq=w735-h945-s-no-gm?authuser=0",
-    "favorite": false,
-    "previewPhotos": [
-      "https://lh3.googleusercontent.com/pw/AP1GczOEyeUz_mH7Dw7Oc8DcC9tCZFoKMiUmu8SikZ6KlxQ-_hbSy5jCs0_7PNkAOglfC91bAHfHDnN6Ssq9rNya1IMy4_8FWuNc7FdthYz2XcSv2HRg5K7CJXcTXhPv9olvSlK9xU-dScxgtGY6D7eqnR7_=w735-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczOdhTZcRNqu48bXpOsnKEdzU7voxO2fA_zzy6NNV0d1qLprlo9-x2Xg_aELuQadJa-sURkdmjI99PxA3KB_JiwWntDkMtEH4eXvippaCtmBs0ja6TC1TJqByVWk9UxLXkNsAFjG7TDEDC_2dwCrnWa9=w735-h945-s-no-gm?authuser=0",
-      "https://lh3.googleusercontent.com/pw/AP1GczPddoepKBUOa6uK4dM9Y_ZAKtgTM3DkQSUs2vu5xdUR929r-PsXfydtzQHzpWhiAuX7pPHfXz1OoNM_iBe64mQ3HF8k9GTlV1kgkokFHb4UMNb4ZLZnY7TQjGWqGZg6O509e96-hAqyyN_H9htN0syg=w735-h945-s-no-gm?authuser=0"
-    ]
-  }
-];
+          {
+            "id": "alb_1789484022625",
+            "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 19",
+            "url": "https://photos.app.goo.gl/geA97raEnuXboqQf6",
+            "date": "14 September 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcboBGJ3HMrlBwBcoxKCD7EhM14P82VYH0VRCH_8ONsKdI1DqOVgoLmSbWJ-kUAYoWmVJQoHXyVNlLDOWDH0_hYRkZ-1wLRxDpzzwjAIrs153ZFd7adBIWetRTBbtUchFacLHCEPNBiL7vhw73pPoq=w1679-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOg1h2780c7dhaDe_CpF9YlJAPa14IhCPHdKCfuHCMzxs1r4efQckHy_ypKh3gTOjEgWMYt95m_AZ3CMfI9nD9EE0eq1_PhkVhbQVbU_rJ8jGvbyv0lQ4huCBFjEt6bb8_5_0OW6BydvJYOf45eC0i0=w1679-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMheAN2OwDbat_tB8zhGjtcXeRP8WcspOG_teYpPqs5JkZqRv9jdQ0DQAExf0AHz-Ke0AQukEwP4IDbOuWdPtfReVIdP15FZUCuHNwnDZSH7-HB5cHssdwcHwjImYfgR8Xsjc4XlKmYQfaIWSa16byz=w1681-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNuquxuDMR1VL8Sbts5cS-E6PGOoxS87Mv5c_yO3lrfyXq7oo6w1IS_YDNHM4q0lzSCUSfSLVaLDt54cAMQJNPAGcIbzGMEepUP4rAJ0IcA_vIspVJB2OjDwfR6f5u0KshUR8x4M5K_sDEoL2R24Bta=w1679-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789483971802",
+            "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA - SIDANG 18",
+            "url": "https://photos.app.goo.gl/HAqjMbbw2MMHsTy59",
+            "date": "14 September 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP7riBmSw8bnwOf7A6t6JgXMvS9BERmbFuKqslq5KSpEliJjWrp6HKSUSVw8ixQqskdlvY8I8BhqGMjkJFvlOIC6M9RhaX3oXI4oDeXwunoq3-o6TV5ef20-R6oJpfZso-O5UzXp6Jj-FXP10Uzwnvr=w1680-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNp5Eol97VAKycG8Mr3a-pOt0UE59Crt2ruifZioWAtE3Nw6ocAjzxN9WpZG7jXOZGdGJFsujAvJMusqVTduskN9FDyB7O1JAXjqYf9t9OAIx6qrhEF7iIBVBNlGtF-Gv7sBtEncfgLMWzSJCFhi0aE=w1680-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNSbSqeb75wiZoIVlI3Z9RWWF5RMEs4Rt0CzONQzrqRujSjPtSbzgWaicGrQ6fR-ZO92-CkjcKL4Wl_ayzUm5MsQtAO8IVHlVU2GlES9V5TYmDFSAEnxHc2LS2BxwI2RXeMDXfG-IyDnNLjCi6GeRq-=w1680-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOMhndwGpDm2BRYXYVkIbmlod3yXQmXznGStV08W1zbFmCaOm_v1QsolmVtb_q4yG_NgIwzVo2Bz1zJv3LvPBe8tzf83VpCIrhEdtFxuL-YBONWLWmNaCmKzlAqY9NIE6xogFfXSwh6KefaiBN2Xh9c=w1680-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789483923007",
+            "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2026",
+            "url": "https://photos.app.goo.gl/VLwGkgwjm2e7snMk8",
+            "date": "13 September 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPy83HwmGaYxmhIZsLCXUSg5lWX_VcX-SjeSpcy7YNXMR0H4-gRKM8f9RcvBEs_OPwKuQa4dFOs_vkks-vCNRebrt3b2C4JglQajJy9A19e34TbyTUxiNkyQQtQ5JyaiNnWzJcvJWBCHQQAUOp1KyQL=w1681-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPno1WM_QqKo5E1AXPHc5ak-lo-ropHy1yHk3lYj0oqBaP5Yj_x87rzg55GbgzURjWIMiGKcAH4uhH_o0EKkQubmnK0DMWIhJu3vadYBUDNJC46KSoliG5q62cmJzOl3Y9DR4NZ5Saj6HIRdIOohxot=w1679-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOuarrelyJKYMMsUDLU7rKO4-yvpw57YnoZgtwvKt42sHU8n2BQqsCvu8qVPPJT_9iGZLuSaLaT7wetrHnJMI4CtD3A001xHadf6114mBf8rpH7EtFqG4-uEaLPKrZ5sRx-Sgsq6EHkt3w1_e69Ftji=w1679-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMAFxC1868GttdUWNPtZPVu0pG8Ykgc_fjBua18XCPW4PywU0YUihU8SOvQnkkpwsg1IdIgvfXsr1gMybj5xZHyV-ZIMcqvwin8uywvMEjI-Fzy3F9R-eoH3A7v_VoXekLe-_EQCCxpX-yPl7QgaL5p=w1679-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483851813",
+            "title": "BENGKEL PEMBANGUNAN GARIS PANDUAN KAJIAN PROGRAM NEEDS ANALYSIS (PNA) DAN MARKET NEED ANALYSIS (MNA)",
+            "url": "https://photos.app.goo.gl/b8hC3BXpnK74Ew5M7",
+            "date": "9 - 10 September 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP6XL8Mhkt-nlDIKpkh2f_HiktiWempUyM38zv12UE6PcEedS5mCaWKECw36GyqleXH8vxghtEJtBoBqI4D6vRC8DW3jbOMTyq6UEeuyNkwAr1Dgd_a2JigSMPE869T90U1pJgIJGCNeTlPdVSTPQYi=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPAvAbVm35oll_a_XTkz9W9IDJ9_ijIT7RzMvM7GKF37yniqsy0_rf1CGU2rpi8GXkH1YfjcyociKjQM7WLFpRwYnNmObe31KAaaFU9XtdTRif6SqzB2G9sHCcYoLVrauYJVtYM6GPmX-_BUcy2cr85=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPfTkIQyeTXUiq9FxzgWJ78L0wXWZMtG_ul4pLaByF8ecktCqP2KtPW7Wosf2oPsVGbILXX22W8PDuVOL77jqI7nC0dN7apnezlsEJ-T2dVctKe5YMaA4oKLtJOTBN_lUuw7NDrFJpGWDX04D54K9Q8=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMwqKPDi3IFeyGT2qycpIu6A93KSt29vjc366LUJgRKguO08KcTGssOeD7wZEaq3h9VaFY8r3kDNnm4mzN7GtCgpMjvvYBlsItzvnEAtVwaK54mZ1E40lVMh3WLpoTlZpUmYMqFwdsVfC_hD3UdOfKU=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483770546",
+            "title": "KURSUS UPSKILLING PENSYARAH: MOBILE APPLICATION BAGI PROGRAM SIJIL DI BAWAH BIDANG PENGKOMPUTERAN",
+            "url": "https://photos.app.goo.gl/YYHfASpQGzfBxEW67",
+            "date": "14 - 16 July 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPu8IchG671k4nBCgAndgBFMqz5fT1TK5yUVPOrxpAZQK48WTfJBuhNGPec4mVAPcj6h3nyG7SY-j1LJkGgHb-LGe_pBHMLtEwVsD9dzzBounY0aZROCsQj1UPd3xC3zajQscVKBwY0TnTqt7X1wYNb=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczONVfuesme1NsVXdZGXbAq66FZg5kknuAT_xI50xTdsG_W_mMD4v4C7Xb_eGSp94Ex1uMunloosLH1aUFTDooUC9n9nyElTs86TaKj_8USvGSJfHwtY9mkdDuozSv4LfkMNnZ8Hrvvp4IxpYS-WhKeI=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM4xq4WjIAwHZU9tZXInzyBlcGGF70RI1fVvOMubX5YpcUuuvpvc0eHFn6XChJFKZ5vfxHqtMZ6G4BPan0yy-IRClIGwZTq8rTeP12OFTp4568KMxGrozLcXZcNciEoThwgmhOWa-gyv-MPXSL-OD7l=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN_Voi5koVpyxeDdw4D03nwcHD1ZxAqyQaYTDIRrLscDjLwAQBkbQ7Z71NKl2ihzVn6Fi0JxI6bwOquzb4mnTR_WSMfTtxrPLUoDaunAaJzn2Omv2Bn3js7t4bwlynlzkYdCcqj3bDy2qwyudOhMydV=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789478113781",
+            "title": "GOTONG-ROYONG PERDANA EKSA BIL. 2/2026 DAN PROGRAM GOTONG ROYONG MEGA PERANGI AEDES BIL. 1/2026 PERINGKAT KEBANGSAAN",
+            "url": "https://photos.app.goo.gl/Lx9YcXH7zniaqiZo7",
+            "date": "13 July 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczO8y-plT_0uv-N1yQpz-LyjoGgmWJ1ydHW3mk8jnu03U9Q3PAUq6CAS5y6MOoLNvNXDR8fgjWqcPfboFsoL53LTnOVduBK5KpeivkKxRGuIuiVi9kXKM4nwVzFFpxub_JYTxaF963dA6xe_5hT9Grct=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOTzGHxBbcO8QwIRI97n9iUw5F4gUHSqsgaDEYNWldixCi_NC3Ui-zCyKsaDNQNdFw3cxiVVucS7Fm4X-YBGxkk5mu_YmrJRlHkQT-efrxho1eOoeY6MOsge6qkF4tU8RIU30K88n0-DibKuY_bg3-D=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM2c61wcsSXnKWwlu3qw9QBG4Jbpf6SznPgF_spYPWz3QpeaRByCvTi605D7JdPi3Dv8oz-R9_ukAmVV_LwG_Wtrspl0PvX2mLZCeYrbk5uHaYZm2Q5AG5HShbCoICoXZ0NpGyVUMYx2pOG8irxJujS=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPFyUVtgeS_oW4gmg6Atwt5F5eKWqq1BXerd_z89AkQMGnMoNev1pdSjTeyJQoY106Xp3NgoGF7Bv3FqbZn2s6PlW5dm5cZMB4CUBt5ocHRvrU9JrfADnWRSJBWfwZcaek4kQA25GlaR0nV7Y206M0V=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483622233",
+            "title": "LAWATAN SUSULAN PENAZIRAN AKADEMIK (PENA)",
+            "url": "https://photos.app.goo.gl/p1qV5xxnjYwhXuMc8",
+            "date": "9 July 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPgXwXgdEsMLSGvg8PxNN4mRc_KpBAH1kl_dBsbGXESOpHKVbyP1r-vA9K-2qvX8PZhx8H7JNHIE3IJi-7NhfEFEgDJrowZiH6edvBc9afhQ7C8zL81CXFEL2pMwuGSulvnlX6ef3Uatu9tM9XGAYxF=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOt3uo4K_dEqdFnTASRNNQBg4vOciB_kKmiP6unCB0prtVy3CmutcCVnt-cdm51W862PnEhXn_pgQev9ZWJpYJSTZcY0h9_UQQXXiVWK-hQ3DVzJMYaLsnIYIud9532jiLz6PTRztnxyAJEIi1j2HLC=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMD9vvm8fA1b_3fqXKWQWW4N-ALYjsFluKIXNgUXIqAnMrEKzpwScJlY0d1MjYpuZ5hW4sFJwxWX74i_gQnTNv-6RodPUZmBJpzAJ_Zk5zmHdSXAU-XmWBL-EUIO3Keoq16e9nB0Uk_r-CtTj3uhLd_=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMCyFVqRKsse335Ya1emYQtbjCyN5dfY3h5s2ceW9gkjyt3K_HmJfQcRX0MRXvCvX9WvWrdUfb1WXP7XbXwMbGCT-8E-M_CzCrHrY4MXLl0HLVMmcgoH9rQa5Mpy8qUl8uy-_HFelwRnYBKuJ2TgF0k=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483560824",
+            "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2026/2027",
+            "url": "https://photos.app.goo.gl/Y7jsDYTNhXE3WKJeA",
+            "date": "23 June 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOrBAbQA8vuj_7m78957qlW3chH_e0pEqHCHWukBKSMrrM40MecsVpw3ec227mqPPK7c3ONaYJ5-kSkObrWo_x59fqwpMcQAHTTYbutsFfOs5oprCW0dRbsjl0mWgJBSbM7U9-ia-aB-RcSNw8PvjPd=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNB_PI5o5GojJ4t0Ddl5as1ZAYNvCGNlAtX8Nwb4J4dToow7VTV8F849p7m47sdzfkS-gBlpX7AG1YoEmXEpJZ_2yGrDo6_t3cwUjesCdwfgEbexqn56VoBefyLLpTadMCOzv3-YP97x_pnhyzdVXDW=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOA3-02vNNeJc1Cxw3TGsuv1D4Iw2rLptisU1CHebBrvEfbyObntdJYwWHWEGh3Ul3Egxlm1BxYI70s4_Lhvkitsc8ZsL3IZwT6cGeAZJz4u1WctbBPPnauX9CkXSKWDg4HCc1W-9ssAtWpnT43-Tqq=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczND90_a-S-O-WXF7cSu5SMwLotcNtS0_mBabyazm8Usu869qjdWrknvE7UyM2w4c4t36lThEtLHJXGBpBA1XqM5gMN1oxZhmrJbN8bpiLEWi3gha6WIps7JPxC9CtvQGpoQeJsnRedzAm2WXHitMhGr=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483503279",
+            "title": "MESYUARAT PENASIHAT PROGRAM SIJIL TEKNOLOGI MAKLUMAT 2026",
+            "url": "https://photos.app.goo.gl/n29j3rxdjnJMKcib9",
+            "date": "10 June 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMT0c_hJTaKAr1rqUQcfiy80bDFtxzac7Xp6XigUOQeCDdtj4H-ycvRIxfDhvY_ntgm1L93lWxBUHS0R9aqdD43aW3TS1rddaSPcjrSGBdQH0BhAIrBcHKBBkhTejkmz4M85yPusF1atTqpZNcwx6HH=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMl7Xhd9JXJtSPfHXa1RMJ_xNKdVniOQOLjqiT9THMfzjT4wNihzxicekBhqcMSfU2g11OzS_2j09Zci3IqJsdNA84iipkyTO_wtIManWtGv8x_XzlCSVS9Q3YQ5FyuPPi-prIZJq1TJDgXxpW6zyNj=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOEKwvWPIAG8Vc_skvga5CKp2y494tV-XgIsT15z5BSses5cqM0PunMRYwrZ0NLxfqyvaO4rg0RZ_5WdduBIxAxbZKyNh--DSK7vIx81YSUIrypAIIZAgMSnrOqNZk9mjgpGYdDGaEj75c8rZRmXstw=w1417-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOKvxCLEjU7EIs7dVvSH5BkZ4pICCurf2p42YMscZyRiJowi6BpeIDhmfzIhx1zSqcSmcxwwjax1jHrQXybtBWt2UqRszQ8ujKUf3C_FJx_m0WHobezrGr8Nc_TcVjpqRwrUTLVNWgc_msPRJECz0vV=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483149823",
+            "title": "RASSCOMTECH PROJECT SHOWCASE 2026",
+            "url": "https://photos.app.goo.gl/8gVQxFh92gBoK3Mq9",
+            "date": "7 May 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPKrKb2oHKos6ImJ92Qj0Tpb6ZPbI2j40KpiukgEWQ_C6KwlIsG1ySbdzzWk_Gbyy33bHYg84bHoO1aZuYONsJvwaqFApXMSuaJqNKKY-SPzTHndmA-VF1iu9hAT3gQebC_yJ0eEknN_6nV1jOllIFW=w1679-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczO69JqXc_qiPmFs24_RcOsJdu9Nhbh19t1mRVI7hCXeSU7iiJl94t59nkbfhWKUU872W3__btk1vUmxehV6lt_fOm2tNXtl4sx4gWYe7PgH_xq5SYbBWWc3tISvL7mpNe4qI2oOyeQfjFiJw05PBHm2=w1679-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOFxnDovSM3N3FCo4V3CAk00KqzAku-BBfszvEeCHLvayIPQnCHuY9kduxn0GvB3cpqvk0zg7J8DtIxZcHh126N3oH8bEy6bg7733IBeqWMnWD-82F_hY2PhQ63NqBwIaf9HB3_KRs2_gJIArWEXupH=w1679-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczP6ciY5kNxwF1tScyD5mhlz6_LWyGKg7EeGDJVcQnKY9viVm84z9LHNXrR9gY0WCTQtJKcdK4PBoHswp2Z3wo7Ix9P-QTO_QhbXikCIMWonHA6jXVLW_zKz0NcedwRu2sVKnH3gHQrw4fxthtnq-s4a=w1679-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483684609",
+            "title": "PROGRAM UKHWAH PASUKAN SIJIL TEKNOLOGI MAKLUMAT (STM) 2026",
+            "url": "https://photos.app.goo.gl/XgPAqxruCh2DapjN9",
+            "date": "4 - 5 May 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNxqGH_G5WECuxPMI0HYyt6xeQ_vRnh2KWj5M-YrqWdrszrvg2-opzXWg0jbnIPJ8jB-0rLPW4hs61p0aNv25w04KfCNaAUQiFFWGlBu905J4gyfqBSb66Ff3ht2WIaZETW4nxVaeTFHEpxJmMC-hPm=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMmVGCCifuS08egolBkmO6xXSIWVb-iBqAQ1t0EUI51vTLcsF1I_zHqRI4_MInt3woVqhmBlbFlqYHprF0_3qwEQvh-e4uj--TlEvRZyN9GJBZDhIhsrbzUZbqSpp3-2A3yVnJZ9hxWIfdOiwgtldPp=w1417-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM4yVjgV0kLjjNK6bq2-snaPl6YsnfpEmlc6NcknQ5n8MXFIRsjB8HnOD-4xr7xNgzgT7_mPfOwSPIT6FHWnlJhMENCI30eB8HaosRQZTDhGdsRRSldDKITGVKW3U3zaXKWrwiOsJDPoMpruDHAa5no=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMVWK0DkNFq09l_Co3bVRYB-gLuB4WZb8VGRZHRNUHzbeAh9Po44snwRHVFJ1PwN_BQqMFb1ttyEJ2ebGgnrYluk4IqSuCbBYoEoTBYMzOTt09CpChHnWrB-yql5qFsaoP-n8zcUKZnvU1UkyQ2u7Ft=w1417-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482919773",
+            "title": "LANTERA QASEH@KKMT 2026",
+            "url": "https://photos.app.goo.gl/zV9RW3PgeubpMj727",
+            "date": "27 February - 13 May 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczN5hn4VxYlFb_HCJtgYVTKBjYLjzEVu0w5YteElHP6v8FTHXW-iJ1nlVtMLsKu0KEAa6GzbbKOjZGgdkHaUayzJTANE-FADWUMo1o4HjUaHtKFtuQSd3Ak7xaV4CX4Mg5l60qqBmdTIXkMjrx5CDY2X=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPEl3ETtUNc3EmEQcW3kweByFhz0eBgQTnqRc64IMrC3c_Y6Os2DQqqX-Wd-rHfHldn1kQLbEkArYkgCr-PCXyd235FmYdgBNj_BLUU3e2WUUMRtFb1dxkZm2CQkqJ5PLTTSkZJYiyrc7dlc33hbr9y=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczODk6rYMHXcJxlG0vflNYzMG_2_YyiI4JwPgcYj5bcIFPMtjbUuQt8tjOe2L3KlDbkGO6y2EIhgQY0R3bY5JhphplcWmYGR5Vxehm651hUPCMOotHBinDNggFOFtYJjM2ceUvXnY2ApWXHPI4aVjjIV=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOgP03FDwKiJUWOCkH5ITVjWuyw3A9QgWb3DJdalHKpn12-b-wKV6piCDh0ecAvQ7SEGAvan_5TfxwztfyZtJYjuOZo0Ysdhr9EC5qMauNvBZUA4SzzCAfRSlYRS7vJoIvdTNo2xjCMeR-XL8R5V-I_=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483050457",
+            "title": "MAJLIS APRESIASI PELAJAR & SAMBUTAN HARI RAYA AIDILFITRI 2026",
+            "url": "https://photos.app.goo.gl/4NJ8rLna3GzKh3KG6",
+            "date": "15 April 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMljD83vSqbKKJ64RYpMwI7MBR5zLf_ju312uQR0W75sBUe-6hCkoGvB31CqTjmydV7-fEoitThgeVo5CA_pRbHTrts-5QG6DQ6dBkJEM9jQQchAFSuQKbp9vl730T1w5u8SRK6iw21_Kuv7IWraZ-I=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczN71bG0_w_c97T8S80AVnIGiPQzC0CC0qiUxL-qUyxReyrSazEXcKaF-LBRttu8UpeAv2lwYfrPK1XH4iMdT-QPjUoSReT0cz_ckg4E7cV6ngaS7_3FDCnD1S88ky3kOgUnskiOtOayAyEmZMnlDSKC=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMkm_H_-mFJiG5bs26n1eX2AOw--5Qo3QyE-XpnQSIxv56m1crhCjv0zYkFCuLT27JGUF5jobKwllo7ydAneZmluM_wXc0-SolaYdnIErIKwRLDfxdUv1HbDYfPlm7md8yIBNhiF7FUezVXTxHP-P2S=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPgNGKmPtulT5mjudRVDOazl8E1yFwxKc1pLSPluFZ6ASymOHwiXqQrdzlpM0SbTsrLhvYymL4CIR6EIjToWH5023gwZQIHDvhfijrEp0_oVwgVB_J8AQ__0RV7sGybm5QYXUI-AuoYvdHlQp7U4CMv=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482814153",
+            "title": "PROGRAM LATIHAN PENGUNGSIAN BANGUNAN (FIRE DRILL) 2026",
+            "url": "https://photos.app.goo.gl/ViEc7PJrbHwxU51AA",
+            "date": "12 February 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMzUvUgD_xmDM4SDASf2SQMAlauKPe6TVK9x5rTIrdwvx-o0zJH88g7tihFSqP0JwEXrEcCNIaYHy5w0q3UtwsdKTvkWekXfsrAXQtvkfloUd9KZSNSfYJvSOe9MSzZSw3YHwr1HQv_fEJI6ojh4sYv=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczO-7alwdwciahtRwwfzeeWGWgHkR_o4MWS2_esaV-eedTmNJOvUAm3PxgCWUrKEduae_UegLMcuSjCnpr3lXhKYdKxHlnaaXRxxgrbBAabfYVbKC-LdSnBvr4qqN0dadjn0Ks57m2IkEQZ4UnMo08Rj=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOPKae4IUT6nYZtU8CtldyLiYFM6elIScTwq6Oo6tM5QG8iZFV7OmGRpR_9iFUewpR4vY0Aw2IKJ8x_nOli9fH3XT26guqIVzm3MKA9O9Jv89l4--q89y64jZGH-hmwJ72vNiQ4UgvvJ_DFFBZtBAlW=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMKe5KSK6m-vXtmpg9ITjB9Tz-V4vH6A3Ij6ZO4ph-imm9FgXP01MWZYvuhwTkRyC2bD-ELeSeE_TCRsPSSp8YVZMwH_5gGkP5gfMiQDhm2cn3jVc8GvMrPszsyu7qJsZfqoa97q-3kG0Vcbls0K0wx=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482726722",
+            "title": "PROGRAM DERMA DARAH BLOOD FOR LIFE",
+            "url": "https://photos.app.goo.gl/rgfc1w7zyJirnUHV9",
+            "date": "11 February 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPo2Twlai-DU3YwCEp04b1SmP4ONq-xKkJqo5Jrrtu_ASwz3PAUKxS-4LLs8eqBRR6r4ayLvBRxoaseBljIuVZzroM3UzPDVwTukBsAOY6nhZvy0x6vPm90wrCWqpfn4I_T0QIISKeLP6R_uS7pmlQD=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOOrbZa7wRNEJkOXn6DTT_LLg2MdfVbo8kaihlxwivhcU8D383H70bX56Ls69Iu1ocPHrbtejx0XL8rt8q6tFZbcpgBYliAY3QnZRwA5RzHCIxEi5fnUvxbKy_aA40YERVgyb1WM0RtHyNil3gTaZc7=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM4b_x8Q9nDj26x6rF_sSO_TsktgAaHjy3NCIqhtrTGd7kePXdd0fckRwi3L9pkp6I10pNau29jWh8OkT02EgSmESaqeyxmm-xtkpMYPrHmjGv-xkQ4eUexKz5LlLgoHun7l7fk_pa4Qf6YC0Qy4fFn=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOraLDNDicZJjChvoBJtqEo_CK1o6FTyXoSLg4K8XbMyC14DLMw3EoUIcUxSW9DXdfhl9XcQcp5-Ca1aSW4Kfq550Zg-SUf41WWtJI87cvcf_4-XlsQwAqO3AaP6_4MzHGB76RdtxbJEO7voyyYkhka=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482671751",
+            "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI II 2025/2026",
+            "url": "https://photos.app.goo.gl/nvvF19xLsGnmZKjC9",
+            "date": "6 January 2026",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMbu9sT3qJQuaw5ntxyfhzrK2FuiztNUt4L8575vwS2Emi58XFYyQP5m1tFJoCwei2Nw0Y9DDsCYi-b8rrB5ovK9wwby3DbYriIP79PBUS4M4mghR5jzp5TVuT8K93blpWvav_K1IFK6pDi9m8RFwTk=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczP-xvFChXjJenqidBjZ2gtaT2648F8amjXaF6RWwEmqCHnM_8voEiLUfjJv5mlangOkkmulKnTHK6Ic3I2NFzGeJxLLT6X03mMA4JDBF9Eo1H2slazMRGqJmV-oR1uha2fuqfcvp2P96M0UmcIyLJB7=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOmbqWNUuCMujB2_v400vhpnbu8TEi-TIN-liUfpP8MhaaL1LDLyz86ygnMVIEhaQILQ3ws_IB3kLyDm4ir7kPCJPAcVOPmTq7Qq1J5pRH8ZBOZ0HGPa0Goq2PTNVMYqYXNruidNMM-BL8nSjYN2rmc=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczODVJs0blD-raP8ghF1riYml-VgI7S9HU-WY5_qSWn1mpuxebIGkGtAd2XGJTyZ10XoS9vIzXZU4RrGnU0r3ZnQ-Bi79CrvUj8lz5nSwZm9TaRyWx3GSSjCr740CToVXgjuCnDYgKR_kn8sb_Px43fr=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482591972",
+            "title": "BENGKEL PENGURUSAN PADANG DAN UNDANG-UNDANG SUKAN BOLA SEPAK POLYCC MELAKA DAN NEGERI SEMBILAN 2025",
+            "url": "https://photos.app.goo.gl/MX8FZ7RSuN8ja24K6",
+            "date": "18 December 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMe2OuEWAbht1xva01fGr-LT_MDMUL97XqeDZ0xqbFm4dKkb7-teTiEYwUDKuyan3Pkj7QA5T985kGtamvffL9Yk4oG7ZgJD7rb0G_QgDObi9IItVXK9_AfpoMsgIswshpDZTRJ9MNlSr8sQtY6lPoi=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNqqS8dNP28zsfVg1_OdleC67N2O5a0mNHfn9BJR1UF-uyq7o49lld9ZtsMxfg17UvQZdvwG-cTuwoIyYEf3--MToveFKMIOuwlj6qoqm8LF2-Tm3riSGEScX93XrXdZ3paF-UhmBDXmASOkYdOUk9n=w1417-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNEOCw2M_J_2q3MtDOqc-kDnlFCgWEE1SwMlWn2BqkNgQjNEjRIoNEu8CZPLsie1WZpbU4VVMy4_tFiCTJexECw-BKJx6u5KjDABllgexQxMUYORqkaL62xZVMtvWyRGGnmX2HjbGlZNuqyWzezEGnw=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPX8UHUOiAGKqQzaYKh4N-4U-t2-6va_KIFRXn88c5InRp7mQ6kpS-dR8w_QD8oi4nvXgzFxZl1PtLMndWi4bbAmuRVODB90q3DjD_I9sJMLf5-Tp4s8lU7m51h1UgusPABJnTNRqMUC9s6vuBVPvwg=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789877721030",
+            "title": "MESYUARAT KAJIAN SEMULA PENGURUSAN (KSP) 2025",
+            "url": "https://photos.app.goo.gl/JuB7gmmFj2qvfdp19",
+            "date": "10 - 11 December 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMOOwGxSpKaL1-6yinia2dueA39zubn-aqKNPDMO3QmQsquRC1pf4f_ub8jtIK1_eMnuQY9_b9ruiewCWh9jurKaSIuoCDYe-GRBpmhINEBn6i3VdHvIS8YLXFU-_e9XRWU7jPXQKIhMWRCYvVfhV8K=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPchZspcIHvUwS1t-U3FXd-_c3TPkWyMJsRld7WnkvPgiwxkxRzMWzGtzUpU8fzh_lenyk7IMAg2cYutGG_mixrttUCaQIkvmD2TqUGrhMkO4ydOGv8Jm4nAuXtsZpgTdQAw-nvF_aWdNkY8rYDa-u8=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMpqXLOdfJa1GDC8OmqOWeCRxFqulxf_b4eyvymukzPZ-Dr0aAoQWEaKu840b7Ts80qyJjTmiY7J8yPJmx4Q03DOh2-z_V9RN1xMLHxYz2pkRPK85EE-w24JRU8fQ4SAn8CaDO7YWl2ol4gZfM6fOQm=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMeAh3bjt8_noQI3yWOBK76gNtTFbV1iNp3TVamyvOsVfEFNXfBNI-i_QLxJVp4u7InYtNEjw3T78kB5UWHreiZvkRA1Og3pU2MiPO0ob3NBipXhizeLTSERHb9VxUZm3uqoX0HIxsNosJ7LftE8N9N=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789482507647",
+            "title": "PROGRAM KURSUS PEMANTAPAN KERJASAMA BERPASUKAN DAN SOKONGAN KESIHATAN MENTAL",
+            "url": "https://photos.app.goo.gl/bvWzT1zqHG4T2qADA",
+            "date": "15 December 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOyoFG3hO2maMRf_8693ORratPeIc4nRG5bb20_aiiCIJqHw9Kbc6UdqbnI2mcNkLB3B7_4Uldv4K33qzrorsXZt-2cXAMGKe_5PpdcQsUhHXZs3HScpJLAtk556QozgX3kmZ5W6G7ErVOQKs9DRN2x=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOH-sqRKO6glixkhTwnBlKVn_1ZiWZSA5IYhX1yWgsgO4KjSZNp1gh1peq9zAOo47Zxs0_ZvLyZ1yBllVAIAxHpxyj_ssrhmn3zCr7w97RLlunwUD-Y0p2fvIASynM9XKJNJUGg9ZxBMpHvXS-Ax6H_=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPWtwEWsAndm04UAUiv8KMh6LBzMO-fv3URYx4usyNwnW4LAlIWlfWZLDKa2D66nhWSO4C0kRfywRHkO5d85ibUu8rg1H3WSa0T62v5yfhM_ojcmazpxGWv8WzbxufTLCeIuM_VyoRPMYIUwDQ6raFe=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPkxIWS-X926Rhc3NkEndb-NT7KdMnF5-BFhrtCzHFcvUYlnRNKpXi-FjAc9GJoi26d8rhYPhUs1kO_MKrCkNou4Osw3PYKKDbNkqojC2jDQDortU65n351PIithef2CoQw9pjY_-8JFTyKwkVAH4Vs=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789481948990",
+            "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI (JPI) KOLEJ KOMUNITI MASJID TANAH TAHUN 2025",
+            "url": "https://photos.app.goo.gl/6hPT67Xk5LUVqJbA8",
+            "date": "23 October 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNXkA3_XjRaIC20UhUSoE_8YBOhQliB_uTTOOk2KXQhAid1fwehZc7Ai3WFvVkjfmL9YhB23EY1NfBzQkLmtNLbOTrGA2dTEJJQUAWL95CBeF45zkcAbpDaalBVg-mhlOxurJWEz01on9qFHqxjg8EE=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOmdqacn6Gd8CGMu_ZVRWiOZOX_d0Gt8pSDaJ0eP00UWN0c4N1_y2v3LSMP5WRAg5GPTBiiwqHw62FXC4WjOZPwHMdvB1BT0TM4tHbgnfMBXwRRSmuAOOVB4wKb2ipm8TNjXBZJqvuG6gj1_Vk2MEP_=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNIdGAIkfgJkl3TQFydbNiXJIyD1wW01R_HECfBhXhZ75hAOgsRJjqvh9GNsASFEYxwKCstdRdWpUECBSE5NhGu5apNz5eVNiysfQgtBJoJvj1fZaeL3o_VD0FcpI6p80ENUA2QmNGo4LPedPxQLJ1M=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMU1UtKeOeAv0zwysY-i4_c32mUpHmxrByFJnDdSjaSTuk0H-IWXA_9SJ2eX0uayI3SuN0aBLq6yj6Fn-mQ84pNstolhkqLI0hLSlC0Zm52zq2Rsd-VKNVBQwIN8-AfF8BuKgHilH_ZzryAgV7HXWMB=w1417-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789481886620",
+            "title": "SPSH 2025 - CLOSING CEREMONY",
+            "url": "https://photos.app.goo.gl/3tHJNypGkERabqvs6",
+            "date": "2 October 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNSSE8uWU-sxneC8m2ScF42p3EyUjY2Ix7QvBDJf4Tds1Mhgp4QMYNvj7gwDyUpMlMCzsqMvPuP7s2BEH24sjegLufvGw19xmq0KhYtzpc-BckdYGRAJW1y8r3MC2iWrwCO1DSoeG2nncBuEXuPHj0t=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOZtUrXBfBUTZJbdwakrzIkzyOcjaf6-6XMna3dxNderJZkLYgoJYBZLU9zpcNijL_ialwbLQCA_euS-UUnwtQ9S6-oj7qqyaiEXxfYkzC0qf4PfQfBRhiZhcYawgYvy1zNLQFvd5tH92uNAKvjMGNl=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN6mMnvMJUiRYqw_78Tm5aq4IuOPTaxsndgSBlWTsVbhs-ZsO6i0IyI5ZTx4e11XzUSpzxtAWEg_xX2m8XQEAWMUTI--FXIoq9h4rhjgR0AcGmDk-IbvCEEjU4iH9i1Dhh7gedJJ4AZSORiky6ZARoZ=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOlPnIib-l0N6zM40eo7ltmJ72wgDk1-DqkFepvnmN7t7CWY9SFC2kgdnqNbCz8gt5gAOgyPcs_4a0KBhuCRuOG4ggBcWRMU8KtJ6SolnSBGfkx8uA20bYJDKfBqVw39_3JVo5rW6GASB0v8iGiLuzF=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789481799833",
+            "title": "SPSH 2025 - COMMITTEE MEETING",
+            "url": "https://photos.app.goo.gl/LL1KZHUruxPcrcta9",
+            "date": "7 May - 25 September 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPHscQ0l8PRtG2fw4w94IbhxKEhJhz8vyQAIPeui9Ab9R5_RZL0_f-mExK27fURx6EAtlJ2DSUlRZymFVqZlQfB_A8x2K_XzkrV9lBxJFz3Ff8U-WVye2pkpbmjcrOlsBjzPQEkh-jqDBSj18A6yeQw=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczO_LCjMa47rTKJ6_f0pfmajAdxgz7CxHo1buP6Xc2Qk5oXbyt2xxRhM6ob7bPM8vfG32gFHYlNVflFRsBI3yVJcVNxKNV62uwKW2dNBG7X9K3SrAJa2Vb8ubHHWQt9rU7dO9BWWIR8Mf3f9UjVOB0dp=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPd0m9IFhEtBX3MxSAg6vL9oSqO17HvjvZ8GZ-qN7y9bNDoJ2Yk2afq1svPQOI5TENeCaB6vqTse_o1Dn8kaIuNejFoA0TiKxTlGSsDaFpm6-wTW16_0_vaGnpI-_d_v27tD_O5NnMAtwK4ETqIUOEB=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczP_4d9MkbxczyR7Vcyd5WnCkEmYbs-r8sl1vSVzgCjpYA8CUX31Fe7JjATckUvxvbitXpBeFky9GS3jD0PiopQpVhJd_0E2MEmyKjHQc28eSYR6BnBFLwsRrBX23vB7kZHyGhkVsufQEH64rqDfA_wi=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789481636020",
+            "title": "ProAlBi 2025",
+            "url": "https://photos.app.goo.gl/QaxafccDYjPgoAAE9",
+            "date": "26 - 28 August 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczN-kZhYwBwCldGgXH3bY_kC3rhd6MrYq3pPU31RjS9gXJoAsu81Z7uzYNdmUzOhLVB4-blcIIEB-fk_nfIooRrSnmMiFRVaYg2w06s5pC6sqMjwuxFj4zqFjMnNFV-cFU9tcB1nTiMpNdHIi6cRKAhO=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMbb7ZrqcJjgV7FYqvX4fRk930OCUf0Kg_3GAURUdQJC5UkitzbX7QdNk7QT2b226PNGpGTBZDDCDj6beYsy37InDA5PfzzPcS4wtQDJ2nL7up4DbBF90HE2JJbyLwHCZN1bjMJCGYa8iBXD8JljKaa=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPL8_zVGEgSi4OcNFj5NdJh5YAOF1EcuIZMDIRMk7srch6esDLPklaLqyx3KEcrf-g0a67GOGI2trRL95Cvo8Au1PjmSFkF78sZjkpGuShns6J3FyPWd5zMCEKE7R0Lxn8v_N4jdbKBXduNhfvRs_00=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN_kRYQxr2wkK4syvyLqyD5AMx6FIR20Cxe-4BZUm3Nqsz6PxYDZvnC81JT9w0YH8CIeTMbYx50AXngTCjjDZYoiEF8ueQob6prHQsBIs7H4GXRRitP94q_GvYwCH0M539JKjSDing4Knd21_6fPPTv=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789481449695",
+            "title": "PROGRAM PENINGKATAN KEMAHIRAN (PPK) AUTODESK AUTOCAD CERTIFIED USER (ACU) TRAINING",
+            "url": "https://photos.app.goo.gl/SxTSr81N4wi4gicA9",
+            "date": "22 August 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczO7OPudkjIjQ-S6JqwY4y7my6lPOsiWCSAf0qP2mSFrpDTc7Fv_fKJ-vBsWP5onLEcs6Ntf_IuHH_HxTgZR-_nLyHJ5e-LX6rkWHL-ultbMMtNyrKQ_C0_4uDBmB3_mIhuerPtZhzcr-1Q5ZKKxbF8=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNplB47dvRPeI65WfQElL4x9RGXe4b4HEa600lQAibUvH1j1T3cUV7fQzYgMNQqgTRBosW4eH80Iitg3lwUpTxwVqCmVDduwTtAW1H4T6_m1wMpGRSZosO5qhUQXcGBdlsrOIN-ckkwqnq98_sKPm4=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNjThIlhu1MF8o6WkivIpezSLLOU_VdMurePD83rrpOAaE_9Qo9pbgc3rFbcEq03aP03MkTFPiUstzdQZNiFq7YjNoJbDo04Aqzdq1_H6ul8xDC1cqtHdLLHzCTEsmOuCaI5u-5b5S9Boz1H_jW0g8=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPfka7Rdz4oImoT7l5mjjVJThdabg-YNzSMG13xN46vn-R-EdHOJXa1wARW6POvn2YodpsCnvmsVc6C8iDKxesWd4-jsIAbopeWqVakc9hVOy8-n5WEONy3EdQ15Yp9mN_g4EzPgyj1TuJ5feyid2c=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477998651",
+            "title": "KURSUS APPLICATION OF AI PROMPTING IN OFFICE DI AKADEMI KASTAM DIRAJA MALAYSIA (AKMAL), MELAKA",
+            "url": "https://photos.app.goo.gl/WN24nvihnCond6Bd7",
+            "date": "13 August 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMcwKy2J15yVTdf4LoTv5mTanNVLw-3fshvM9vA0ZtvPsw_VxeRZ_BOqpqzhC3r8sBmy7cM2mzOw1NcwLXVKwh_i0gT0CTpeoZFE6nt2du75W-8jPfcVeekdL-PLkqhBLWqbzYiEMOs5ouSJi4VHEXa=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOW0X4pX8Xgfm7lq-C3GQ-U7vToVil6D9myAeerF0BvJtpHnEW5ZwDqC8TdCMWO0esjs94FO45vXYV7iqFHzinPN6yXfcurOefg_GJ71mfGl_aPsrzCY3T55Tu7VDGLZXmkCcxccIe-2DFTZYooq3Lx=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPDD-PHKj0evgRsHnKzJxiZp7SsBzQSzhzEpUSNSmJfcXot-EJavCSE9we4mkRUOgo8bt3-1YBDxt6IFSnI9U8SSsy2PEcDJVoFEJZxdkCpBJ1lD92zSkQ9t_9cT6aTq87fEmEKyLsKC_3zTzG6WXJT=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczO2TvuIttdFBu4zJwXZpgYLNPeUZvhSP56exoe4hySe7rocWNFsZxtaLmvk8nrxrVNMIaDtyVD85DkfF8jgP9vK2odAlij1Orh4BVij1QqJTCWjDFjWY4SQsN6fWeC2bpzwHeqYZPE5h2eV3nO-Xtgs=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477928247",
+            "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
+            "url": "https://photos.app.goo.gl/4UP82Rihcoy3ob3c8",
+            "date": "3 August 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOCiX2iG5UIml_13ZABJQzh5kM8h-s6HcX6pNycH1UerhWXSX_beR5YoaYUz19uIpmMpk6YznCvXtyCzjVJNCTlLFUlr8ElCZqAliYUKm-gQPAEyZSxZ3XS00z-y6kWug_6S1YV5YK5Rg7gt1dz557k=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMHMKA5Od-ysYvwvnXDUR4SGfmodyRr0hvYtobOxMUnBGc08_riwTXAMWYm3h_GUBi3XxDE2acos70VbW8WfOkSRysySbhZDSnavH1LRJsCCHV7LSIGjUsFLDLpLUy1GioRRMXoGcs9kDf7-TH5kE8G=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMmRJCulFphtvzptwjetqhKsLuA8Jpv08ej-Gs9HrHnvz8zJjDBu-ohMG1_k0OhtHlpnGoYXzIU63TEaHHm_-35PJ7YNcrALo5MUnqK-lagbY7vxS5jx_wRR-n0hdXl5Mpo1rUJc4yqpw4THrk9WmBT=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNpBtj_Uamt2d_kyMDq3Ed-6rEZK5OtNVz-dljYV1TNmFqF-P0VtLq4hWqFhDvzWX0O5nVnERbgZHyrCOgsPRvkzZtL-WySYbjL2XoOBznku7fYgzyThGKhonp7EMzKTXbjryjVkJ4tIJGP5dayO12r=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477867342",
+            "title": "RAPTAI MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2025",
+            "url": "https://photos.app.goo.gl/ZG12mU7u2kAPK1Ni7",
+            "date": "2 August 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMCMZUsykUdbFFJ72aXtzKRz_iVSzC0InE4p_IDZ_xiCnfodAG6Pej_1xsHSbsxOuCguzdMF-ibzoRJf1X0SORqkc4xdv7hGXq4OCsm--TtmdmASEF1oxtNAL4DaEF3Z5Md7W6efC0osrwrmOf_zWyV=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczN7han-Q1tYSHegxeavjpqPmiiWETGMqZhCQOlUMkr6VKCOnbrdkbwAbI5_eLtOXeplwvej477pQW6Xjox_dqlY3TtPOq-8XBloFXU51dhTO_7EBMYI9-Hwk4duOLmz33rLWg_reCnxDoldxTi6H8_W=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNJlOmQRPHr5fTFjLk9-M4TQdD1T5j_8-tl0kLZORxOskuRJ6x559FnejJb0Xw3CjfNhfBJgEar5zIdS0uIFzYF0rPuuzGGTnWPQxtLg3wVeHwHdhggABipTE_0lmYbqRhECte__rtPaJ7_m5cDiDrj=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMKK2AKAPEMNR1H7J9UDJ3npxKNnqT8OGSqj1ctBMEiV2GpvoCIuydbD_GG_a80sP-ZOfZUG0cUAeRj-4cghN-VCfk7HqGrJ3wvcZHgC2K0tl4Xw1LiXf-6BpPsbe4GU56B-1ODjVChkUDDQ8wQgDYG=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477803940",
+            "title": "HARI PENDAFTARAN PELAJAR BAHARU SESI I 2025/2026",
+            "url": "https://photos.app.goo.gl/izhot5vAUy773jRX9",
+            "date": "29 July 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMb5Ohm77Oryw8tKIKoe7yFdnyNU4gDmBEtH0dHrfbTjWEt0161hI8scT1XOrX7o4Va_AEHhTcfMC7VPjLDfnmE3Ardo_wod8BNbsj2-g9_9T1Si8U1lbDDR0NCIGaEcLr4VzdvJ_skD50uQyQbO7iT=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPdO745bWnASkEoe2XXy6lFR0ubn4Lw0p-tw4iS5ul8DJyjU-_ZQFB7BtjJDLY6l1uMvLqWN9aFvcwQlLDSP9Pmv7EwNjY6kBD8sY0EzrnU7omMWswrVHHd5zFj4BnaywulAhrlzF4Tu3PRw84ZmRaa=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNgvJQe2T7oeYErTkclPWSYLE5lnCobMjsS5Zu0wdeDJ4jEoWF0RuOq5a7miPoDN1RoaJjxfKjPLtdfZzwqPw2x7RccrkPaUp7XJqzPzeEK_Vsc0iTOojNQ6WXLVLn7aVQyuvwYIBZCXr-gQUbnTHQ0=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMB44qjNJyxvC3GawZ6o-NU4DwijgEvjNVj4L4nKx5v14Y7wBjN2xDVyBZixrGghI4GJrSaYZluXZNmDO2a1yuf7hfkYuxclAKN9_D3U7bK82InsmzCnFMFHvoXfALdk4V-uwSY08jtdYCjJSmdn8fS=w1546-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789877209637",
+            "title": "KURSUS KEPIMPINAN BERWAWASAN : MEMBINA MASA DEPAN ORGANISASI",
+            "url": "https://photos.app.goo.gl/BkXPREJ8K3tku7km7",
+            "date": "25 June 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNxDCJ0bBJ_z4hLZucGCTSLH8fLy_N_bbdqWg2KGUQSyIBmqTVNcC_DaXeAJLxTcVAnSg3_tFEMqqsOAB0FuQMDWPp48cLhkGodqbCqX_00QEfaRjPWbz6Sixkxa27BIEwazg6N9xTo-XGRT7RRa2Ph=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMymPhO4rEKgCqXoT-xw5WGnNV1wz0mQocrHSm3udvdQEPrtvCqu5zdVqa4Mz6gDMBl_jkrnfXvOpAsESNF4ALEmFdQRm77gfsOPxMDET3wUT0_gOcIsWlqvOQ8KkQR-NtG_Ur2TW_IJMyb3Y5Jw7lA=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczP-_4I25JKDsMkJ2iZgP6eVAubHUL5Wufcge2xnBoHOGOP35eQfMYChjrNgCR4gojDAI8B9fLHtwsaDESW3_C945UH9fdFr2TVOxQx-4W8XAVvJ5ORw65nINC0nsB6-_iIXZoH16cKDsEwVEjkCsEmM=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNhOkjRduCKuBmu8XNk6H-3sJfHWaWQtamDGXqDVF2EbFFz7UNKgfAHcTt5wp52vBK4SHQdYzPB4pHlAYTRM-3uWYBmKirq5IPsngEZbz9YG6Vm-vM-8LD4wfdXGvB1zwwrz8xvjq8W6sqqNd4aiX-G=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789878551649",
+            "title": "MOCK AUDIT PROGRAM DIPLOMA TEKNOLOGI SIGNAL DAN KOMUNIKASI REL & SIJIL TEKNOLOGI ELEKTRIK",
+            "url": "https://photos.app.goo.gl/4qEoYxpbVPWUCQMp9",
+            "date": "17 - 18 June 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP1qf5D99KTzP6SrEkwhQLMbPKKZIGwCTlDL-k4mQYdJyeQmvAlta5EZI5FHjeoD8mv-vV7cF7IOy-5s8BzVbEX_N-3M_xOdDgKNtufozqPiwYcGEQq_8BDtKQP92eA0zaezR9HkEQvS1PaeyLMxqtK=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczObsKZPw6Ym4XaOHkU2fScHehkOc7FO4iQO4nV-Nk_OsvUcas1iOUaR5vWzaHRU5oFSVvZriSuwrEKA1u6ba-ujG2L3HN0X3DK92Z_FGhHvapAf1vvIZU-4B7bncuEzoOXobk5_G7_cVT6cLVBxZd-S=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNGP7lX2TaaBHjxZ6wB5FUHp0O8zbcS250W-LDoGLjMdRVCGRYfZFNHmnRQyD9bNxrz53yJsqBq-bD2YrWyU778PvCyfeoWg2bUvJNNECE2cQyJsCL42RQtm6YnEUZ4ElbrogVEI3HMQ-Ulo3ujVCHL=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN7FGJ4D4LY5iVbpUu_lEN9qJGDy5kUUpbI04LTvURvevKsKL2VgcKCvus50xORcYGT3Zj31rIipLf3S5vdc6bXUk2dUwtINy2c0p_H-Je3SKZDMV3Z9I7yQscboW46z0_HgAHx019yPjlz1ehF--l5=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789477484131",
+            "title": "SAMBUTAN HARI RAYA KOLEJ KOMUNITI MASJID TANAH 2025",
+            "url": "https://photos.app.goo.gl/8syBRnYK5UGQMs8U7",
+            "date": "16 April 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNGJd7lTFGsf5W9DH1BcTBL2_MpCiFlYwY-ZPxY3-rrwZRpNGpMxzjsvV45-TYEaek5vll9Lwcq5zhlUIEuv__Z5rQhxl9u8yfeJxOqjlFh7ZnDr7z6kYHpGo8NWlPCj-XbXc_6MD5It8E-H9_u9YXV=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOP4_xZKYjfQsZBuzZlHPoL63sTft7rOwTjgtJ8iOtl0GRQXbgTXCPyb6WgVzRC49VX4foRH9HCqg4ELj-GguF2u4H-VOwnYyToYbFe0Ppw8ba0My3mrhfEanGdvibqXlIdClfNEJoJthYpjh9wHR4P=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMAsAeIby04BovZZhdzADwjWNfCrEweA5N_LnHyoXGTNKB1CPNKbgFxYlP6G-8aHbdYezWdms976YL8fa73s_5AgoHtfguxvAb7HdlTARx7wkAsvK7360RFAk337DJbMLHvY-OXuASRO9lin36zRcN6=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMEiACAs3bHiGBQhvimu54o2t8yNBOmlSNiIpOPhEqSw3oJ4HsqxrSJk4sX5G5u5Uf4TevCFoA2PH62X-XSi1CzK4JR9W2V6_UX6IuTfXrXCpq_kkgno5wUaWkCKIZrRr8gEzGc04LQhOie6fcisv5T=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477717339",
+            "title": "RASSCOMTECH PROJECT SHOWCASE 2025",
+            "url": "https://photos.app.goo.gl/jaSNAuHCkFeR2nDL9",
+            "date": "14 March 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMfH1eIVKh1EaFnXPtOHp31XhoNkwtRfdTFWHIbH_PgXKhYqzFttSbk6FyhZB_VKmqcoew2Bg-ETjIKW2ZDKdTfncozSeYRUQKUopL4Di3gzowNPZdjJtt6C-ozl8SMKgSQv-OrSWdXhIWEomW9cFN-=w1507-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNx94TGbOHoEXl1T2Rq0yO_gZT8DNUgJ8JDtzycvna0nfAfWPxZQ8rDODQMjF_ZFtZ0isV5Fmaqpp4ruCr9xr4g10aHJXQOZSUCbpg_z_q8MQIvIawyWF-s_1u4XpaQZmydhE3kDR75WlWD_sjpnpdG=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN1vekmBGJTJxKcYLGxt4n3IK8y7JNEqYavNMCOz-sBBo-I5S0ZNgVAkxLiPVbfXGP3Cs0ME5WiFq5ZIhcharqjt7onIDl1i8C28D8c4VjRj7gD1a_kmXI0ts9nf78opoXDrxbMktMMWNrvSb7gwqoC=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMirmyLX-fYkpTr-twCB0W3ve9L99P-AyRVlU6IzJfoTx1NFOIH50xmM4QbF-UgWiAlSNWP7xwMW3S8lw8NW9HegPj69jkv9vrclUc8NOwD0fLmLzEOJHKeEC2O0PAK0PLRI06bDj3WRhjge-BthBIY=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477636440",
+            "title": "LAWATAN AKADEMIK UNIT STM : IT VENTURE",
+            "url": "https://photos.app.goo.gl/qRqdSBRMVp6mD23r9",
+            "date": "6 March 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpjIIBVx94qiLLUE3rJ7W-nDx3-5patYicKl9xSfW9m42X40G7RpPQQ9XyG7gNfBUyxFLMdfDnZM30NwbMlRuqv_QRjR8-3PCwyeWHYDUWvBRQZWKlMXkF4Bjl5j0O-uAEKr-o_6G69cdh9Rxwh3uz=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPG4fPoI7DG3ofem6V6EZPps8yHsea2XdSZZK9-RA7CWjUBTTo4p_3_-NOkg54qri-am9WB6X__8DyaQ9Fwl9SCZ2c-vBoLZvSM727mosxR5rLkNepnzE82XNkJoa1ZFFSvuW2YIk8cAwoFPQmf2TkM=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNXC8zbx977hrePM6_jZCxlMG8KbPDhgvmkpWk3bDcJy3tpRoI4RDRS1NAFEyIRfgZgU9BJ-dN44VhMYz4y-rEcIWpu-yDWpfW1No9vFPe4dqv6F0WZnvGOSdHj8LpS5ifjim2u77kbZ6BPTUyfCkGw=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNN-kNd1abfE3jJZYMDBYjDWi0iCU3bEA7Vesr0IqGnFOk5Y6Exllwytuy-B3WU6f6eCd_vb9WzbqkcYBmI3gWwFlhvqlWroDfumTBGFBL3vy5lnJxe31cCDMQ86_UjiIuIdyVABTJtmLS4O0X65c-X=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477399375",
+            "title": "MAJLIS PENUTUP LANTERA QASEH@KKMT 2025",
+            "url": "https://photos.app.goo.gl/4TR7ZiHZeeFnUdea6",
+            "date": "2 March 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMi6q6fgN3OZ_-06DwMzjFh213UEkpesI3E5utREUi_RH62_q1p9bnl-hsFqFkIIz5mmWBSSHKn0RHJkc7IckpnTBXJaZA2VVavZEWzK97MhsibubO1XIWCZlTlVxq290JKlgAcgtfiOW08ox0Vpgmd=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOrd2Io5IGQzTeseewPsq7shCZdHx98lSWAh1DUOH0xXxMmQi269nYkT3OjV5GJjMY7UywRB6bAQDqpvCH5ilj8BMd35jlTcn-mXF7TMj-FKsrCiH0M5p2GieLMveH8FXyqDxdpLBnIriiuyiMA3zQ4=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMcH6Urb7dpXAGf_Y4nHwEpuujhq1EEVyyDmx2pkvtcCHa3Ind6nwX-f_ysp-SuDKxpcP7ZM-tmR57rAQXQTgkTqhlBXau9XqDjfC5Ica5X9K8GhKdwXmFxlKWWJI3ZuumXUicPCVg_-hLmD-WFtIYD=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN2RS7j8TYYrwBQPraNu-Ebas20qTyUkMA8EYz-pPFsns4bxF8fPbFMZiLzlGIqxrj8MG-uWimt2Fiwfa-UWMQp7OfInM8hBa-QXfYccOx3wPxfC-DWHgPnYfUh87O4Um5UigRoO7knqraOWG0wb-G8=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477332586",
+            "title": "AUDIT PENSIJILAN SEMULA MS ISO 9001:2015",
+            "url": "https://photos.app.goo.gl/cRYtduuDRS7R9Mv4A",
+            "date": "27 -28 February 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPbJ4iDTXPrxmlXQ-voSHec-70ukIsHvfZCvw1CB_sv-KnsBMl1pRZuotXIu-XVCTyobJp6RA17g3twaP_J6MrrqbFQNCBVp5CdOzxfClxJX29bQzkUbvbaJ5k6QFQyj-SVQsZyBzr8A7YNIVzJ746v=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczM_OpTUn0mABhJmZq9spCUb2oBHVt4m-aGLEaM6KD5r2sJEAceJZj75er23w1UPblg-u4I3MJcHh2bbA1YCzhQc8UI1gIJsDo2dHxeLf7HJ9G_4UMkB3FrYXdXrhkjDUvp0mjGnFT4b1HAbdt7UFyKd=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMJ1b6HkQqweHjruAaaNuAUmaMCt8UIxr5kdUyLfX9Hq-0echg03fJzIn6FSBnlT7G_m9JFjKpWuItTfgPlibsCQp65PYYb1LRW2uYFXPooqapqiAS6GItWWd7Aws6PQ83XenlYn97IRGijfbKtb7tB=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOb6alpyYOIn3xDZaDjqkz7AnKM0Hf25NnWrQZQyRBzdLaU9YWAx3qJDhMVi0b6R0NuV4Bg_hgtPIBxh4Y2F7Rv-QRW-Gck5kv3vop9ooW1zrOQiXWUft20Et3O4Ln9OfUBlKTJ4DN3s2MSRi1D5BR2=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477258649",
+            "title": "PROGRAM MEMBANGUN SINERGI BUDAYA KEUSAHAWANAN MELALUI BISNES DIGITAL BERSAMA POLITEKNIK NEGERI BENGKALIS, INDONESIA",
+            "url": "https://photos.app.goo.gl/59B2o5s5YG8fvjwo7",
+            "date": "2 February 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOSogdLvDjoCri-AtDXixezFILR-0jwpEwUvzbWMtHymb0qDK86oGa4EQvx3esn54fjQK7P9oTIgsMZLKnMnBWA65CfIy4ab4gaLAdKW91kzdNpCNN11MBBhVSwdzwpbnWOfakBS5JKOEH9rqfm3uYc=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPPtk0-YJ48bXSbVJ2o-e7w3iEnoluX4kYdpbJt0Ek1xBzAfTtdeHnZAmAACZU1iT2G9lAnNtcyjRt-Nzze80U5rW8yW9-RWYkdWsKqyX0jCUfTytZMAyE1DURJnKVWwj4988GJGQcJxYM5zOe0j88z=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOIkPwy2neIHeyKbfNROxlf3p2hfcQVm6aOrKk6JlhWGKJfB1cTAHyphfuGCw4hQIuwNzmNSq0Qp1QcFRno8cTTD0bNzOLcWqauUb1HNMCcdwdTnpyPm1QXPHJmVCGHcietOvaYUdgc8yFJVkdQlTYk=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPnY3ldu8N7_8gmapXOO72zNgAHLvMnH8ED39UK6uGxzhdODM6UXf-MtFUNv2MfxpdxxJtSFYnNnqOVPm024d8npjAlx3xao_2hwFF4ewT8yy_vX9ztVGzqhUr6PCXx1f_OZ59qyPO0EiMeVgU-o8Go=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477198586",
+            "title": "CSR BERSAMA TADIKA JAIM MELAKA",
+            "url": "https://photos.app.goo.gl/1sP7ZqqAmkJzwnxR8",
+            "date": "14 January 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOAji7tzu1hEOcjhT4ItPjAfe20OBFjHVyyVXS2QYBbiZ85Ah6TIucv26NgQdlQzpc3iCNVTDBAxc1rv1dw2gun_X3OFuRXfeQ2vP8DB54Ai9HaNbpGPhs9ZGQyt4dLlGEA8MMce7W1_vH-pufTV6Ds=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNmMU4JHYoUTPfdcAFJJb0XfKOGr5LujiJJTtcSlLz6UQnJIMi7bnc0NG8YiPU4AzDOgUnjVmlTPT5PIJZ6hqP57aEncn-qPpQu2oIyLW00GsZAt-T454-Pt7iVlZTRYKGcZTgosARun-_76RFJbuzS=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPzVtZSK6quMKcVkmzaif6WAWnDEBvbDQQInpBK-4ep62MN9qk-QRG_JLDohRSDm1mob1XRCPXPtgXMQe5KHh4yw0uAvcieS53Eug1Fpt7-07H2Qc_DUgORpNcSvXsrWjSYJeGRb5zbfMctGIbUwUEg=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOnnhkwfsWMSuvhULife-Bm9yGi_7ZQ7Bu1R80BJv0899GrG18hacMl2JOsKvvPQ0N2JZmBeZasGvBgmf3AZPfQIftnnLFofMfNnQU0WQt5BGraYiedGQLOOm38L1izRJpEc9wMewE8PKBVO0deuB-w=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789875841986",
+            "title": "MAJLIS PENUTUP PROGRAM SMART TVET TAHFIZ ABQARI 2.0",
+            "url": "https://photos.app.goo.gl/PpQKPot6Lpfj3DcS9",
+            "date": "8 January 2025",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPdpNQH7H1mxR4OPXwYSyix-FKR5et1JVkPIgqt16YzYsa7CraPwuOJioBJ0WmGinKdScK8I6lJYBCTxma6FyulVge1z2ez3fUzthFqKdGfg4SIVmqOayfSEs6b0Sbu-vK3KqKbaOL3BtRzbRe0Ib6S=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNFdOtlTEE5FkH7ArGf9SrIVbzVluf2UABHHex8SpnxPuvR1_0jrnwvKNuh9aA_iThf0zQ80ppId-Kz6_ySAab5bSNLorfvQiS8kIptC60ubMqJ4E-Pl_VyRzRvZJKVbzETbnCXZn14oWRDJMo8wRNo=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczP-7YORflLGgj1Ojd3qM-eLPQ-dbyaRKaCwu0YYV2GqN_Lyru06fVDdTXgKR-CJ6Q5Pb6UABkGSyZHZtfI4x2HyEOZzO9JYEB1dkuhm2QWhCzrOTwNiabdAvpT3TWw9Kk-Fdqfg_qv30rSzDOJRgRpb=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOtDZKPWxfUMH3Md5FgunMJTabeQgPYYkTFh8bZVKKxROo5tzVEPbUVHWxTwhpJR55vcgPqqo8Nj1neof0ughMNWK5PcBvfu5bnUGaQ6WoRYc-608I1Mv_phuD0vLGCd5qyIdGcPMMPof8X_L9Vv7nz=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789477148375",
+            "title": "KURSUS ASAS TENPIN BOWLING STAF KOLEJ KOMUNITI MASJID TANAH 2024",
+            "url": "https://photos.app.goo.gl/mY9UbUoHVXXenXda8",
+            "date": "16 December 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOMq65fVWTfO1WC3_H_57fqWoOmDAFnd_dQzzLGtiYw3t9M7DTJjH8jI74FJcra3ZE50TCtEhnBBReHpZ6sSZt4Gvb67RULKyIN2i8jGL_74jjDJ-EPp-eiok2EqgGO2asvo9HWuVvabdq0ku-a6P9K=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMiV9C068cqStFCaXelVYbeBOlP9Jt1y1r9MGl9gzzTUhq892GoQDY3C5SfiYdrsl4I9qKmbfvipqH_DzTUBiT_Sqk2Al4q5pDL9kTOEvZU531jEIvtfsM138VOMba-RqR9whB2dPwGzi5-OwGtGal0=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPHuLU0JtL1x8uQp06NdHzQ_BNJSi3VP9DNjwSL6WLMLpxhZ3uv1WirvoQ_5nyDQfngpFvhwExgVLkWbzcx7MMOrRiaUkA1RhBnArfc-0jyvnpdcaSYJITlMThbDR3R7PDFuaMnYkFb0FqJAd2Ka_Wg=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMxvIJCGGdo07RhCnt_nB0xf39-fFhCy5ihC7fDfqGK7Hy-bwUAxaouraA-ioGaT5XL79V4mPYARg2t2Nh4JXaWGx0tvnZ4MULaCfkIA0RZMyVlehlhPnl7b404sY7wf1ssKw5RUpjZOhHmP3qjp4fk=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789894511501",
+            "title": "MESYUARAT KAJIAN SEMULA PENGURUSAN (KSP) 2024",
+            "url": "https://photos.app.goo.gl/39w33BXpNzWDRD629",
+            "date": "9 - 11 December 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP3sr1qmpa-O4n85QZtOLfLzoTFFP_c3uf3HIBYwvEzNK6juyZlJyxDwSs41CHqAs8KbEovJB_HV52C7xUWn_kYYNmu0ig7GSmDJySub2gc-sVgnl275REcb5aZ2CgokD_1TTZ-IIt75xPVfEXqa2ja=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNxYsk4qQ0QhNMZVhlbkvE6BiPbGBhF2pbkvPvPZFun4R6IvvlBnY0MaGkUA4c9yBbohFrdJcNJsesa76fzGBziZKyd6qbD5LDxzjawc0oe4n5K9DaGvGJoloJaH_x_rsJnAoSm5_IhL3XZaAPoZRda=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNI9FUfFjmlHlTxwjFgDdzckvnNVPmv1Xx4cOaA6TkgZcKUWctK_ZqYesXI4x7ywgEPNVhlGpRJ3mt4ewMfRYh_PsH5JPBClfsc6DsezUxlYslyiASfuT6dij1TC7ga05lV1pkXpgTIuVJMCk609UPF=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMkF4F1MrcfB65TaTi4nO97sDg28kuDTDGvQsNLCvyx4Kgh-2cG7-VP29w1hXh2dTiyySqLZMq83pjytS0Rgk2cyfQsnimOqbqE_JSPYFkOLGfaAdaLtiCSo6gCQL_ZRwnJ1A0IV6arXxX_mb2V-5Vs=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789477025271",
+            "title": "MAJLIS APRESIASI & AKADEMIA KOLEJ KOMUNITI MASJID TANAH 2024",
+            "url": "https://photos.app.goo.gl/RF8Vu29SfLGNNi998",
+            "date": "5 December 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0eiP7ugrKCK-Y1z-NNEg5rVaoIT0uUez1tJgYmR2QII7peCv0Grkj9Z6lXKsn7Y9d8UwUN7XESq623z1bn_Hta7r0I8eZTgxSXJADW6xogFUCbWr0_n2BdhZAzcd3fcv9AMGsr_9eRTc3hwqMvk7v=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNbO3NR0xE6OuSOz-X4O3fzipdtCs8nx_Z-9JzNO5H9IK38jooSgYtbGfv1BnmVWA8spV8kx9w_02ob_J3VXpm8kCpnOq9WJuUNujERhs1frf908YZTcn7W1Qp2hRELl8hLzzsRfEC-u5sXrXrHt4nc=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM7Lpe1d5TZycZDMe0sBVtKwZyjXib18_9RdrUYV-dQGaBxoST9WB8PVgpPMZh6hYzVi7VQwsMkWmfVtt5gnNS0oL1G9Alp3icint0WHbJ8lAmJIKyy_IJGO9n8EoUh9fEcmePO_UY1uzoDs40YP2v6=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczP4LecfQMmVZWkquvWjraAn3EbV-1Z_c1N6QZ4JCzG2-RgYOp2-vafIZEvN9Wv_rRkM53wOEJTx_LYIqYH6wKR8eC47CHlsy-9Z_lNjztjkQ7gRKKlWZQpTEo1zUfDEryiGm_AYXI6g1mlOrXvTffGL=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789476965352",
+            "title": "MAJLIS PRA GRADUASI UNIT SIJIL TEKNOLOGI MAKLUMAT 2024",
+            "url": "https://photos.app.goo.gl/XoUy9fczCiMKaavk8",
+            "date": "29 November 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPIiHZReZnpxrRUaZsqG93ZPsHXCNFfaDewO1a3JvlSG49XY_oCqysH_iGZ_11y5rqXYgCWGignydds2P3QpgqNEMr5gz3fSfZ1V94tIajksxPVIG6NzoOTEVwQT1Wmq5f6ZEDXVmqT2PKcHPm6x_zS=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNYP9tCjGCSLOPUhjA9v3BT6ODYjt4eqj27Qd8z0qNgjvlL5ZLUsKp9sWVrvgiCpEvhxPOemspd0y6iokkYAZCOUuuz1Ik1l7xVtgcZizCEfslMpPu0bCKuo-y7KMU2khOIXtW4aRVBr5j05MUIXDtK=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOY3kwHrUMcrdorSBMj0mLGsrzwWBoP63VlOjNyMb4pc2qx29hTG2YOIORG9_rQhDaRnLdZWWBuCbDHgnU7yGRSYBdgczqE9OpJ_nckFby79YpZEgt8cnfFPJKypjOZj4D96-FzGr9rJJMBb5KIS7AB=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPHaQBuu2-8fDEyzWgrkinCzCfLJjaQhWY4CJcLthjXSOvvYS_2vqp77Tby_nyegaCHk0euWoSzHO_hmSU4PnJqkstwfJvY7AHQfS4fNV8jSdsn_qFeAnpNf9spFYk-zJDYeqeCPol-LKGCmyVLCmxe=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789476891118",
+            "title": "RASSCOMTECH PROJECT SHOWCASE 2024",
+            "url": "https://photos.app.goo.gl/cxcMm68zo9weeyFR9",
+            "date": "20 November 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNCYiUqPLpdQtzqX2McGFQDZYBiQrpQJV2ZnSst5vEDw8MqS5d92iZFyFOMZidOXyXZsd8f499vDUWjuQSbTVCegj5xBE3N8lRIA1A056TEHUF_ECjxeTR421fffdiv3I0rbDl5dDXCl05qzc2nBTyN=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMip83sbH2beL6iWlgnLW5Q-iDofj277wDET21Ez9c51cTnMWgLS9y9ZJxhDVqKtE83yrFIW5YaZ_cDeW9zQWx13R3no6dODVbid8ki8pgeBYJXjlsgJdTLLPbbKTOwK8Lwg8J-DioDWNVjPzxZIbnL=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPVVQ8fm0_2-CobZht5PAcjskzUmy80GjTrZmRzyck00KVqiumAA0fTWZvSZ5tZPM316mQmJbwiVta1RGEGS4_6CLbPTwKFVRbeyxZTbDtAupsMTS0pBr83Fj6_uakCNsd5I8aj7BJG_2WR_bmOfdjh=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOZX_X1vrnFDQUhR9OFyRpeC4fCy8ZVi-hqlGG--xnuk8NfqYfq6Jvkn2QPZB5r0RqEVFeUClXkp0kbcQzyRk7FG4wsqeiMeVwa_u1Wxz-ZBkdJfp2vDGSPvrJes2Bj7U8csGpRun2uEz-FRTvl9nWS=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789473852989",
+            "title": "PERASMIAN PENUTUP KURSUS URUTAN POSTNATAL & PENJAGAAN IBU BERPANTANG",
+            "url": "https://photos.app.goo.gl/wPMFCYJeoBiPxxo29",
+            "date": "7 November 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOER20VPDRXUegbRYJYghbVcFtT7xhbFlYVv2QKrZ2hJNUhDm838gipPMlfuRrRvcK4FV8Nb5MVmxVsFje4Xs_SbyKUBH1NwDA1YrFDV-Pj4a_Y88YUGaJuIH35DY_eq2fPkNUNNC4ojAdesO7CblT1=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPgXUgqDkpaZVqzUrE641mg15WwdVSaK-wOpuXME4pKejuj6H42fU2-D5stT3wwZ-fBfk3yZxxADGI2TmmyUBRCEk6xEdiAoh3oq1qqVfdeCMSTe-56c5G7r1825sO9dfsiV_YX7Tmc5VXUc5o38oK0=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM7dxDJ24fUo3m8xmq5lcLWrmiKmtl3avyhLwg8aVxxhKV0P4Oh4BzD54sUqV_xgo4K3iUodPqulX1sShN56oUXomUcVupBZA-O11hQjvJ_6ooh8mbnFMaNOZ2r0eRij8Ajh-9_vWrVC-4vttz81xZa=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM0uxjnyVf8EOYsJHMhRfO-LNIRfOgo1TMdhsdo35I9bzoX8w7ZrhNUcu2JaCoCcIpeVyaZonX_-XGnOF7-Q7GNfQexFgbvDST6duukYZz1smz9z7g6cubi01rdsAhduYYeJjdpUTT9g7O0VWW_LQHg=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789473763199",
+            "title": "MESYUARAT JAWATANKUASA PENASIHAT INDUSTRI KOLEJ KOMUNITI MASJID TANAH 2024",
+            "url": "https://photos.app.goo.gl/WVX1fmhNizrbQwsy6",
+            "date": "10 October 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczN7Qlsma1rZlvgxLwSgByrU8-2D7KsMebTG4N1cpZb36Wx7MMCLCwcKJpB2DVwTX6_pnPbkSkIwRmB2iuVqmweRgzJFDEhJ9jYYWuWY9gVf3or8t3QyghHUQiExNiU-MbArqvIHTW9EXr0HtsdPD6hA=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOCmZoQluA7xfB9bKQouEml2NkU-XBtDOhi42eBRMOAXkYgJSW6ck_o8tTBWWKmYfO4qUZvstomCfzhq2BGAKmau47dplgGA6sAd_251kxDaPgVoDxEul4y9ADQf-uo14f7wWA584mLEt5iLhTI2o0h=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPFWQscsVBKfS2BqAu_r3FE7L0ziTblMMvHH_3HttW83Scn3gG7dMRbwR9DWUB5ECjglw2ffkBTzFklREmd28wYMDKdEiAm1cRGBePUCUlN8nu6fR2JhtAhZvr8NzAVzsbopc_ys-JR5XgQ5AbXgqmA=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNBGi1eKDpZa62qTlU7twOTQaLj2Do6mFqUCcbQYutZTcOEGvyxUGm0U6qf4zXE9m28XbA8JJVC6EQQ-GIHOFWkjl-Us0Cf772tRpkCtP5oQ51uqfd1A7YIADeKZqgOKgdhntwu8QUmTbneYKZ51b4G=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789894875466",
+            "title": "MESYUARAT PENASIHAT KOLEJ 2024",
+            "url": "https://photos.app.goo.gl/7HYJLCviLbJbSrAG8",
+            "date": "4 November 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMPK7XlXEuYI_q4by3pcwETM7NwQsMdk99U763pE4wU0re-qKYOKTuv-paJ4EUHR_4xEGycjbBAWKHk3k_mhnFISX0xjeM9pHCPDFevl0XIU2uUGtBdNJzoTSY0Q8hPD6r_PDEOdqqtynQfpj_jn6Aq=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczN3hKNfWbbIl_2x079ygvdLOKwaBt-cDSPfdqpa9sL3HCZKbTPDaqPUXnSix_HPUyY09C_2vxhJaz_vAnzErPiwtTq1J52jw-Fc8rr-Z_IPpE3OzKwd--zT3RnC4obpRC1fB3FWLFKvAole1yiKveBQ=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMuqOjgmlxCaWNkeQaKf2YEV5SR8hGGJdk1DxSuizEAjVqsOE7YOiCEFT4lDqPMbu35GwcCne1KdNtdBoItmotzL-xhRR9FR22dFoxTCqeWJc-ULoKjyAFObwXPO1qGmS6YIdX23nzxxyZkYAI556q4=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOtHD8qtRgpEdSXdEVc0fnDnsNJknIrNj9sGa8-Awm66z4-_ii0M_k6IHwwe56kWxA1bbhNVXjjmgeQqnveEp1nx8yzcxzjnS9OiklWfK7SFtsJQ6uvFHhRRFLuigAXPofOmy_MVFV66cZHOneF-481=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_1789473653547",
+            "title": "KURSUS KEPIMPINAN & PERASMIAN COLLABORATIVE CLASSROOM",
+            "url": "https://photos.app.goo.gl/phWMs5hpLKf1g8Rv7",
+            "date": "30 September 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpao7Gij7Zg9yehxxwSM1zPLFYS0DOntX6yPcnx4K450wrN11mOUcDG9Tr7deN7_c2DgAUCxFeqQ0s4C0X5h3A-k9XG3Gx_xPeibrKAiV3o1ppWihmIFobAuFuORvI89bY_T0nn3dAq2QgHp04PTAq=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczO0XbH7f62ZvBwyP7FTsWpGhW3yiE5YA6ngh8O21OOcKxseK4oTSLgBVhh_2daHXMJKwLTYdnWRO87F_IAPrUbrZvkPM1z0c7Qr-cpClrVM4TDsMz6uKGXqTXTOSZ6OQK1-T9aOhsT4wXaAsTamxECw=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczNWptLLEXTIYbBbioT6H9aUW5d5yO9TN10bC-N2wEwMdUuAtNY0j3y5-hFLS4it370Q2PlY609xx-iILIODXuqjjfRNLmH1VwwMc9D42cthLumB-4kS1zXfVg9wyTm3bMb52ffQo3uiTo-LQCrDzXd2=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMPAGSGB3wDkRjmnXgOLZG_juwFEJEB-5-ynhQmSuBzqJJIXl-nje8NZ9ZIbhkkqKDlIb68sVsOsYncc7kclXRTSQIp23Hxm4G4N174jtAVILxMYL8D2vU4WbIlceVUMpf7fAipQZ9c6vrDyuYf6u-M=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_usr_3",
+            "title": "PERHIMPUNAN PELAJAR & MAJLIS PENYAMPAIAN ANUGERAH PENGARAH KOLEJ KOMUNITI MASJID TANAH 2024",
+            "url": "https://photos.app.goo.gl/hULcYXf96hjTyqLSA",
+            "date": "27 September 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNY7pd9yiWF7FhZSRUsssqDcmyfyFljmy6ivMYhlFIz791_vSj6oe_faZQ3WYDnOz4l2xxdWTXTQCxCO6KtDrxQvz-tBqYHVogcb-jL23MMl4_tRnpgL5CdR48RhuFCgeWe-5YfXMK0rJROXGGgylyt=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczP_BLnLbcXvjQI7MDj8KS0igHDTk4bpU4CVk1oRarN8Gudt0NoeJqwNtqoKzAAA3IjqwwkYaLuuP6EIUN_BW1U-wVv6bKftsbBpONYGqzX2YsE1WvXqrJvRXTVjbqjbiqMjTFCKa2FtqRAPfYwhSJgO=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPqcrIiKbottniAp9Ev478P0qEKgUbFBkKWPAULsmEhEnzR8GJm7WOSjG5V5B0q6SZoUCSCE_tpqhovkTIcmfYrUk-E6wTYex4wdpaVEPWzJj_DtqQZMqt6dSwRt0QhV4utWgYzsScGNBvv-g9KOPQQ=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOKLyLnPF1i6613ETkl5_HPAJjI4fzmHy7bctwMVLmABwzQMG353J-x0zR6b0QHMWHHthdskSP4wTO41vEiBQVFMPzxIFWD0GIDiVOhUPP3m_DzCk9dIPxqj5oVAdtT-3KzXC3MOSR0a3idDKAMGWzf=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_usr_1",
+            "title": "LAWATAN PENANDA ARAS KOLEJ KOMUNITI KEMAMAN KE KOLEJ KOMUNITI MASJID TANAH",
+            "url": "https://photos.app.goo.gl/sfCav5466URuYixDA",
+            "date": "25 September 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczPpyDadrLWnrMGT74UDpFjAxrGcR0CQSnJAW-AWGiqoi65owQfTt6nvSpM2Qq0kz0S360ZmKyUj785plfCteNT8cvJNBLpeLU3BvsaLlpM90RHrjVmthmeO5PCgVoZsu0dsWvIRq04WhY2W2ywg6LQ7=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMTd4zSCI4yWpyKIkENl6e5SzZ2UEoQTxn6Tf_Pfv2afqjZwh-TePBMo7AjPNWZ2GfUZUpzzwWVIpaQJMgVFdAbxMghuEnWrIq8pqeqZp1hpjz4FWJmByc0UtgKgmK0NTBeeRW5HWbpgnIY9UiXSFc8=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN8pA7qRt54L9UkDpyLGve_GpfU53YW3JIEch07dJcuSGIWpQ9A7-iZ1M-sIZC_pGWwipzKSbRs-UN8__iwRk_0onWtnKjWn85kSbrhc1t8bSJJYkhPdWCjWPQ3Ud7C3fcCdZ7tFCGRAxPbOZNLkRKh=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOr3ewxMdd0icHJ5dWZTugIYmyvU-bSM0CYk5HO-4kY7xANjf8ita6suqAehc-4KKMfObUEzgW43PzwLFh5I98l_L9OQNuFFa0qCpL6WHWzoQ7dk19EHVPQWzG8HK26AQghAaoW1HCeV4MpFffRjGGU=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789895040322",
+            "title": "WORLD CLEANUP DAY 2024",
+            "url": "https://photos.app.goo.gl/u3YqCm3AK1EMi1XcA",
+            "date": "23 September 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOsg-L3XUeZMeYvH8Qgx3uJth6DTeihp418LTlF4yS8gYGPtdNRmwEKEAbSQ_S3aOHkO-DFlQDBV56CBBiuUdkzUPRL3_WME_2nT4kndtuROqG1wsAIA5KNKEECY5IatahV0xpBMnTQxKja4-qkZk6D=w1418-h945-s-no-gm?authuser=0",
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczMplzjbnzZYotIzpH-8wLtgRt4ssWCr6kLoi48uBKoTKB8Dmdv8_UHsDm_ioneECuE2mgxE9SB5pcgV0tpLFQf9VS2tbSvYesAK6FskpgclCzi-0yDDeXiAsRazjyBKr3sJ8p4nKh1bvkhaats65swC=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczO8Hw8oX4WFwClEpSQKFwh9RCutMRukcWQLuK7o9mSupc5gO0zAiZjsYDXW16t8kt373-bebxJ-KHO5d0fuo5jLtMFG2JeOcpQKYDc7nrxM0Kxsih9iJdQ9WvWwewIrtMaFtPTXYk4yaOoOzUp3yczG=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOrCFpZRDBmOcn48va_LbioDISa17um_ESYH5r1-hlzyVSFXk-lU_iaE8LC1tNLsjCIDd6wEfzGSnsx57dEIYfc1uncLFfsj_IHSHisueZiYDxIynTAmHnleftvWn1Z9oyyt2ENzvBMKiGK4IlGEQGl=w1418-h945-s-no-gm?authuser=0"
+            ],
+            "favorite": false
+          },
+          {
+            "id": "alb_usr_2",
+            "title": "MAJLIS KONVOKESYEN KOLEJ KOMUNITI NEGERI MELAKA 2024",
+            "url": "https://photos.app.goo.gl/Tc8F32DMe4coSMFB9",
+            "date": "19 August 2024",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczNc9c91-dF77o7mO_mCYQanU1WGOBMBoVXpGVaio_J1iYhexPCs7ofSGXUdT5CHGCzjL86wbM-CF7s4o3H_P6I1Xf3j4ckxU5BxIl7C7VDHhWlEvSihEth4vxmh7p30n2tw_ugVEgNh6DP5z3yM5QWN=w1547-h1031-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOFgJXH2orqvSUKjVZnNBlA90Y2a2BYeIBOZi8MZ8WTVpxa9kt3rgKCSTJTjNJ5g2wzgHt17qSZZbus2kpItgNN6JP_7C6zdT9pjCxTsr7BmS5bHqQcSm-NA7jYgS1WNM68WNX1V_-CHFbcGPxEILSs=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMMYvkdELf7VO1Mz2cssrF-bVRoT_DMNY-Q9Lwpjtl90_zrVEkt50pGK9NixpSVGExflfcF0PRqOGtAtL20FCyo91Hn1KNonnUxHEzlBu49vvnOwML7PvkLJosux9ZhTxiZQu_22Zo2G11QmvZwQH-Y=w1547-h1031-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczMOL7TOwijZrYQjr_TxHRpIFtgvNJfTEJ5EOPjvSWuLu9eAJsQ0EP1dGy5yaBP2ieCKnAKtJUlu_EzHZZLBD94P2hEXiJu9KrLwYXeTkWrCM8prJ6mpQvroPIqF7CDBwoFQRCpMt4_9fIgySsELf6QR=w1547-h1031-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789482124528",
+            "title": "KARNIVAL PSH@TVET BERSAMA KOMUNITI 2023",
+            "url": "https://photos.app.goo.gl/6GT8hsnYzruitdoz7",
+            "date": "23 June 2023",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczP0niw9SlZXN7rhaIejnKIwi3nHWYgFegX2Zs1IcMH76T8KxsnIqnD8mllN2GlysFHpzSa4ab7kk5JH7W5iJ-S8fEsP07Wy-EAgSX2C7RI4TAVXaA4x_B7X6Os3YgNj9oZQ82UDcHrrEOcdksuMHD0S=w1418-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczPvDo8Bcm8uEwc5pKc2bD7KNsyNNuybI3Fu7OrKyZYfbpMplLS561cPnZV6hnye-RkDpef3PK2JgeqmE_8P8f69uMuhxg6GSpjexVKiEEJRWqYeD0Bs8aptfM-0M5VVM1j-GcY6b6jBfRPT_py_3r7s=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPfWBnIxbrQFJdzS9jUxxSiGJXABrn10TITkq9fkWKZyZTKqgG4VzPjggjvpwCTs4bPIGdWUxl8MALrwaKdClxhf0QLOmIAR9NDYKCZTyCngRmQRKU_6nn9A7ORiwquHRZ8pXS9ZbVutEBO36wE-9iF=w1418-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPGJkvYSrmsMbX9NKk8z-FPZUN9Nx9pnMiHl14bOswZIpzW5H-c47MEjVwDJdLLkOMPu745lMb32jH3iTi_JuO9A_9Xa_vK5aFxookZPsbozVhNgj0AJZ5zzGandbpg7gL1wCHlvOvFtM47AiDVRMXr=w1418-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483377577",
+            "title": "OFFICIAL CORPORATE PHOTO KKMT",
+            "url": "https://photos.app.goo.gl/x1FWnAFXp7XtFQnUA",
+            "date": "",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczOcKbbfqacFcIOzSrtfS0QanBg-UZhFC-0d8f0RH_p7qhMiTKLY5uDupcx-SGLKr0jOqFjDGOSiHYSEua_tnBTr4ntoABJ4_K5yzlIZyRHicTp_WojJ-NPaC4vDq3gDR8PwWE31_YIAPQhDiRRM7lHh=w630-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczNfj_q3C6FLtZPAP4mWUazXE51A9NOMQWkj0KcmOoc9ZNR6GY3ez3EiBsCAZfQdIHzU-qVh8f1huABj416pQ8sYzZC8bMB1WRde3ckRBs8aKqgH4QUGUTr6phIP0MQ7ikZSzCXjF4WN8vRT9lj0K8lQ=w630-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczM3nchGDvW-F_dZtnRNiOOubdlbTi-kG0wY4aVeXEePyndd-d_Ol3ESBi2D4tdNE3SglwD72ww2pk1O0TNwAV1pqbuG3ly_8LxKVTnzgQjEUnrUlSaaDpP8ZMJm9hklOraeOqdhep1hwukrVLLxEinj=w630-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczN8ZaFER_0E5Rs_egdHseLIUqLczqTtXWoujK17pqSekA_Oo3IUI2iS1pOuXp7Ud1QuUFa21MYc6jV43sWhaQemuZOmfpimoh7XUCJZXMWDgxoaFgXWUW_PM-aNfUW1CvmkUNroLpcFdvZchQRsfnwk=w630-h945-s-no-gm?authuser=0"
+            ]
+          },
+          {
+            "id": "alb_1789483230797",
+            "title": "OFFICIAL PASSPORT PHOTO KKMT",
+            "url": "https://photos.app.goo.gl/fv9RqjpB4iTjqxX88",
+            "date": "",
+            "cover": "https://lh3.googleusercontent.com/pw/AP1GczMJ6C9iD9CuvcKARf142RNnXEewbV2QYLMwajIL3g2HU3O9TQ1A-rniGM0oxIwW42KKZWlcxw8rZeRF2AeUMNQY8GCSm4LW_9PJyjHT2aBVTnea_r4SJJp4AOtZ08-6XWuT9cqd313IpzPtF5MzVQbq=w735-h945-s-no-gm?authuser=0",
+            "favorite": false,
+            "previewPhotos": [
+              "https://lh3.googleusercontent.com/pw/AP1GczOEyeUz_mH7Dw7Oc8DcC9tCZFoKMiUmu8SikZ6KlxQ-_hbSy5jCs0_7PNkAOglfC91bAHfHDnN6Ssq9rNya1IMy4_8FWuNc7FdthYz2XcSv2HRg5K7CJXcTXhPv9olvSlK9xU-dScxgtGY6D7eqnR7_=w735-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczOdhTZcRNqu48bXpOsnKEdzU7voxO2fA_zzy6NNV0d1qLprlo9-x2Xg_aELuQadJa-sURkdmjI99PxA3KB_JiwWntDkMtEH4eXvippaCtmBs0ja6TC1TJqByVWk9UxLXkNsAFjG7TDEDC_2dwCrnWa9=w735-h945-s-no-gm?authuser=0",
+              "https://lh3.googleusercontent.com/pw/AP1GczPddoepKBUOa6uK4dM9Y_ZAKtgTM3DkQSUs2vu5xdUR929r-PsXfydtzQHzpWhiAuX7pPHfXz1OoNM_iBe64mQ3HF8k9GTlV1kgkokFHb4UMNb4ZLZnY7TQjGWqGZg6O509e96-hAqyyN_H9htN0syg=w735-h945-s-no-gm?authuser=0"
+            ]
+          }
+        ];
 
         let albums = [...SAMPLE_ALBUMS];
         let isOwner = false;
@@ -1149,29 +1137,41 @@
         let db = null;
         let cloudLikesCache = {};
 
-        function initFirebaseLikes() {
+        function initFirebase() {
             try {
                 if (typeof firebase !== 'undefined') {
                     if (!firebase.apps.length) {
                         firebase.initializeApp(firebaseConfig);
                     }
                     db = firebase.database();
-                    const likesRef = db.ref('album_likes');
-
-                    // Listen in real-time to any like changes happening anywhere on Earth
-                    likesRef.on('value', (snapshot) => {
-                        const val = snapshot.val();
-                        if (val && typeof val === 'object') {
-                            cloudLikesCache = val;
-                        }
-                        // Update all visible buttons live on screen
-                        albums.forEach(album => updateLikeButtonsUI(album.id));
-                    }, (err) => {
-                        console.warn('Firebase sync notice:', err);
-                    });
                 }
             } catch (e) {
-                console.warn('Firebase initialization note:', e);
+                console.warn('Firebase init notice:', e);
+            }
+        }
+
+        function initFirebaseLikes() {
+            if (!db) initFirebase();
+            if (!db) {
+                setTimeout(initFirebaseLikes, 300);
+                return;
+            }
+            try {
+                const likesRef = db.ref('album_likes');
+
+                likesRef.on('value', (snapshot) => {
+                    const val = snapshot.val();
+                    if (val && typeof val === 'object') {
+                        cloudLikesCache = val;
+                    } else {
+                        cloudLikesCache = {};
+                    }
+                    albums.forEach(album => updateLikeButtonsUI(album.id));
+                }, (err) => {
+                    console.warn('Firebase sync notice:', err);
+                });
+            } catch (e) {
+                console.warn('Firebase likes initialization note:', e);
             }
         }
 
@@ -1179,11 +1179,13 @@
             try {
                 localStorage.removeItem('kkmt_google_photos_albums_v2');
                 localStorage.removeItem('kkmt_album_fingerprint');
+                localStorage.removeItem('kkmt_album_likes_counts');
             } catch (e) {}
 
             albums = [...SAMPLE_ALBUMS];
             updateStats();
             renderAlbums();
+            initFirebase();
             initVisitorCounter();
             initFirebaseLikes();
         }
@@ -1198,22 +1200,18 @@
         }
 
         function getInitialAlbumLikes(albumId) {
-            let hash = 0;
-            for (let i = 0; i < albumId.length; i++) {
-                hash = (hash * 31 + albumId.charCodeAt(i)) % 1000;
-            }
-            return 12 + (Math.abs(hash) % 46); // Natural base between 12 and 57
+            return 0;
         }
 
         function getAlbumLikes(albumId) {
             if (cloudLikesCache[albumId] !== undefined && cloudLikesCache[albumId] !== null) {
-                return cloudLikesCache[albumId];
+                return Number(cloudLikesCache[albumId]) || 0;
             }
             try {
                 const localMap = JSON.parse(localStorage.getItem('kkmt_album_likes_counts') || '{}');
-                if (localMap[albumId] !== undefined) return localMap[albumId];
+                if (localMap[albumId] !== undefined) return Number(localMap[albumId]) || 0;
             } catch (e) {}
-            return getInitialAlbumLikes(albumId);
+            return 0;
         }
 
         function toggleAlbumLike(albumId) {
@@ -1229,7 +1227,7 @@
 
                 if (db) {
                     db.ref('album_likes/' + albumId).transaction((val) => {
-                        if (val === null || val === undefined) return Math.max(0, getInitialAlbumLikes(albumId) - 1);
+                        if (val === null || val === undefined) return 0;
                         return Math.max(0, val - 1);
                     });
                 }
@@ -1241,8 +1239,8 @@
 
                 if (db) {
                     db.ref('album_likes/' + albumId).transaction((val) => {
-                        if (val === null || val === undefined) return getInitialAlbumLikes(albumId) + 1;
-                        return val + 1;
+                        if (val === null || val === undefined) return 1;
+                        return (Number(val) || 0) + 1;
                     });
                 }
             }
@@ -1282,31 +1280,49 @@
             });
         }
 
+        /* --- Robust Cloud Visitor Counter --- */
         function initVisitorCounter() {
+            const el = document.getElementById('statTotalVisitors');
+
+            if (!db) initFirebase();
             if (!db) {
-                setTimeout(initVisitorCounter, 250);
+                setTimeout(initVisitorCounter, 300);
                 return;
             }
+
             try {
                 const visitorRef = db.ref('site_stats/total_visitors');
                 
-                // Count once per visitor session to record real visits accurately
+                // Track visits per browsing session
                 const sessionCounted = sessionStorage.getItem('kkmt_visit_session_counted');
                 if (!sessionCounted) {
                     sessionStorage.setItem('kkmt_visit_session_counted', '1');
                     visitorRef.transaction((currentVal) => {
-                        if (currentVal === null || currentVal === undefined) return 12;
-                        return currentVal + 1;
+                        return (currentVal === null || currentVal === undefined) ? 1 : currentVal + 1;
+                    }, (error, committed) => {
+                        if (error) {
+                            console.warn('Visitor transaction retry flag:', error);
+                            sessionStorage.removeItem('kkmt_visit_session_counted');
+                        }
                     });
                 }
 
                 // Listen and update text count in real time
                 visitorRef.on('value', (snapshot) => {
                     const count = snapshot.val();
-                    const el = document.getElementById('statTotalVisitors');
-                    if (el) {
-                        el.textContent = (count !== null && count !== undefined) ? count : 12;
+                    if (count !== null && count !== undefined) {
+                        if (el) el.textContent = count;
+                        try {
+                            localStorage.setItem('kkmt_cached_visitor_count', count);
+                        } catch (e) {}
+                    } else {
+                        visitorRef.set(1);
+                        if (el) el.textContent = '1';
                     }
+                }, (err) => {
+                    console.warn('Visitor counter read notice:', err);
+                    const fallback = localStorage.getItem('kkmt_cached_visitor_count');
+                    if (fallback && el) el.textContent = fallback;
                 });
             } catch (err) {
                 console.warn('Visitor counter sync notice:', err);
@@ -1544,14 +1560,12 @@
             div.innerHTML = `
                 ${ownerReorderBar}
                 
-                <!-- Image Header with Smooth Slide Track -->
                 <div class="relative aspect-[16/10] bg-slate-100 overflow-hidden cursor-pointer" onclick="openAlbumUrl('${album.url}')">
                     <div id="track_${cardId}" class="slider-track flex w-full h-full" style="transform: translateX(0%);">
                         ${slideItemsHtml}
                     </div>
                 </div>
 
-                <!-- Card Content -->
                 <div class="p-4 flex flex-col flex-grow justify-between gap-3">
                     <div>
                         <h2 class="text-sm font-bold text-slate-800 leading-snug break-words" title="${album.title}">
@@ -1560,9 +1574,7 @@
                         ${album.date ? `<p class="mt-1 text-xs text-slate-500 font-medium">${album.date}</p>` : ''}
                     </div>
 
-                    <!-- Action Buttons Row -->
                     <div class="pt-2 border-t border-slate-100 flex items-center gap-1.5 sm:gap-2">
-                        <!-- Compact Open Button (Height h-9 matching other action buttons) -->
                         <button onclick="openAlbumUrl('${album.url}')" 
                                 class="h-9 px-3 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition duration-150 shrink-0">
                             <span>Open</span>
@@ -1570,19 +1582,16 @@
                         </button>
 
                         <div class="flex items-center gap-1.5 ml-auto">
-                            <!-- Share / Copy Link Button -->
                             <button onclick="copyAlbumLink('${album.url}')" title="Copy shareable link"
                                     class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                             </button>
 
-                            <!-- QR Code Button -->
                             <button onclick="showQrCode('${album.url}', '${encodeURIComponent(album.title)}')" title="Scan QR Code"
                                     class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
                             </button>
 
-                            <!-- Facebook-Style Love Reaction Button (On far right with Live Firebase Counter) -->
                             <button onclick="toggleAlbumLike('${album.id}')" 
                                     data-like-album="${album.id}"
                                     title="${isLiked ? 'Unlike' : 'Love this album'}"
@@ -1670,26 +1679,22 @@
                 </div>
 
                 <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100 justify-end">
-                    <!-- Compact Open Button (Height h-9 matching other action buttons) -->
                     <button onclick="openAlbumUrl('${album.url}')" 
                             class="h-9 px-3 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition shrink-0">
                         <span>Open</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </button>
 
-                    <!-- Share / Copy Link Button -->
                     <button onclick="copyAlbumLink('${album.url}')" title="Copy shareable link"
                             class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                     </button>
 
-                    <!-- QR Code Button -->
                     <button onclick="showQrCode('${album.url}', '${encodeURIComponent(album.title)}')" title="Scan QR Code"
                             class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
                     </button>
 
-                    <!-- Facebook-Style Love Reaction Button (On far right with Live Firebase Counter) -->
                     <button onclick="toggleAlbumLike('${album.id}')" 
                             data-like-album="${album.id}"
                             title="${isLiked ? 'Unlike' : 'Love this album'}"
@@ -1809,6 +1814,18 @@
                     btn.className = "w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 hover:bg-emerald-100 flex items-center justify-center transition shadow-sm";
                     btn.title = "Lock Hub";
                 }
+                
+                const statEl = document.getElementById('statTotalVisitors');
+                if (db) {
+                    db.ref('site_stats/total_visitors').once('value').then(snap => {
+                        if (snap.exists() && statEl) {
+                            statEl.textContent = snap.val();
+                        } else if (statEl && statEl.textContent === '--') {
+                            statEl.textContent = '1';
+                        }
+                    }).catch(() => {});
+                }
+
                 showToast('Owner mode unlocked!');
                 renderAlbums();
             } else {
@@ -2028,7 +2045,6 @@
             }, 3000);
         }
 
-        // Run immediately without waiting for heavy external images to load
         initApp();
     </script>
 </body>
